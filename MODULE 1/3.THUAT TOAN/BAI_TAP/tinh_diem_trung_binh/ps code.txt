@@ -1,0 +1,14 @@
+BEGIN
+INPUT N( nhap so diem cua hoc sinh)
+if ( 75>= N <= 100)
+   print " xep loai A "
+if else ( 60 <= N < 75)
+  print " xep loai B "
+if else (45 <= N < 60)
+  print " xep loai C "
+if else (35<= N < 45)
+  print " xep loai D "
+if else (0<= N < 35)
+  print " loai E "
+end if
+END

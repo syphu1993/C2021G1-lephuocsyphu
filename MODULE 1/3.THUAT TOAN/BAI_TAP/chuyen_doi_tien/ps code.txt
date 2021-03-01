@@ -1,0 +1,5 @@
+BEGIN
+INPUT D (so dollars My)
+VND = D*23000
+DISPLAY VND (hien thi so tien viet nam dong)
+END

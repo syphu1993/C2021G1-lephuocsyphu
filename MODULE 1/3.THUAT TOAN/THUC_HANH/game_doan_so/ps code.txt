@@ -1,0 +1,8 @@
+BEGIN
+INPUT M ( So ngau nhien may tinh nhap tu 0 den 9)
+      N (So nguoi choi nhap vao)
+IF (M==N)
+   DISPLAY " DU DOAN DUNG "
+ELSE
+  DISPLAY " DU DOAN SAI "
+END

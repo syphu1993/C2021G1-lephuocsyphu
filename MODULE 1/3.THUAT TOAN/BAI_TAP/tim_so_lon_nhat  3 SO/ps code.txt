@@ -1,0 +1,15 @@
+BEGIN
+INPUT A,B,C (nhap 3 so bat ki)
+ MAX = A
+ IF (A>=B) THEN 
+  IF (A>=C) 
+     PRINT "A MAX"
+  ELSE 
+     PRINT " C MAX"
+ ELSE 
+  IF (B>=C)
+   PRINT "B MAX"
+  ELSE
+   PRINT "C MAX"
+ END IF
+END

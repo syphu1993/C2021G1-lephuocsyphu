@@ -1,0 +1,12 @@
+BEGIN
+INPUT A,B,C (nhap 3 so bat ki)
+ MAX = A
+ IF (A>=B AND A>=C) 
+     PRINT "A MAX"
+ IF ELSE (A<B OR A<C) THEN
+    IF (B<=C)
+    PRINT " MAX C"
+    ELSE
+    PRINT "MAX B"   
+ END IF
+END

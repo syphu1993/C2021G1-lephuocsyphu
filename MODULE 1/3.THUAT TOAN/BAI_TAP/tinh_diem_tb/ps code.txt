@@ -1,0 +1,7 @@
+BEGIN
+INPUT math(nhap diem tb mon toan)
+      physics(nhap diem tb mon ly)
+      chemistry(nhap diem tb mon hoa)
+AVERAGE = (math+physics+chemistry)/3
+DISPLAY AVERAGE (diem tb 3 mon)
+END

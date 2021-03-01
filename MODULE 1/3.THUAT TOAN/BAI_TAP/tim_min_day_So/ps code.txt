@@ -1,0 +1,14 @@
+BEGIN
+INPUT N ( so luong gia tri trong day so)
+      a1,a2,a3,....,an (nhap lan luot n gia tri ai)
+i=1
+max= a1
+while (i<n)
+  do
+   if (ai>=max)
+      max=ai
+      i=i+1
+    else
+      i=i+1
+END
+
