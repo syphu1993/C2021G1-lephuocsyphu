@@ -6,10 +6,12 @@ INPUT A,B,C (nhap 3 so bat ki)
      PRINT "A MAX"
   ELSE 
      PRINT " C MAX"
+  end if
  ELSE 
-  IF (B>=C)
+    IF (B>=C)
    PRINT "B MAX"
   ELSE
    PRINT "C MAX"
+  end if
  END IF
 END

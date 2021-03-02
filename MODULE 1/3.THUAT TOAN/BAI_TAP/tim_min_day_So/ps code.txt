@@ -10,5 +10,7 @@ while (i<n)
       i=i+1
     else
       i=i+1
+    end if
+print "max"
 END
 
