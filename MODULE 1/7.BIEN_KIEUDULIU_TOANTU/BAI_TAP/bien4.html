@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>CACULATOR</h1>
+<input TYPE="text" id="n1">
+<input type="text" id="n2"> <br> <br>
+<button type="button" style="width: 80px" onclick="phepCong()">ADD(+)</button>
+<button type="button"  style="width: 80px"  onclick="phepTru()"> SUB(-)</button>
+<button type="button"  style="width: 80px"  onclick="phepNhan()">MUL(x)</button>
+<button type="button"  style="width: 80px"  onclick="phepChia()">DIV(:)</button> <br> <br>
+<p id="kequa">Result</p>
+<script>
+    function phepCong() {
+        let n1=document.getElementById('n1').value;
+        let n2=document.getElementById('n2').value;
+        let result = parseInt(n1)+parseInt(n2);
+       document.getElementById('kequa').innerText="Result: "+result
+    }
+    function phepTru() {
+        let n1=document.getElementById('n1').value;
+        let n2=document.getElementById('n2').value;
+        result=parseInt(n1)-parseInt(n2);
+        document.getElementById('kequa').innerText="Result: "+result
+    }
+    function phepNhan() {
+        let n1=document.getElementById('n1').value;
+        let n2=document.getElementById('n2').value;
+        result=parseInt(n1)*parseInt(n2);
+        document.getElementById('kequa').innerText="Result: "+result
+    }
+    function phepChia() {
+        let n1=document.getElementById('n1').value;
+        let n2=document.getElementById('n2').value;
+        result=parseInt(n1)/parseInt(n2);
+        document.getElementById('kequa').innerText="Result: "+result
+    }
+</script>
+
+</body>
+</html>
