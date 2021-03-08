@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div STYLE="width: 100%">
+    <img id="myimage"  src="src/1.jpg" style="width: 100px; height: 100px; margin-left: 0%; position: absolute">
+</div> <br>  <br> <br> <br> <br> <br> <br>
+<div style="margin-left: 0%"> Click button below to move the inmage to right</div> <br>
+<div style="margin-left: 0%"> <button onclick="moveRight();">Click me</button></div>
+<script>
+    let imgObj = null;
+    function init() {
+        imgObj = document.getElementById('myimage');
+        imgObj.style.left = '0px';
+    }
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+    }
+    window.onload = init;
+
+</script>
+
+</body>
+</html>

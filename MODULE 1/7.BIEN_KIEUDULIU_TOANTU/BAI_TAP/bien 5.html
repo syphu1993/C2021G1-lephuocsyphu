@@ -5,15 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="a1" value="0" style="width: 330px">
-<table border="1" style="border-collapse: collapse;  width: 25%">
+<p id="a1">0</p> <br>
+<table border="1"; width="25%" ">
     <tr style="height: 70px">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td> <input type="button" value="7" style="margin-left: 25px" onclick="f7()"> </td>
+        <td> <input type="button" value="8" style="margin-left: 25px" onclick="f8()"> </td>
+        <td> <input type="button" value="9" style="margin-left: 25px" onclick="f9()"> </td>
+        <td> <input type="button" value="%" style="margin-left: 25px" onclick="fchia()"> </td>
     </tr>
 </table>
+<script>
+    function f7() {
+       document.getElementById('a1').innerText="7"
+    }
+    function f8() {
+        document.getElementById('a1').innerText="8"
+    }
+    function f9() {
+        document.getElementById('a1').innerText="9"
+    }
+    function fchia() {
+        document.getElementById('a1').innerText="%"
+    }
+</script>
 
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input style="text" id="n1" value="">
+<input type="button" onclick="myfun();" value="tinh so ngay">
+<p id="n2"></p>
+<script>
+    function myfun() {
+        let n =parseInt(document.getElementById('n1').value);
+        switch (n) {
+            case 1:
+            case 3:
+            case 5:
+             document.getElementById('n2').innerHTML= "la thang co 31 ngay";
+             break;
+            case 2:
+                document.getElementById('n2').innerHTML="la thang co 28 or 29 ngay";
+                break;
+             default:
+             document.getElementById('n2').innerHTML="la thang co 30 ngay";
+
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

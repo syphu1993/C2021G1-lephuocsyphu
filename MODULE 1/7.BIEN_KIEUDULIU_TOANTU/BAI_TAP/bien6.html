@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>amount</label> <br>
+<input type="text" id="a1"> <br>
+<label>from currency</label> <br>
+<select id="n1">
+    <option value="VN">VietNam</option>
+    <option value="USD">USD</option>
+</select > <br>
+<label>to currency</label> <br>
+<select id="n2">
+    <option value="USD">USD</option>
+    <option value="VN">VietNam</option>
+</select> <br>
+<button type="button" onclick="myfun()">CONVERT</button> <br>
+Result <input type="text" id="ketqua">
+<script>
+    function myfun() {
+        let soluong =document.getElementById('a1').value;
+        let n1=document.getElementById('n1').value;
+        let n2=document.getElementById('n2').value;
+        let ketqua =0;
+        if(n1 =="VN" && n2 == "USD") {
+            ketqua= parseInt(soluong)/23000;
+        }
+        else if (n1 =="USD" && n2 == "VN" ) {
+            ketqua = parseInt(soluong)*23000;
+        }
+            document.getElementById('ketqua').value = ketqua;
+        }
+</script>
+
+
+</body>
+</html>
