@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="range" name="good" max="1" min="0" id="good" value="1" onclick="keo('good')"> good <br>
+<input type="range" name="cheap" max="1" min="0" id="cheap" value="1" onclick="keo('cheap')"> cheap <br>
+<input type="range" name="fast" max="1" min="0" id="fast" value="1" onclick="keo('fast')"> fast <br>
+<script>
+    function keo(chose) {
+        let goodObj = document.getElementById('good');
+        let cheapObj = document.getElementById('cheap');
+        let fastObj = document.getElementById('fast');
+        switch (chose) {
+            case 'good':
+                if(cheapObj.value==1){
+                    fastObj.value=0;
+                } break;
+            case 'cheap':
+                if(fastObj.value==1){
+                   goodObj.value=0;
+                } break;
+            case 'fast':
+                if(goodObj.value==1){
+                    cheapObj.value=0
+                }break;
+        }
+    }
+</script>
+</body>
+</html>

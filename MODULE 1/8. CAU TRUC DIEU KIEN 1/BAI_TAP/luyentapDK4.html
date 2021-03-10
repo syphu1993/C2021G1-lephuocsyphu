@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('nhap a'));
+    let b = parseInt(prompt('nhap b'));
+    let c = parseInt(prompt('nhap c'));
+    let max = a;
+    if(a>=b && a>=c) {
+        alert('max la '+max)
+    }else if(a<=b || a<=c) {
+        if(b>=c){
+            max=b;
+            alert('max la '+max)
+        }else {
+            max = c;
+            alert('max la '+max)
+        }
+    }
+</script>
+
+</body>
+</html>

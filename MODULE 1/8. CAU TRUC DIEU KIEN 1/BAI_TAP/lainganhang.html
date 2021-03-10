@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soTienVay = parseInt(prompt('nhap so tien vay'));
+    let soThangVay = parseInt(prompt('so thang cho vay'));
+    let i;
+    let lai;
+   for(i=0;i<soThangVay;i++){
+       lai=0.006*soTienVay;
+       soTienVay=soTienVay+lai;
+    }
+   alert(lai)
+</script>
+
+</body>
+</html>

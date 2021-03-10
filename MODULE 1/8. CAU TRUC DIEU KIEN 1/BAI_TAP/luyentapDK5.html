@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let diemGiuaKi = parseFloat(prompt('nhap diem giua ki'));
+    let diemCuoiKi = parseFloat(prompt('nhap diem cuoi ki'));
+    let diemTb = (diemGiuaKi+2*diemCuoiKi)/3;
+    if(8.5<=diemTb&&diemTb<=10){
+        alert('xep loai gioi')
+    }else if(7<=diemTb&&diemTb<8.5) {
+        alert('xep loai kha')
+    }else if(5<=diemTb&&diemTb<7){
+        alert('xep loai trung binh')
+    }else if(0<=diemTb&&diemTb<5){
+        alert('xep loai yeu')
+    }
+</script>
+
+</body>
+</html>

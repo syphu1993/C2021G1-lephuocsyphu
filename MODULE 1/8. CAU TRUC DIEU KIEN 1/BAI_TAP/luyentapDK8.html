@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soCHuDien = parseInt(prompt("nhap so chu dien"));
+    let soTienDien;
+    if(soCHuDien<=60){
+        soTienDien = 2500*soCHuDien;
+        alert('so tien dien '+soTienDien)
+    } else if(soCHuDien>60 && soCHuDien<=100){
+        soTienDien = 3000*soCHuDien;
+        alert('so tien dien ' +soTienDien)
+    }else {
+        soTienDien = 3500*soCHuDien;
+        alert('so tien dien '+soTienDien)
+    }
+</script>
+
+</body>
+</html>

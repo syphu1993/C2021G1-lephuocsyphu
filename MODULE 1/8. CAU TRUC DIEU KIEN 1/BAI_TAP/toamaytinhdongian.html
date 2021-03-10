@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="nhap">
+    <table>
+        <tr>
+            <td><input type="button" value="1" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="2" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="3" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="+" onclick="nhapSo(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="5" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="6" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="7" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="-" onclick="nhapSo(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="8" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="9" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="0" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="=" onclick="bang(this.value)"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="AC" onclick="xoa(this.value)"></td>
+            <td><input type="button" value="*" onclick="nhapSo(this.value)"></td>
+            <td><input type="button" value="/" onclick="nhapSo(this.value)"></td>
+        </tr>
+    </table>
+<script>
+    function nhapSo(kyTu) {
+        document.getElementById('nhap').value +=kyTu;
+    }
+    function bang() {
+        let string = document.getElementById('nhap').value;
+        string=eval(string);
+        document.getElementById('nhap').value = string;
+    }
+    function xoa() {
+        document.getElementById('nhap').value = '';
+    }
+</script>
+</body>
+</html>
