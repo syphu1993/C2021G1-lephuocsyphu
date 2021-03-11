@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    let n1=0;
+    let n2 =1;
+    let n3;
+    let i=0;
+    while (i>=0) {
+        if(i<=1){
+            n3 = i;
+            i++;
+        }else {
+            n3 =n1+n2;
+            if (n3%5==0) {
+                document.write(n3);
+                break;
+            }
+            n1=n2;
+            n2=n3;
+            i++;
+        }
+    }
+</SCRIPT>
+</body>
+</html>

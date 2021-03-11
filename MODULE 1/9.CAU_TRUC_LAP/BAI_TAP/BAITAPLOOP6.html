@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let M=0;
+    let i=0;
+    let sum = 0;
+    while (i< 30){
+        let N;
+        if(M%7==0){
+            N=true;
+        } else {
+            N =false;
+        }
+        if(N){
+            document.write(M+" ");
+            i++;
+        }
+        sum=sum+M;
+        M++;
+    } document.write("</br>")
+    document.write(sum)
+
+</script>
+</body>
+</html>

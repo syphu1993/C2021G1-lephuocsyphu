@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    let count ;
+    let n1=0;
+    let n2 =1;
+    let n3;
+    let sum =0;
+    for (count = 0;count< 20;count++) {
+        if(count<=1){
+            n3 = count;
+        }else {
+            n3 =n1+n2;
+            n1=n2;
+            n2=n3;
+        }document.write(n3)
+        sum = sum +n3;
+    }
+    document.write("</br>")
+    document.write(sum)
+</SCRIPT>
+
+</body>
+</html>

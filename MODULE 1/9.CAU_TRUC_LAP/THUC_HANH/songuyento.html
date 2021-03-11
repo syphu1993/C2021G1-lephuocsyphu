@@ -7,15 +7,16 @@
 <body>
 <script>
     let M = 20;
-    let dem = 0;
-    let N=2;
-    while (dem<20){
-        let i=0;
-        while (i<Math.sqrt(N)){
+    let dem ;
+    for (dem=0;dem<M;dem++){
+        let N=2;
+        for (let i=2;i<N;i++){
             if(N%i == 0){
-                break;
+               break;
             }
-        }
+            N++;
+        } document.write(N);
+
     }
 </script>
 
