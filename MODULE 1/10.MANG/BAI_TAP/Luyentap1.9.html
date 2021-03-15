@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let lengthAb = parseInt(prompt("nhap so luong phan tu"));
+    let A = [];
+    let B = [];
+    for (let i = 0; i<lengthAb ; i++){
+        let giaTriA = parseInt(prompt('gia tri a'));
+        A.push(giaTriA);
+    }
+    for (let j = 0; j<lengthAb ; j++){
+        let giaTriB = parseInt(prompt('gia tri b'));
+        B.push(giaTriB);
+    }
+    console.log(A);
+    console.log(B);
+    let C = A.concat(B);
+    console.log(C);
+
+</script>
+</body>
+</html>

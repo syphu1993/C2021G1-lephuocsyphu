@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soLuongPhanTu = parseInt(prompt('nhap so phan tu'));
+    let Arr = [];
+    for (let i = 0;i< soLuongPhanTu;i++){
+        let giaTri = parseInt(prompt("nhap gia tri"));
+        Arr.push(giaTri);
+    }
+    let Sum = 0;
+    let  Max = Arr[0];
+    for (j = 0;j<soLuongPhanTu;j++){
+        Sum =Sum + Arr[j];
+        if(Arr[j]>= Max) {
+            Max = Arr[j]
+        }
+    }
+    let tB = Sum/soLuongPhanTu;
+    console.log(Arr);
+    console.log(Max);
+    console.log(tB);
+
+</script>
+</body>
+</html>

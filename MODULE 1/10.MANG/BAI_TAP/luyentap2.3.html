@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let lengthMang = parseInt(prompt("nhap chieu dai mang"));
+    let arrayA = [];
+    for (let i = 0; i<lengthMang; i++){
+        let giaTri = prompt('nhap gia tri mang');
+        arrayA.push(giaTri);
+    }
+    let count = 0;
+    let reSult = "";
+    for (let j = 0; j<lengthMang; j++){
+        if(isNaN(arrayA[j])==false){
+            reSult += arrayA[j] +";";
+            count++;
+        }
+    }
+    document.write(reSult);
+    document.write('</br>');
+    document.write("so ki tu so "+ count);
+</script>
+</body>
+</html>

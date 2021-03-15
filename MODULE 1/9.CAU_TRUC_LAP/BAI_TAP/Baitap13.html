@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('so luong can in'));
+    let n1 = 0;
+    let n2 =1;
+    let n3;
+    let In="day so la: ";
+    for (let i=0;i<n;i++){
+        if(i<=1){
+            n3=i;
+        }else {
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+        } In+=n3+";"
+    }document.write(In)
+
+</script>
+</body>
+</html>

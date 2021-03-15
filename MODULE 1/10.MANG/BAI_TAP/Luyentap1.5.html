@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Length = parseInt(prompt('nhap so luong'));
+    let Array1 = [];
+    for (let i = 0; i< Length; i++){
+        let giaTri = parseInt(prompt('nhap gia tri'));
+        Array1.push(giaTri);
+    }
+    console.log(Array1);
+    let reSult = "";
+    let countAm = 0;
+    for (let j = 0; j<Length; j++){
+        if(Array1[j]<0) {
+            reSult += Array1[j] + ";";
+            countAm++;
+        }
+    }
+    console.log(reSult);
+    console.log(countAm);
+
+</script>
+
+</body>
+</html>

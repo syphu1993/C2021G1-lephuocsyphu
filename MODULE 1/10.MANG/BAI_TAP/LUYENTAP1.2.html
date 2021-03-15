@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Array1  = [3,2,5,7,12,23,4,7,98,76];
+    let Max = Array1[0];
+    let PositionMax =0;
+    for (let i = 0; i < Array1.length; i++){
+        if(Array1[i]>= Max){
+            Max = Array1[i];
+        }
+    }
+    PositionMax = Array1.indexOf(Max);
+    document.write('gia tri lon nhat la '+Max+ "vi tri so "+ PositionMax);
+</script>
+
+</body>
+</html>

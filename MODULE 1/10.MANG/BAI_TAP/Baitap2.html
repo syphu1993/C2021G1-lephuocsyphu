@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let tiengAnh = ["hello","trauma","carcass","messes","predition"];
+    // let tiengViet = ["chào","nổi đau","xác chết","quần chúng","sự tiên đoán"];
+    // let tuKhoa = prompt("nhap tu khoa");
+    // for (let i = 0;i < tiengAnh.length; i++) {
+    //     if (tuKhoa === tiengAnh[i]) {
+    //         alert(tiengViet[i]);
+    //         break;
+    //     }
+    // }
+    let tiengAnh = ["hello","trauma","carcass","messes","predition"];
+    let tiengViet = ["chào","nổi đau","xác chết","quần chúng","sự tiên đoán"];
+    let tuKhoa = prompt("nhap tu khoa");
+    let coKetQua = false;
+    let i;
+    for (i = 0;i < tiengAnh.length; i++) {
+        if (tuKhoa === tiengAnh[i]) {
+            coKetQua = true;
+            ketqua = tiengViet[i];
+            break;
+        }
+    }
+    if(coKetQua) {
+        alert(ketqua);
+    }
+    else {
+        alert('khong tim thay');
+    }
+</script>
+
+</body>
+</html>

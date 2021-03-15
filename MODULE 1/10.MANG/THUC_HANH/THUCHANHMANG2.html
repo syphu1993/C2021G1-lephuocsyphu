@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Mang = [-3,5,1,4,3,2,10];
+    for (let i=0;i<3;i++){
+        let b = Mang[i];
+            Mang[i]= Mang[Mang.length - 1 -i];
+        Mang[Mang.length-1-i]=b;
+    }document.write(Mang)
+</script>
+
+</body>
+</html>

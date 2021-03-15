@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Array1 = new Array(3);
+    for (let i = 0; i < Array1.length; i++){
+        let giaTriA = prompt("nhap gt a");
+        Array1[i]=giaTriA;
+    }
+    let Array2 = new Array(3);
+    for (let j = 0; j < Array2.length; j++){
+        let giaTriB = prompt("nhap gt b");
+        Array2[j]=giaTriB;
+    }
+    console.log(Array1);
+    console.log(Array2);
+    let  check = true;
+    if(Array1.length == Array2.length){
+        for (let x= 0; x< Array1.length; x++){
+            if(Array1[x]==Array2[x]) {
+                check = true;
+            }else {
+                check =false;
+                break;
+            }
+        }
+        if (check){
+            alert("2 chuoi bang nhau")
+        } else {
+            alert("2 chuoi khac nhau")
+        }
+    } else {
+        alert("2 chuoi khong bang nhau")
+    }
+
+
+</script>
+
+</body>
+</html>

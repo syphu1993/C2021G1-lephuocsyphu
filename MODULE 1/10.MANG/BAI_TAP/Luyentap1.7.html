@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    let Arr = [3, 4, 5, 5, 8, 5, 34];
+    let V = parseInt(prompt("nhap V"));
+    for (let i = 0; i < Arr.length; i++) {
+        if (V === Arr[i]) {
+            for (let j = i; j < Arr.length; j++) {
+                Arr[j] = Arr[j + 1];
+            }
+            i--;
+            Arr[Arr.length - 1] = 0;
+        }
+    }
+    console.log(Arr)
+</SCRIPT>
+
+</body>
+</html>

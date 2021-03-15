@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soLuong = parseInt(prompt('nhap so luong'));
+    let Array1 = [];
+    for (let i = 0 ; i < soLuong ; i++){
+        let giaTri = parseInt(prompt('nhap gia tri'));
+        Array1.push(giaTri);
+    }
+    Array1.sort(function (a,b) {
+    return b-a
+    });
+    console.log(Array1);
+</script>
+
+</body>
+</html>

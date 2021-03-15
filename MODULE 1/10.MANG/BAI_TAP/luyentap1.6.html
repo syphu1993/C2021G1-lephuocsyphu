@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Length = parseInt(prompt('nhap so luong'));
+    let Array1 = [];
+    for (let i = 0; i< Length; i++){
+        let giaTri = parseInt(prompt('nhap gia tri'));
+        Array1.push(giaTri);
+    }
+    let soKiemTra = parseInt(prompt("nhap so V"));
+    let  check = false;
+    for( let j = 0; j<Length;j++){
+        if (soKiemTra == Array1[j]){
+            check = true;
+            break;
+        }
+    }
+    if(check) {
+        alert(soKiemTra + ' is in the  this array')
+    } else {
+        alert(soKiemTra + ' is not in the  this array')
+    }
+
+</script>
+</body>
+</html>

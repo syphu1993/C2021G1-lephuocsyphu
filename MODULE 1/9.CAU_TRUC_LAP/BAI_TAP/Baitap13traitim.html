@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for (let i=1;i<=6;i++){
+        for (let j=1;j<=7;j++){
+            switch (i) {
+                case 1: {
+                    if (j == 1 || j == 4 || j == 7) {
+                        document.write("&nbsp;" + "&nbsp;");
+                    } else {
+                        document.write("*");
+                    }
+                }
+                    break;
+                case 2: {
+                    if (j == 2 || j == 3 || j == 5 || j = 6) {
+                        document.write("&nbsp;" + "&nbsp;");
+                    } else {
+                        document.write("*");
+                    }
+                }
+                    break;
+            }
+        }document.write("</br>");
+    }
+</script>
+
+</body>
+</html>
