@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Phone {
+        id;
+        inbox = [];
+        outbox = [];
+        constructor(id) {
+            this.id =id;
+        }
+        sendMessage(toPhone) {
+            let x=prompt('noi dung tin nhan :');
+            let smsSend=new SMS(x,toPhone.id);
+            this.outbox.push(smsSend);
+            let smsReceive=new SMS(x,this.id);
+            toPhone.receiveMessage(smsReceive)
+        }
+        showMes(){
+            console.log('inbox',this.inbox);
+            console.log('outbox',this.outbox)
+        }
+        receiveMessage(sms) {
+            this.inbox.push(sms)
+        }
+    }
+    class SMS{
+        content;
+        phoneId;
+        constructor(content, phoneId) {
+            this.content = content;
+            this.phoneId = phoneId;
+        }
+    }
+    let samSung = new Phone('0915455131');
+    let noKia = new Phone('099999999');
+    samSung.sendMessage(noKia);
+    samSung.showMes();
+    noKia.showMes()
+</script>
+
+</body>
+</html>

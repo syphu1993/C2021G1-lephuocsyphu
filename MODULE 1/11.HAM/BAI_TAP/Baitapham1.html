@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let count = 0;
+    // let n=0;
+    // let ketQUa = "";
+    // let check = false;
+    // while (count<20){
+    //     if (n < 2) {
+    //         check = false;
+    //     } else {
+    //         check = true;
+    //         for (let i = 2; i < n; i++) {
+    //             if (n % i !== 0) {
+    //                 check =true;
+    //             } else {
+    //                 check = false;
+    //                 break;
+    //             }
+    //         }
+    //     }if (check){
+    //         ketQUa+=n+";";
+    //         count++;
+    //     }
+    //     n++;
+    // }
+    // document.write(ketQUa);
+    function kiemTraSnt(nt) {
+        if (nt < 2) {
+            return  false;
+        } else {
+            for (let i = 2; i < nt; i++) {
+                if (nt % i === 0) {
+                     return false;
+                     break;
+                }
+            }
+            return true;
+        }
+    }
+    function inSoNguyenTo(x) {
+        let n = 0;
+        let ketQua = "";
+        while (n<x){
+            if (kiemTraSnt(n)){
+                ketQua += n + ",";
+            }
+            n++;
+} return ketQua;
+    }
+   let daySo= inSoNguyenTo(12);
+    document.write(daySo)
+
+</script>
+</body>
+</html>

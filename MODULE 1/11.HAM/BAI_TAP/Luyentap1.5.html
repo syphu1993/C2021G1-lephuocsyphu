@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrayFirst = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    let arraySecond = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila"," Ursa Major","Leo"];
+    let check = false;
+    let reSult;
+    function checkStar(starName) {
+        for (let i = 0; i < arrayFirst.length; i++) {
+            if (starName === arrayFirst[i]) {
+                check = true;
+                reSult = arraySecond[i];
+                break;
+            } else {
+                check = false;
+            }
+        }
+        if (check) {
+            return reSult;
+        } else {
+            return -1;
+        }
+    }
+    let disPlay = checkStar(prompt("nhap"));
+    if(disPlay == reSult) {
+        alert(disPlay);
+    } else if ( disPlay == -1){
+        alert("khong phai sao");
+    }
+
+</script>
+</body>
+</html>

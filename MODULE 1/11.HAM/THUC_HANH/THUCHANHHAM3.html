@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function tinhGiaTriMin(array) {
+        if(array.length ==0){
+            return -1;
+        }
+        let inDex;
+        let Min = array[0];
+        for (let i = 0;i<array.length;i++){
+            if (array[i]<=Min){
+                inDex="phan tu thu " + i + " co gi tri la "+ array[i];
+            }
+        }return inDex;
+    }
+    let array1 = [3, 5, 1, 8, -3, 7, 8];
+    let array2 = [7, -1, 6, 9, 20, 56, 89];
+    let array3 = [];
+    let array4 = [0, 0, 0, 0, 0, 0];
+    alert("Min array1: "+tinhGiaTriMin(array1));
+    alert("Min array2: "+tinhGiaTriMin(array2));
+    alert("Min array3: "+tinhGiaTriMin(array3));
+    alert("Min array4: "+tinhGiaTriMin(array4));
+
+</script>
+
+</body>
+</html>

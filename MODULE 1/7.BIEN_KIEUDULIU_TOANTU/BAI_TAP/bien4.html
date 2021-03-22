@@ -8,35 +8,34 @@
 <h1>CACULATOR</h1>
 <input TYPE="text" id="n1">
 <input type="text" id="n2"> <br> <br>
-<button type="button" style="width: 80px" onclick="phepCong()">ADD(+)</button>
-<button type="button"  style="width: 80px"  onclick="phepTru()"> SUB(-)</button>
-<button type="button"  style="width: 80px"  onclick="phepNhan()">MUL(x)</button>
-<button type="button"  style="width: 80px"  onclick="phepChia()">DIV(:)</button> <br> <br>
-<p id="kequa">Result</p>
+<input type="button" value="ADD(+)" onclick="tinhN1N2(this.value);">
+<input type="button" value="SUB(-)" onclick="tinhN1N2(this.value);">
+<input type="button" value="MUL(*)" onclick="tinhN1N2(this.value);">
+<input type="button" value="DIV(/)" onclick="tinhN1N2(this.value);">
+<p id="ketqua">Result</p>
 <script>
-    function phepCong() {
-        let n1=document.getElementById('n1').value;
-        let n2=document.getElementById('n2').value;
-        let result = parseInt(n1)+parseInt(n2);
-       document.getElementById('kequa').innerText="Result: "+result
-    }
-    function phepTru() {
-        let n1=document.getElementById('n1').value;
-        let n2=document.getElementById('n2').value;
-        result=parseInt(n1)-parseInt(n2);
-        document.getElementById('kequa').innerText="Result: "+result
-    }
-    function phepNhan() {
-        let n1=document.getElementById('n1').value;
-        let n2=document.getElementById('n2').value;
-        result=parseInt(n1)*parseInt(n2);
-        document.getElementById('kequa').innerText="Result: "+result
-    }
-    function phepChia() {
-        let n1=document.getElementById('n1').value;
-        let n2=document.getElementById('n2').value;
-        result=parseInt(n1)/parseInt(n2);
-        document.getElementById('kequa').innerText="Result: "+result
+
+    function tinhN1N2(x) {
+        let n1 = document.getElementById('n1').value;
+        let n2 = document.getElementById('n2').value;
+        let reS = "";
+        if (x == "ADD(+)"){
+            reS = parseInt(n1) + parseInt(n2);
+            document.getElementById('ketqua').innerHTML ="RESULT :" + reS;
+        }
+        else if (x=="SUB(-)"){
+            reS = parseInt(n1) - parseInt(n2);
+            document.getElementById('ketqua').innerHTML = "RESULT :" + reS;
+        }
+        else if (x=="MUL(*)"){
+            reS = parseInt(n1) * parseInt(n2);
+            document.getElementById('ketqua').innerHTML = "RESULT :" + reS;
+        }
+        else if (x=="DIV(/)"){
+            reS = parseInt(n1) / parseInt(n2);
+            document.getElementById('ketqua').innerHTML = "RESULT :" + reS;
+        }
+
     }
 </script>
 

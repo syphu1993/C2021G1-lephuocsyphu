@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="1000" height="500" id="hienthi" style="border: 1px solid"></canvas>
+ <script>
+     class hinhChuNhat {
+         constructor(a,b) {
+             this.rong = a;
+             this.dai = b;
+         }
+         tinhDienTich(){
+             let S = this.rong*this.dai;
+             return S;
+         }
+         tinhChuVi(){
+             let C = 2*this.rong + 2*this.dai;
+             return C;
+         }
+         disPlay(){
+         let veHcn=document.getElementById('hienthi').getContext("2d");
+         veHcn.rect(10,10,this.dai,this.rong);
+         veHcn.fillStyle='#250';
+         veHcn.fill();
+         veHcn.stroke();
+         }
+     }
+     let chieudai = parseInt(prompt("nhap chieu dai"));
+     let chieurong = parseInt(prompt("nhap chieu rong"));
+     let newHCN = new hinhChuNhat(chieudai,chieurong);
+     let dienTich = newHCN.tinhDienTich();
+     let chuVi = newHCN.tinhChuVi();
+     newHCN.disPlay();
+     alert("dien tich hcn la :" + dienTich + "va chu vi hcn la : " + chuVi);
+ </script>
+
+</body>
+</html>

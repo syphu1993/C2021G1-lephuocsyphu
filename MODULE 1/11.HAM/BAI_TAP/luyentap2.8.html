@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function convertArray(arr) {
+        for (let i = 0; i< arr.length/2; i++){
+            let step = arr[i];
+            arr[i] =arr[arr.length-1-i];
+            arr[arr.length-1-i] =step;
+        } return arr;
+    }
+        let arrayA = [1,2,3,4,5,6,7,8];
+        console.log(convertArray(arrayA));
+
+</script>
+</body>
+</html>

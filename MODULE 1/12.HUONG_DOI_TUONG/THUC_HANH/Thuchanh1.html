@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<canvas width="200" height="200" style="border: 1px solid" id="veHinh"></canvas>
+<body>
+<script>
+ let Line = document.getElementById('veHinh');
+ let Ve = Line.getContext('2d');
+ Ve.moveTo(0,0);
+ Ve.lineTo(100,50);
+ Ve.stroke();
+ Ve.beginPath();
+ Ve.arc(100,100,50,0,2*Math.PI);
+ Ve.stroke();
+ Ve.font = "30px Arial";
+ Ve.strokeText("hello", 100,100);
+</script>
+</body>
+</html>

@@ -8,13 +8,13 @@
 <script>
     let Array1 = [2,"-2","---","e-",-3];
     for (let i = 0; i<Array1.length;i++){
-        Array1[i]= Array1[i].toString();
         for (let j=0; j < Array1[i].length;j++){
-            if(Array1[i].[j]=== "-"){
+            if( Array1[i][j]=== "-"){
+                Array1[i][j]="_";
 
             }
         }
-    }
+    }   document.write(Array1)
 </script>
 
 </body>

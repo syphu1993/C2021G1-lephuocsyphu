@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Circle {
+        constructor(radius,color) {
+            this._radius = radius;
+            this._color = color;
+        }
+        getRadius(){
+            return this._radius;
+        }
+        getArea(){
+            return Math.PI*this._radius*this._radius
+        }
+    }
+    let newCircle = new Circle(100);
+    let radius = newCircle.getRadius();
+    let area = newCircle.getArea();
+    alert("duong kinh :"+ radius+ "; Dien tich: "+ area)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="circle" width="1000" height="500" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+  class Circle{
+      constructor(x,y,radius) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+      }
+  }
+// function drawCircle() {
+// let Draw = document.getElementById('circle').getContext('2d');
+// let circle =new Circle(500,250,50);
+// Draw.beginPath();
+// Draw.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+// Draw.fill();
+// }
+// drawCircle();
+
+  // function drawCircle() {
+  // let Draw = document.getElementById('circle').getContext('2d');
+  // let radius = Math.floor(Math.random()*50)
+  // let circle =new Circle(500,250,radius);
+  // Draw.beginPath();
+  // Draw.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+  // Draw.fill();
+  // }
+  // drawCircle();
+  function radomColor() {
+      return Math.floor(Math.random()*255);
+  }
+  function getColor() {
+      let red = radomColor();
+      let blue = radomColor();
+      let yellow = radomColor();
+      return "rgb(" + red + "," + blue + "," + yellow +")";
+  }
+  function drawCircle() {
+      let Draw = document.getElementById('circle').getContext('2d');
+      let w = Math.random()*1000;
+      let h = Math.random()*500;
+      let radius = Math.floor(Math.random()*50);
+      let color = getColor();
+      let circle =new Circle(w,h,radius);
+      Draw.beginPath();
+      Draw.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+      Draw.fillStyle = color;
+      Draw.fill();
+  }
+ function drawMutiCircle() {
+      for (let i = 0; i <=100; i++){
+         drawCircle()
+     }
+ }
+drawMutiCircle()
+
+</script>
+
+</body>
+</html>

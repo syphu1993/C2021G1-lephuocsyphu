@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemTraKiTu(arr,a) {
+        let count = 0;
+        let check =false;
+        for (let i = 0;i< arr.length;i++){
+            if(arr[i] == a){
+                count++;
+                check=true;
+            }
+            }
+        if(check){
+            return count;
+        } else {
+            return -1;
+        }
+    }
+    let arrayA = ["q","w","e","r","t","y",".","/","3","q","w","e"];
+    let t = "l";
+    alert(kiemTraKiTu(arrayA,t));
+</script>
+
+</body>
+</html>

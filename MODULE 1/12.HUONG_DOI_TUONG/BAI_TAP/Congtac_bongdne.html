@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="pic_bulbon.gif" height="180" width="100" id="disPlay"/>
+<input type="button" onclick="onOffLight(this.value);" id="congTac" value="OFF">
+<script>
+    //  class Bongden{
+    //      constructor(status) {
+    //          this.statusD=status;
+    //      }
+    //      onOffDen(congtac){
+    //          if(congtac.status){
+    //              this.statusD =true;
+    //          } else {
+    //              this.statusD =false;
+    //          }
+    //      }
+    //  }
+    //  class Congtac{
+    //      constructor(status) {
+    //          this.status = status;
+    //      }
+    //  }
+    // let newBongDen = new Bongden(false);
+    //  let newCt = new Congtac(true);
+    //  function onOffLight() {
+    //      if(newCt.status){
+    //          newBongDen.onOffDen(newCt);
+    //          document.getElementById('disPlay').src = "pic_bulbon.gif";
+    //          document.getElementById('congTac').value = "OFF";
+    //          newCt.status =false;
+    //      } else {
+    //          newBongDen.onOffDen(newCt);
+    //          document.getElementById('disPlay').src = "pic_bulboff.gif";
+    //          document.getElementById('congTac').value = "ON";
+    //          newCt.status =true;
+    //      }
+    //  }
+    class CongTac {
+        lamp;
+        status;
+        constructor(lamp, status) {
+            this.lamp = lamp;
+            this.status = status;
+            this.lamp.status=status;
+        }
+        switch(lamp) {
+            this.status = !this.status;
+            this.lamp.status = this.status;
+            lamp.doLight();
+        }
+    }
+    class BongDen {
+        status;
+        constructor(status) {
+            this.status = status;
+        }
+        doLight() {
+            if (this.status) {
+                document.getElementById('disPlay').src ='pic_bulbon.gif';
+                document.getElementById('congTac').value = "OFF";
+            } else {
+                document.getElementById('disPlay').src ='pic_bulboff.gif';
+                document.getElementById('congTac').value = "ON";
+            }
+        }
+    }
+    let bd = new BongDen(true);
+    let ct= new CongTac(bd,true);
+    function onOffLight() {
+       ct.switch(bd)
+     }
+  </script>
+
+</body>
+</html>

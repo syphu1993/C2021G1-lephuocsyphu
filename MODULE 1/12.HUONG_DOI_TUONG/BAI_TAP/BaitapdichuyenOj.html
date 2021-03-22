@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="hienthi"></div>
+<script>
+class Ball {
+    constructor(image,top,left,size) {
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+    }
+    getimage(){
+        let string ='<img src="'+this.image+'" width="'+this.size+'" height="'+this.size+'" style="position: absolute; left: '+this.left+'px;top: '+this.top+'px"/>';
+        return string;
+    }
+    moveBall(){
+        this.left+=100;
+    }
+}
+let newBall = new Ball('1.jpg',20,20,100);
+function start() {
+    if (newBall.left<window.innerWidth-newBall.size){
+        newBall.moveBall();
+    }
+    document.getElementById('hienthi').innerHTML = newBall.getimage();
+    setTimeout(start, 500);
+}
+start();
+</script>
+
+</body>
+</html>
