@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soLuongLyThuyet = parseInt(prompt("luong ly thuyet"));
+    let thueThuNhapCaNhan = 0;
+    if(soLuongLyThuyet==15000000){
+        thueThuNhapCaNhan = 20*soLuongLyThuyet/100;
+    } else if(soLuongLyThuyet>=7000000 && soLuongLyThuyet<15000000){
+        thueThuNhapCaNhan = 10*soLuongLyThuyet/100;
+    }else if(soLuongLyThuyet<7000000){
+        thueThuNhapCaNhan = 5*soLuongLyThuyet/100;
+    }
+    alert(thueThuNhapCaNhan);
+    let luongThucNhan = soLuongLyThuyet-thueThuNhapCaNhan;
+    alert(luongThucNhan);
+</script>
+
+</body>
+</html>

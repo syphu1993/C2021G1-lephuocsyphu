@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("nhap chieu dai mang"));
+    let n = parseInt(prompt("nhap chieu dai phan tu"));
+    let mangA = [];
+    for (let i= 0; i< m; i++){
+        mangA[i]=[];
+        for (let j = 0; j< n; j++){
+            mangA[i][j] = Math.ceil(Math.random()*20)
+        }
+    }
+    console.log(mangA);
+    let check = true;
+    let count =0;
+    let reSult = "";
+    for (let i= 0; i< mangA.length; i++){
+        for (let j = 0; j< mangA[i].length; j++){
+              if (mangA[i][j]<2){
+                  check = false;
+              } else if (mangA[i][j]>=2){
+                  check =true;
+                  for (let x=2;x<mangA[i][j];x++){
+                      if (mangA[i][j]%x == 0){
+                          check = false;
+                          break;
+                      }
+                  }
+              }
+          if (check){
+              reSult+=mangA[i][j] +";";
+              count++;
+          }
+          }
+        }
+    console.log(reSult);
+    console.log(count);
+
+
+
+</script>
+
+</body>
+</html>

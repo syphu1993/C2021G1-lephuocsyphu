@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = "djskhfdkfjsbdfskdfhshalskj";
+    let newString =[];
+    let count = 0;
+    while (string.length>0){
+        let i = 0;
+        newString.push(string[i]);
+        string = string.replaceAll(string[i],"");
+        count ++;
+        i++;
+    }
+    console.log(count);
+    console.log(newString);
+    // for (let i = 0;i<string.length;i++){
+    //     string  = string.replaceAll(string[i],"")
+    // }
+    // console.log(string)
+</script>
+</body>
+</html>

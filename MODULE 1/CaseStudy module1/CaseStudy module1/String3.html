@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   let s1 = "aaaaabccccccccghhhtf";
+   let s2 = "adcccaaghf";
+   let count = 0;
+   let mang =[];
+   for (let i=0;i<s1.length;i++){
+       for (let j=0;j<s2.length;j++){
+           if(s1[i]==s2[j]){
+               mang.push(s1[i]);
+               s1 = s1.replace(s1[i],"");
+               s2 = s2.replace(s1[j],"");
+               count++;
+           }
+       }
+   }
+   // while (s1.length>0){
+   //     for (let i = 0; i<s2.length; i++){
+   //         if (s1[0]==s2[i]){
+   //             mang.push(s1[0]);
+   //             s2 = s2.replace(s2[i],"");
+   //             count++;
+   //             break;
+   //         }
+   //     }
+   //     s1 = s1.replace(s1[0],"");
+   // }
+   console.log(count);
+   console.log(mang);
+
+</script>
+
+</body>
+</html>

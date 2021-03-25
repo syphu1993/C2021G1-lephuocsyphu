@@ -6,41 +6,59 @@
 </head>
 <body>
 <script>
-    class Phone {
-        id;
-        inbox = [];
-        outbox = [];
-        constructor(id) {
-            this.id =id;
+    msg = 'codegym';
+    for(var x = 0; x < msg.length - 1; x++)
+    {
+        if(msg.length == 3)
+        {
+            for (var i = 2; i < 7; i++)
+            {
+                console.log(i);
+            }
         }
-        sendMessage(toPhone) {
-            let x=prompt('noi dung tin nhan :');
-            let smsSend=new SMS(x,toPhone.id);
-            this.outbox.push(smsSend);
-            let smsReceive=new SMS(x,this.id);
-            toPhone.receiveMessage(smsReceive)
-        }
-        showMes(){
-            console.log('inbox',this.inbox);
-            console.log('outbox',this.outbox)
-        }
-        receiveMessage(sms) {
-            this.inbox.push(sms)
+        else
+        {
+            for (var i = msg.length; i > (msg.length - 2); i--)
+            {
+                console.log(i);
+            }
         }
     }
-    class SMS{
-        content;
-        phoneId;
-        constructor(content, phoneId) {
-            this.content = content;
-            this.phoneId = phoneId;
-        }
-    }
-    let samSung = new Phone('0915455131');
-    let noKia = new Phone('099999999');
-    samSung.sendMessage(noKia);
-    samSung.showMes();
-    noKia.showMes()
+    // class Phone {
+    //     id;
+    //     inbox = [];
+    //     outbox = [];
+    //     constructor(id) {
+    //         this.id =id;
+    //     }
+    //     sendMessage(toPhone) {
+    //         let x=prompt('noi dung tin nhan :');
+    //         let smsSend=new SMS(x,toPhone.id);
+    //         this.outbox.push(smsSend);
+    //         let smsReceive=new SMS(x,this.id);
+    //         toPhone.receiveMessage(smsReceive)
+    //     }
+    //     showMes(){
+    //         console.log('inbox',this.inbox);
+    //         console.log('outbox',this.outbox)
+    //     }
+    //     receiveMessage(sms) {
+    //         this.inbox.push(sms)
+    //     }
+    // }
+    // class SMS{
+    //     content;
+    //     phoneId;
+    //     constructor(content, phoneId) {
+    //         this.content = content;
+    //         this.phoneId = phoneId;
+    //     }
+    // }
+    // let samSung = new Phone('0915455131');
+    // let noKia = new Phone('099999999');
+    // samSung.sendMessage(noKia);
+    // samSung.showMes();
+    // noKia.showMes()
 </script>
 
 </body>
