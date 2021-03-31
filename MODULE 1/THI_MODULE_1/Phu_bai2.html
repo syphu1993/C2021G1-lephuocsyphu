@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function demKtHoa(chuoi) {
+        let a = chuoi.toUpperCase();
+        let dem = 0;
+        for (let i = 0; i < chuoi.length; i++) {
+            if (chuoi[i] == a[i] && chuoi[i]!==" ") {
+                dem++;
+            }
+        }
+        if (dem == 0) {
+            alert('the strings is not contain upper char')
+        }else
+        {
+            return dem;
+        }
+    }
+    let chuoiKiTu=prompt('nhập chuổi kí tự');
+    let ketQua = demKtHoa(chuoiKiTu);
+    console.log(ketQua);
+
+
+</script>
+
+</body>
+</html>

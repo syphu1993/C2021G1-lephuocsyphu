@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="themDt" onclick="themDt()" value="Thêm Điện Thoại" type="button"> <br>
+<p id="display"></p>
+<script>
+    class Phone {
+        constructor(ma, ten, hang, gia) {
+            this.ma = ma;
+            this.ten = ten;
+            this.hang = hang;
+            this.gia = gia;
+        }
+        getMa(){
+            return this.ma;
+        }
+        getTen(){
+            return this.ten;
+        }
+        getHang(){
+            return this.hang;
+        }
+        getGia(){
+            return this.gia;
+        }
+        setMa(ma){
+            this.ma = ma;
+        }
+        setTen(ten){
+            this.ten = ten;
+        }
+        setHang(hang){
+            this.hang=hang;
+        }
+        setGia(gia){
+            this.gia=gia;
+        }
+        toString(){
+            return "1.Mã "+this.ma +"\n 2.Tên "+this.ten+"\n 3.Hãng "+this.hang + "\n 4.Giá "+this.gia;
+        }
+    }
+    let phone1 = new Phone(1,"j7Pro","Samsung",5000000);
+    let phone2 = new Phone(2,"Iphonex","Iphone",15000000);
+    let listDt = [phone1,phone2];
+    console.log(phone1.toString());
+    function display(list) {
+        let tableString='<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>Hãng</th>\n' +
+            '        <th>Giá</th>\n' +
+            '\n' +
+            '    </tr>';
+        for (let i =0;i<list.length;i++){
+            tableString+='<tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+list[i].getMa()+'</td>\n' +
+                '        <td>'+list[i].getTen()+'</td>\n' +
+                '       <td>'+list[i].getHang()+'</td>\n' +
+                '       <td>'+list[i].getGia()+'</td>\n' +
+                '    </tr>';
+        }
+        tableString+='</table>';
+        document.getElementById("display").innerHTML=tableString;
+    }
+    display(listDt);
+    function themDt() {
+        let ma = prompt("Nhập mã điện thoại");
+        let ten = prompt("Nhập tên điện thoại");
+        let hang = prompt("Nhập hãng điện thoại");
+        let gia = prompt("Nhập giá điện thoại");
+        let phone3 = new Phone(ma,ten,hang,gia);
+        listDt.push(phone3);
+        display(listDt);
+    }
+
+</script>
+
+</body>
+</html>

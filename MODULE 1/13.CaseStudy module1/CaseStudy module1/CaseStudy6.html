@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let phuAm = prompt("nhap chu cai");
+    let mangNguyenAm =['o','u','i','a','e','O','U','I','A','E'];
+    let check = false;
+    for (let i = 0; i < mangNguyenAm.length;i++){
+        if (phuAm===mangNguyenAm[i]){
+           check =true;
+            break;
+        } else {
+           check =false;
+        }
+    }
+    if(check){
+        alert("nguyen am");
+    } else {
+        alert("phu am");
+    }
+</script>
+
+</body>
+</html>

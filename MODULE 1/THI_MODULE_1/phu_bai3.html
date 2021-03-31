@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemtraSoNt(n) {
+        let check = false;
+        if(n<2){
+            check =false;
+        } else if(n>=2){
+            check= true;
+            for (let i = 2; i <n ; i++) {
+                if(n%i==0){
+                    check =false;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+    function timSoNt(arr) {
+        let mangSoNt = [];
+        for (let i = 0; i <arr.length ; i++) {
+            if(kiemtraSoNt(arr[i])){
+                mangSoNt.push(arr[i]);
+            }
+        } return mangSoNt;
+    }
+    let mang = [1,5,6,23,8,47,10,3];
+    let ketQua = timSoNt(mang);
+     ketQua=ketQua.sort(function (a,b) {
+       return a-b;
+     });
+    console.log(ketQua);
+</script>
+
+</body>
+</html>
