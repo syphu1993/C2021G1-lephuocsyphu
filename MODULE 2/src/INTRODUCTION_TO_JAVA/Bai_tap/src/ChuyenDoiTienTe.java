@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ChuyenDoiTienTe {
     public static void main(String[] args) {
         int vnd;
-        int usd;
+        double usd;
         Scanner scanner = new Scanner(System.in);
         System.out.println(" input vnd");
         vnd = scanner.nextInt();
