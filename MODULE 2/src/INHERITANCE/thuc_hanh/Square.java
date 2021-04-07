@@ -14,8 +14,8 @@ public class Square extends RecTangle {
         return getWidth();
     }
     protected  void setSize(double size){
-        setWidth(size);
-        setHight(size);
+        super.setWidth(size);
+        super.setHight(size);
     }
 
     @Override
@@ -26,5 +26,10 @@ public class Square extends RecTangle {
     @Override
     public void setHight(double hight) {
         setSize(hight);
+    }
+
+    @Override
+    public String toString() {
+        return "Square with size ="+ getSize() + " and which is subclass of " + super.toString();
     }
 }
