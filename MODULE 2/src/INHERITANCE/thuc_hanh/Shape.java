@@ -1,8 +1,8 @@
 package INHERITANCE.thuc_hanh;
 
 public class Shape {
-    private String collor = "green";
-    private boolean filled = true;
+    protected String collor = "green";
+    protected boolean filled = true;
 
     public Shape() {
     }

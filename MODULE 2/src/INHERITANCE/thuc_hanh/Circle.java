@@ -1,7 +1,7 @@
 package INHERITANCE.thuc_hanh;
 
 public class Circle extends Shape {
-    private double radius=1.0;
+    public double radius;
 
     public Circle() {
     }
@@ -22,7 +22,7 @@ public class Circle extends Shape {
     public void setRadius(double radius) {
         this.radius = radius;
     }
-    protected double getArea(){
+    public double getArea(){
         return radius*radius*3.14;
     }
     protected double getPerimeter(){

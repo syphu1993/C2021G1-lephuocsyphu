@@ -46,4 +46,15 @@ public class Triangle extends Shape {
     public void setSide3(double side3) {
         this.side3 = side3;
     }
+    protected double getChuVI(){
+        return side1+side2+side3;
+    }
+    protected double getDienTich(){
+        return Math.sqrt((getChuVI()/2)*(getChuVI()/2-side1)*(getChuVI()/2-side2)*(getChuVI()/2-side3));
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{ mau:"+getCollor()+", Dien tich :"+getDienTich()+", Chu vi :"+ getChuVI()+"}";
+    }
 }

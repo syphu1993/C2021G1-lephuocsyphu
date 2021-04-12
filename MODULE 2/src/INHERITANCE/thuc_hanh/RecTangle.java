@@ -1,8 +1,8 @@
 package INHERITANCE.thuc_hanh;
 
 public class RecTangle extends Shape {
-    private double width = 1.0;
-    private double hight = 1.0;
+    protected double width = 1.0;
+    protected double hight = 1.0;
 
     public RecTangle() {
     }
@@ -33,7 +33,7 @@ public class RecTangle extends Shape {
     public void setHight(double hight) {
         this.hight = hight;
     }
-    protected double getaArea(){
+    public double getArea(){
         return width*hight;
     }
     protected double getaPerimeter(){

@@ -5,7 +5,7 @@ public class TextSquare {
         Square sq1 = new Square(50);
         sq1.setWidth(100);
         sq1.setHight(100);
-        System.out.println(sq1.getaArea());
+        System.out.println(sq1.getArea());
         System.out.println(sq1.toString());
     }
 }

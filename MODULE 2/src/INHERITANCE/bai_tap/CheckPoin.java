@@ -19,7 +19,5 @@ public class CheckPoin {
         MoveablePoint newPoint = new MoveablePoint(10,10,1,1);
         System.out.println(newPoint.toString());
         System.out.println("new Point = " + Arrays.toString(newPoint.move()));
-
-
     }
 }
