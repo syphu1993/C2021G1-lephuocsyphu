@@ -1,8 +1,6 @@
-package STACK__QUEUE.BAI_TAP;
+package COLECTION_FRAMEWORK.THUC_HANH;
 
-import java.util.Comparator;
-
-public class Student implements Comparator<Student> {
+public class Student implements Comparable<Student> {
     private String name;
     private String genger;
     private int year;
@@ -50,7 +48,7 @@ public class Student implements Comparator<Student> {
     }
 
     @Override
-    public int compare(Student o1, Student o2) {
-        return o1.getYear()-o2.getYear();
+    public int compareTo(Student o) {
+        return this.getName().compareTo(o.getName());
     }
 }

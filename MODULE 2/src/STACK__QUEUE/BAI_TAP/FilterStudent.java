@@ -19,12 +19,17 @@ public class FilterStudent {
         listStudent.add(student6);
         Queue<Student> queueNu = new LinkedList<>();
         Queue<Student> queueNam = new LinkedList<>();
-        listStudent.sort(new Comparator<Student>(){
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o1.getYear()-o2.getYear();
-            }
-        });
+//        listStudent.sort(new Comparator<Student>(){
+//            @Override
+//            public int compare(Student o1, Student o2) {
+//                return o1.getYear()-o2.getYear();
+//            }
+//        });
+        Comparator studentComparator = new Student();
+        Collections.sort(listStudent,studentComparator);
+        System.out.println(listStudent);
+        Collections.reverse(listStudent);
+//        listStudent.sort(studentComparator);
         System.out.println(listStudent);
         for (Student student:listStudent) {
             if (student.getGenger().equals("nam")){
