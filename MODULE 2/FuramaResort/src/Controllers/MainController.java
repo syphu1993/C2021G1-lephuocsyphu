@@ -71,7 +71,9 @@ public class MainController {
     private static void showInformationCustomer(String fileName) {
         System.out.println("----------------------");
         System.out.println("View list Customer:");
-        for (Customer x : readInforCustomer(fileName)) {
+        List<Customer> newList = readInforCustomer(fileName);
+        Collections.sort(newList);
+        for (Customer x : newList) {
             x.showInfor();
         }
     }

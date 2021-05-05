@@ -1,6 +1,6 @@
 package Models;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     private  String nameCustomer;
     private  String birthdayCustomer;
     private  String genderCustomer;
@@ -114,5 +114,16 @@ public class Customer {
                 ", adressCustomer='" + adressCustomer + '\'' +
                 ", useServices=" + useServices +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Customer sencond) {
+        int result = this.nameCustomer.compareTo(sencond.nameCustomer);
+        if (result==0){
+            int yearFirstCustomer = Integer.parseInt(this.birthdayCustomer.split("/")[2]);
+            int yearSecondCustomer = Integer.parseInt(sencond.birthdayCustomer.split("/")[2]);
+            result = yearFirstCustomer-yearSecondCustomer;
+        }
+        return result;
     }
 }
