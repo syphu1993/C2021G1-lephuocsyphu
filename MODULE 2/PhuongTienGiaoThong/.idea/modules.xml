@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FuramaResort/FuramaResort.iml" filepath="$PROJECT_DIR$/../FuramaResort/FuramaResort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhuongTienGiaoThong.iml" filepath="$PROJECT_DIR$/PhuongTienGiaoThong.iml" />
+    </modules>
+  </component>
+</project>

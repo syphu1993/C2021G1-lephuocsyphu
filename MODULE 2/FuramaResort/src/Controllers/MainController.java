@@ -21,6 +21,8 @@ public class MainController {
     private static String HOUSE = "House";
     private static String ROOM = "Room";
     private static String CUSTOMER = "customer";
+    private static String BOOKING = "booking";
+    private static String Employee = "employee";
 
     public static void displayMainMenu() {
         int choose = 0;
@@ -63,18 +65,70 @@ public class MainController {
     }
 
     private static void showInformationEmployee() {
+        Map<String,Employee> map = new HashMap<>();
+        FileUtils.setFullPath(Employee);
+        List<String> listEmployee = FileUtils.readFile();
+
+        List<Employee> list = new ArrayList<>();
+        for (int i = 0; i <listEmployee.size() ; i++) {
+            Employee employee = new Employee();
+            employee.setNameEmployee(listEmployee.get(i).split(",")[0]);
+            employee.setAgeEmloyee(listEmployee.get(i).split(",")[1]);
+            employee.setAdressEmployee(listEmployee.get(i).split(",")[2]);
+            list.add(employee);
+        }
+        for (int i = 0; i <list.size() ; i++) {
+            map.put("00"+String.valueOf(i+1),list.get(i));
+        }
+        System.out.println(map);
     }
 
     private static void addNewBooking() {
+        List<Customer> customers = readInforCustomer(CUSTOMER);
+        showInformationCustomer(CUSTOMER);
+        int indexCustomer = 0;
+
+        System.out.println("Choose customer book :");
+        indexCustomer = Integer.parseInt(scanner.nextLine());
+        List<Services> listService = null;
+
+        System.out.println("1.\tBooking Villa\n" +
+                "2.\tBooking House\n" +
+                "3.\tBooking Room\n");
+        System.out.println("Choose booking, please!");
+        int chooseBook = 0;
+        chooseBook =Integer.parseInt(scanner.nextLine());
+        switch (chooseBook){
+            case 1:
+                listService = readAllServicies(VILLA);
+                showAllServices(VILLA);
+                break;
+            case 2:
+                listService = readAllServicies(HOUSE);
+                showAllServices(HOUSE);
+                break;
+            case 3:
+                listService = readAllServicies(ROOM);
+                showAllServices(ROOM);
+                break;
+        }
+        System.out.println("Choose type service:");
+        int indexService = Integer.parseInt(scanner.nextLine());
+        Services serviceIsBooked = listService.get(indexService-1);
+        Customer customerBooking = customers.get(indexCustomer-1);
+        customerBooking.setUseServices(serviceIsBooked);
+        FileUtils.setFullPath(BOOKING);
+        FileUtils.writeFile(new String[] {customerBooking.toString()});
+        System.out.println("Finish book.");
     }
 
     private static void showInformationCustomer(String fileName) {
         System.out.println("----------------------");
         System.out.println("View list Customer:");
         List<Customer> newList = readInforCustomer(fileName);
-        Collections.sort(newList);
-        for (Customer x : newList) {
-            x.showInfor();
+        for (int i = 0; i <newList.size() ; i++) {
+            System.out.println((i+1)+ ".");
+            newList.get(i).showInfor();
         }
     }
 
@@ -97,6 +151,7 @@ public class MainController {
             customer.setAdressCustomer(propertiesElement[7]);
             listCustomer.add(customer);
         }
+        Collections.sort(listCustomer);
         return listCustomer;
     }
 
@@ -283,8 +338,10 @@ public class MainController {
     private static void showAllServices(String fileName) {
         System.out.println("-----------------------------------");
         System.out.println("Result Read file:");
-        for (Services service : readAllServicies(fileName)) {
-            service.showInfor();
+        List<Services> listService = readAllServicies(fileName);
+        for (int i = 0; i <listService.size() ; i++) {
+            System.out.println((i+1)+ ".");
+            listService.get(i).showInfor();
         }
     }
 
