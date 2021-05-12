@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../src/ARRAY_METHOD_JAVA/ARRAY_METHOD_JAVA.iml" filepath="$PROJECT_DIR$/../src/ARRAY_METHOD_JAVA/ARRAY_METHOD_JAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../src/LOOP/BAI_TAP/BAI_TAP.iml" filepath="$PROJECT_DIR$/../src/LOOP/BAI_TAP/BAI_TAP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../src/INTRODUCTION_TO_JAVA/Bai_tap/Bai_tap.iml" filepath="$PROJECT_DIR$/../src/INTRODUCTION_TO_JAVA/Bai_tap/Bai_tap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../BillElectronic/BillElectronic.iml" filepath="$PROJECT_DIR$/../BillElectronic/BillElectronic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FuramaResort/FuramaResort.iml" filepath="$PROJECT_DIR$/../FuramaResort/FuramaResort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MODULE 2.iml" filepath="$PROJECT_DIR$/../MODULE 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PhuongTienGiaoThong/PhuongTienGiaoThong.iml" filepath="$PROJECT_DIR$/../PhuongTienGiaoThong/PhuongTienGiaoThong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../src/LOOP/THUC_HANH/THUC_HANH.iml" filepath="$PROJECT_DIR$/../src/LOOP/THUC_HANH/THUC_HANH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThiModuleJava.iml" filepath="$PROJECT_DIR$/ThiModuleJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../src/INTRODUCTION_TO_JAVA/Thuc_hanh/Thuc_hanh.iml" filepath="$PROJECT_DIR$/../src/INTRODUCTION_TO_JAVA/Thuc_hanh/Thuc_hanh.iml" />
+    </modules>
+  </component>
+</project>
