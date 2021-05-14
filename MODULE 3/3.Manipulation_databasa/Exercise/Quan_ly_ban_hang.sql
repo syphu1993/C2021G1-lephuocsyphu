@@ -53,3 +53,9 @@ group by C.Name_customer,P.Name_product;
 select C.Name_customer
 from Customer C left join `Order` O on C.Id_customer = O.Id_customer
 where O.Id_customer is null;
+-- --Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
+--  Giá bán của từng loại được tính = odQTY*pPrice)
+select O.Id_order,O.Date_made_order, sum(P.Price_product*D.Qty_product) as 'Total_price'
+from `Order` O inner join Order_detail D on D.Id_order = O.Id_order
+inner join Product P on P.Id_product = D.Id_product
+group by O.Id_order,O.Date_made_order;
