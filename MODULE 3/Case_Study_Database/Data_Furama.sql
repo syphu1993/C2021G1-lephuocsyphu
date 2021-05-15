@@ -93,24 +93,77 @@ So_luong int,
 foreign key(ID_hop_dong) references Hop_dong(ID_hop_dong),
 foreign key(ID_dich_vu_di_kem) references Dich_vu_di_kem(ID_dich_vu_di_kem)
 );
--- 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” 
--- và có tối đa 15 ký tự.
-select *
-from Nhan_vien inner join Bo_phan on Nhan_vien.ID_bo_phan = Bo_phan.ID_bo_phan
-inner join vi_tri on Nhan_vien.ID_vi_tri = vi_tri.ID_vi_tri
-inner join trinh_do on Nhan_vien.ID_trinh_do = trinh_do.ID_trinh_do
-where (Ho_ten like '% H%'or Ho_ten like '% T%' or Ho_ten like '% K%')and length(Ho_ten)<=15;
--- 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc 
--- “Quảng Trị”.
-select *
-from Khach_hang inner join loai_khach on khach_hang.ID_loai_khach = loai_khach.ID_loai_khach
-where ((year(curdate())-year(Khach_hang.Ngay_sinh)) between 18 and 50) 
-and (Khach_hang.Dia_chi = 'Da Nang'or Khach_hang.Dia_chi = 'Quang Tri');
--- 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng.
---  Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
-select K.Ho_ten, count(K.ID_khach_hang) as 'Lan_dat_phong'
-from khach_hang K inner join hop_dong H on K.ID_khach_hang = H.ID_khach_hang
-inner join loai_khach L on K.ID_loai_khach = L.ID_loai_khach
-where L.Ten_loai_khach_hang = 'Diamond'
-group by K.ID_khach_hang
-order by Lan_dat_phong asc;
+-- 1a. Insert data for table Vi_tri;
+insert into Vi_tri
+value(1,'Truong_bo_phan'),(2,'Nhan_vien');
+-- 1b. Insert data for table Trinh_do;
+insert into Trinh_do
+value(1,'Dai_hoc'),(2,'Cao_dang'),(3,'Trung_cap');
+-- 1c. Insert data for table Bo_phan;
+insert into Bo_phan
+value(1,'Maketing'),(2,'Le_tan'),(3,'Buong_phong');
+-- 1d. Insert data for table Loai_khach;
+insert into loai_khach
+value(1,'Vip'),(2,'Normal');
+update loai_khach
+set Ten_loai_khach_hang ='Diamond'
+where ID_loai_khach = 1;
+-- 1e. Insert data for table Kieu_thue;
+insert into Kieu_thue()
+value(1,'Theo_gio',50000),(2,'Theo_ngay',1000000),(3,'Theo_thang',5000000);
+-- 1f. Insert data for table Loai_dich_vu;
+insert into loai_dich_vu
+value(1,'VIP'),(2,'Good'),(3,'Normal');
+-- 1g. Insert data for table Khach_hang;
+insert into khach_hang
+value(1,2,'Nguyen van Hoa','1993-12-25','123456789','0373306101','hoang@gmail.com','Da Nang'),
+(2,1,'Nguyen van Khoa','1960-05-26','123456781','0373306102','khoa@gmail.com','Quang Tri'),
+(3,2,'Nguyen Quoc Thinh','1997-10-28','123456782','0373306103','hoang@gmail.com','Quang Tri'),
+(4,1,'Nguyen Thi Hien','2009-01-27','123456783','0373306104','hoang@gmail.com','Quang Binh');
+-- 1g. Insert data for table Nhan_vien;
+insert nhan_vien
+value(1,'Do Van Khanh',1,1,1,'1993-07-12','097272380','8000000','0911012123','khanh@gmail.com','Da Nang'),
+(2,'Le Van Hoa',2,1,1,'1995-08-09','097272381','5000000','0911012124','hoa@gmail.com','Quang Nam'),
+(3,'Do Van Quoc',2,1,1,'1996-08-05','097272382','5000000','0911012125','quoc@gmail.com','Quang Tri'),
+(4,'Nguyen Thi Hue',1,2,2,'1993-10-12','087272380','6000000','0811012123','hue@gmail.com','Da Nang'),
+(5,'Do Thi Tuyet',2,2,2,'1995-01-01','077272380','4000000','0711012123','khanh@gmail.com','Quang Binh'),
+(6,'Le thi Quynh',2,2,2,'1998-03-09','067272380','4000000','0611012123','quynh@gmail.com','Da Nang'),
+(7,'Mai Quoc Nam',1,2,3,'1993-02-12','057272380','5000000','0511012123','nam@gmail.com','Da Nang'),
+(8,'Nguyen Thi Lan',2,2,3,'1993-02-14','037272380','3000000','0411012123','nam@gmail.com','Quang Ngai'),
+(9,'Le Hung Dung',2,2,3,'1993-02-23','047272380','3000000','0311012123','dung@gmail.com','Hue');
+update nhan_vien
+set Ho_ten = 'Huynh Ngoc Hue'
+where ID_nhan_vien = 2;
+update nhan_vien
+set Ho_ten = 'Kha Can Van'
+where ID_nhan_vien = 6;
+update nhan_vien
+set Ho_ten = 'Tong Khuong'
+where ID_nhan_vien = 9;
+-- 1l. Insert data for table Dich_vu;
+insert dich_vu
+value(1,'Villa',150,3,5,3000000,2,1,'open'),(2,'House',100,2,4,2000000,3,2,'open'),(3,'Room',75,1,2,1000000,1,3,'open');
+SET SQL_SAFE_UPDATES = 0;
+delete  from dich_vu;
+-- 1k. Insert data for table Hop_dong;
+insert into hop_dong
+value(1,1,1,1,'2021-05-12','2021-05-30',500000,500000);
+insert into hop_dong
+value(2,1,2,2,'2021-05-13','2021-07-13',2000000,1000000);
+insert into hop_dong
+value(3,1,3,3,'2021-05-15','2021-05-16',100000,100000);
+insert into hop_dong
+value(4,1,4,1,'2021-06-12','2021-06-30',700000,400000);
+insert into hop_dong
+value(5,1,1,2,'2021-09-12','2021-12-12',1000000,700000);
+insert into hop_dong
+value(6,1,1,3,'2021-01-12','2021-01-13',900000,400000);
+insert into hop_dong
+value(7,1,4,2,'2021-01-12','2021-03-30',7000000,4000000);
+-- 1m. Insert data for table Dich_vu_di_kem;
+insert into dich_vu_di_kem
+value(1,'massage',300000,1,'open'),(2,'swim',200000,1,'open'),(3,'karaoke',400000,1,'open');
+-- 1n. Insert data for table Hop_dong_chi_tiet;
+insert into hop_dong_chi_tiet
+value(1,1,2,5),(2,2,1,2),(3,3,3,3),(4,4,1,1);
+
