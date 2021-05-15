@@ -58,4 +58,4 @@ where O.Id_customer is null;
 select O.Id_order,O.Date_made_order, sum(P.Price_product*D.Qty_product) as 'Total_price'
 from `Order` O inner join Order_detail D on D.Id_order = O.Id_order
 inner join Product P on P.Id_product = D.Id_product
-group by O.Id_order,O.Date_made_order;
+group by O.Id_order;
