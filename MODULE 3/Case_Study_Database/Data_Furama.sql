@@ -122,6 +122,8 @@ value(1,2,'Nguyen van Hoa','1993-12-25','123456789','0373306101','hoang@gmail.co
 (4,1,'Nguyen Thi Hien','2009-01-27','123456783','0373306104','hoang@gmail.com','Quang Binh');
 insert into khach_hang
 value(5,2,'Nguyen van Hoa','1995-10-09','000456789','0373306000','hoanguyen@gmail.com','Quang Ngai');
+insert into khach_hang
+value(6,1,'Nguyen Quoc Son','1995-07-09','111456789','0373306111','son@gmail.com','Quang Ngai');
 -- 1g. Insert data for table Nhan_vien;
 insert nhan_vien
 value(1,'Do Van Khanh',1,1,1,'1993-07-12','097272380','8000000','0911012123','khanh@gmail.com','Da Nang'),
@@ -162,6 +164,10 @@ insert into hop_dong
 value(6,1,1,3,'2021-01-12','2021-01-13',900000,400000);
 insert into hop_dong
 value(7,1,4,2,'2021-01-12','2021-03-30',7000000,4000000);
+insert into hop_dong
+value(8,1,6,2,'2020-01-19','2020-04-25',7000000,4000000);
+insert into hop_dong
+value(9,1,6,3,'2019-11-19','2019-12-25',9000000,5000000);
 SET SQL_SAFE_UPDATES = 0;
 update hop_dong
 set Ngay_lam_hop_dong = '2019-02-13',Ngay_ket_thuc='2019-07-13'
@@ -187,4 +193,12 @@ value(1,'massage',300000,1,'open'),(2,'swim',200000,1,'open'),(3,'karaoke',40000
 -- 1n. Insert data for table Hop_dong_chi_tiet;
 insert into hop_dong_chi_tiet
 value(1,1,2,5),(2,2,1,2),(3,3,3,3),(4,4,1,1);
+insert into hop_dong_chi_tiet
+value(5,5,2,1),(6,6,1,2);
+insert into hop_dong_chi_tiet
+value(7,1,2,3),(8,2,1,3);
+insert into hop_dong_chi_tiet
+value(9,8,2,1);
+insert into hop_dong_chi_tiet
+value(10,9,2,1);
 
