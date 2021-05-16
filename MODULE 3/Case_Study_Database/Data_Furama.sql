@@ -120,6 +120,8 @@ value(1,2,'Nguyen van Hoa','1993-12-25','123456789','0373306101','hoang@gmail.co
 (2,1,'Nguyen van Khoa','1960-05-26','123456781','0373306102','khoa@gmail.com','Quang Tri'),
 (3,2,'Nguyen Quoc Thinh','1997-10-28','123456782','0373306103','hoang@gmail.com','Quang Tri'),
 (4,1,'Nguyen Thi Hien','2009-01-27','123456783','0373306104','hoang@gmail.com','Quang Binh');
+insert into khach_hang
+value(5,2,'Nguyen van Hoa','1995-10-09','000456789','0373306000','hoanguyen@gmail.com','Quang Ngai');
 -- 1g. Insert data for table Nhan_vien;
 insert nhan_vien
 value(1,'Do Van Khanh',1,1,1,'1993-07-12','097272380','8000000','0911012123','khanh@gmail.com','Da Nang'),
@@ -160,6 +162,25 @@ insert into hop_dong
 value(6,1,1,3,'2021-01-12','2021-01-13',900000,400000);
 insert into hop_dong
 value(7,1,4,2,'2021-01-12','2021-03-30',7000000,4000000);
+SET SQL_SAFE_UPDATES = 0;
+update hop_dong
+set Ngay_lam_hop_dong = '2019-02-13',Ngay_ket_thuc='2019-07-13'
+where ID_hop_dong = 2;
+update hop_dong
+set Ngay_lam_hop_dong = '2019-01-12',Ngay_ket_thuc='2019-02-15'
+where ID_hop_dong = 7;
+update hop_dong
+set Ngay_lam_hop_dong = '2018-05-12',Ngay_ket_thuc='2018-05-30'
+where ID_hop_dong = 1;
+update hop_dong
+set Ngay_lam_hop_dong = '2019-06-12',Ngay_ket_thuc='2019-06-30'
+where ID_hop_dong = 4;
+update hop_dong
+set Ngay_lam_hop_dong = '2018-09-12',Ngay_ket_thuc='2018-12-12'
+where ID_hop_dong = 5;
+update hop_dong
+set Ngay_lam_hop_dong = '2018-01-12',Ngay_ket_thuc='2018-01-13'
+where ID_hop_dong = 6;
 -- 1m. Insert data for table Dich_vu_di_kem;
 insert into dich_vu_di_kem
 value(1,'massage',300000,1,'open'),(2,'swim',200000,1,'open'),(3,'karaoke',400000,1,'open');
