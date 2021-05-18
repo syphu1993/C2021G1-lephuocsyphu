@@ -55,8 +55,8 @@ from `subject` s left join Mark m on s.Id_subject = m.Id_subject
 where m.mark = (select max(mark) from Mark);
 
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
-select *, avg(m.mark) as 'AVG_MARK'
-from Student s inner join mark m on s.Id_student = m.Id_student
+select s.Id_student,s.Name_student,s.Adress,s.Number_phone,s.`Status`, avg(m.mark) as 'AVG_MARK'
+from Student s left join mark m on s.Id_student = m.Id_student
 group by s.Id_student, s.Name_student
 order by avg(m.mark) desc;
 
