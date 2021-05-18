@@ -108,6 +108,9 @@ value(1,'Vip'),(2,'Normal');
 update loai_khach
 set Ten_loai_khach_hang ='Diamond'
 where ID_loai_khach = 1;
+update loai_khach
+set Ten_loai_khach_hang ='Platinium'
+where ID_loai_khach = 2;
 -- 1e. Insert data for table Kieu_thue;
 insert into Kieu_thue()
 value(1,'Theo_gio',50000),(2,'Theo_ngay',1000000),(3,'Theo_thang',5000000);
@@ -127,23 +130,15 @@ value(6,1,'Nguyen Quoc Son','1995-07-09','111456789','0373306111','son@gmail.com
 -- 1g. Insert data for table Nhan_vien;
 insert nhan_vien
 value(1,'Do Van Khanh',1,1,1,'1993-07-12','097272380','8000000','0911012123','khanh@gmail.com','Da Nang'),
-(2,'Le Van Hoa',2,1,1,'1995-08-09','097272381','5000000','0911012124','hoa@gmail.com','Quang Nam'),
+(2,'Huynh Ngoc Hue',2,1,1,'1995-08-09','097272381','5000000','0911012124','hoa@gmail.com','Quang Nam'),
 (3,'Do Van Quoc',2,1,1,'1996-08-05','097272382','5000000','0911012125','quoc@gmail.com','Quang Tri'),
 (4,'Nguyen Thi Hue',1,2,2,'1993-10-12','087272380','6000000','0811012123','hue@gmail.com','Da Nang'),
 (5,'Do Thi Tuyet',2,2,2,'1995-01-01','077272380','4000000','0711012123','khanh@gmail.com','Quang Binh'),
-(6,'Le thi Quynh',2,2,2,'1998-03-09','067272380','4000000','0611012123','quynh@gmail.com','Da Nang'),
+(6,'Kha Can Van',2,2,2,'1998-03-09','067272380','4000000','0611012123','quynh@gmail.com','Da Nang'),
 (7,'Mai Quoc Nam',1,2,3,'1993-02-12','057272380','5000000','0511012123','nam@gmail.com','Da Nang'),
 (8,'Nguyen Thi Lan',2,2,3,'1993-02-14','037272380','3000000','0411012123','nam@gmail.com','Quang Ngai'),
-(9,'Le Hung Dung',2,2,3,'1993-02-23','047272380','3000000','0311012123','dung@gmail.com','Hue');
-update nhan_vien
-set Ho_ten = 'Huynh Ngoc Hue'
-where ID_nhan_vien = 2;
-update nhan_vien
-set Ho_ten = 'Kha Can Van'
-where ID_nhan_vien = 6;
-update nhan_vien
-set Ho_ten = 'Tong Khuong'
-where ID_nhan_vien = 9;
+(9,'Tong Khuong',2,2,3,'1993-02-23','047272380','3000000','0311012123','dung@gmail.com','Hue');
+
 -- 1l. Insert data for table Dich_vu;
 insert dich_vu
 value(1,'Villa',150,3,5,3000000,2,1,'open'),(2,'House',100,2,4,2000000,3,2,'open'),(3,'Room',75,1,2,1000000,1,3,'open');
