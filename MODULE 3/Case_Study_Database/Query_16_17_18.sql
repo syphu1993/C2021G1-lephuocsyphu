@@ -1,4 +1,5 @@
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_SAFE_UPDATES = 0;
 delete from nhan_vien 
@@ -9,8 +10,10 @@ where ID_nhan_vien not in (
     where year(hd.Ngay_lam_hop_dong) between 2017 and 2019) as idnv
     );
 SET FOREIGN_KEY_CHECKS=1;  
+
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, chỉ cập nhật những khách 
 -- hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_SAFE_UPDATES = 0;
 update khach_hang
@@ -27,7 +30,9 @@ where Id_khach_hang in (
     having Tong_tien >10000000) as newtable
     );
 SET FOREIGN_KEY_CHECKS=1;  
+
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng).
+
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_SAFE_UPDATES = 0;
 delete from khach_hang
