@@ -22,10 +22,11 @@ where Id_khach_hang in (
 	select newtable.idkh from
 	(select kh.Id_khach_hang  as idkh , sum(dv.Chi_phi_thue+dvdk.Gia*hdct.So_luong) as Tong_tien
     from khach_hang kh inner join hop_dong hd on kh.ID_khach_hang = hd.ID_hop_dong
+    inner join loai_khach lk on lk.ID_loai_khach = kh.ID_loai_khach 
     inner join dich_vu dv on dv.ID_dich_vu =hd.ID_dich_vu
     inner join hop_dong_chi_tiet hdct on hdct.ID_hop_dong = hd.ID_hop_dong
     inner join dich_vu_di_kem dvdk on dvdk.ID_dich_vu_di_kem  = hdct.ID_dich_vu_di_kem
-    where year(hd.Ngay_lam_hop_dong) = 2019
+    where year(hd.Ngay_lam_hop_dong) = 2019 and lk.Ten_loai_khach_hang='Platinium'
     group by kh.ID_khach_hang
     having Tong_tien >10000000) as newtable
     );

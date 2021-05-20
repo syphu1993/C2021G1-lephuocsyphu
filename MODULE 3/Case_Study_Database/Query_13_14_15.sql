@@ -6,10 +6,11 @@ count(hdct.ID_hop_dong_chi_tiet) as So_luong_dich_vu_di_kem
 from Hop_dong hd inner join Hop_dong_chi_tiet hdct on hd.Id_hop_dong = hdct.Id_hop_dong
 inner join dich_vu_di_kem dvdk on dvdk.ID_dich_vu_di_kem = hdct.ID_dich_vu_di_kem
 group by dvdk.ID_dich_vu_di_kem
-having count(hdct.ID_hop_dong_chi_tiet) >= all(select count(hdct.ID_hop_dong_chi_tiet)
-from Hop_dong hd inner join Hop_dong_chi_tiet hdct on hd.Id_hop_dong = hdct.Id_hop_dong
-inner join dich_vu_di_kem dvdk on dvdk.ID_dich_vu_di_kem = hdct.ID_dich_vu_di_kem
-group by dvdk.ID_dich_vu_di_kem);
+having count(hdct.ID_hop_dong_chi_tiet) >= all(
+	select count(hdct.ID_hop_dong_chi_tiet)
+	from Hop_dong hd inner join Hop_dong_chi_tiet hdct on hd.Id_hop_dong = hdct.Id_hop_dong
+	inner join dich_vu_di_kem dvdk on dvdk.ID_dich_vu_di_kem = hdct.ID_dich_vu_di_kem
+	group by dvdk.ID_dich_vu_di_kem);
 
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm
 --  IDHopDong, TenLoaiDichVu,TenDichVuDiKem, SoLanSuDung.
