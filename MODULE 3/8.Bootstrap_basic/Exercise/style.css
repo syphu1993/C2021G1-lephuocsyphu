@@ -1,0 +1,35 @@
+.ml-6{
+    margin-left: 100px;
+}
+.user-background {
+    background-image: url("./src-img/img-microsoft.jpg");
+    padding: 30px 0px;
+    background-repeat: no-repeat;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+}
+.user-background div{
+    width: 30%;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+.italic-user{
+    font-weight: bold;
+    color: black;
+    text-indent: 15px;
+}
+.nomal-p{
+    font-weight: bold;
+    color: red;
+    text-indent: 15px;
+}
+.absolute-user{
+    position: relative;
+}.absolute-user div{
+     width: 70%;
+     position: absolute;
+     left: 50px;
+     bottom: 20px;
+ }
