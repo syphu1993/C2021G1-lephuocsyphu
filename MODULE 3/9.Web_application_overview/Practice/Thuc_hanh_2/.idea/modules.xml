@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Thuc_hanh_2.iml" filepath="$PROJECT_DIR$/Thuc_hanh_2.iml" />
+      <module fileurl="file://E:/CodeGym2/serverlet-jsp/serverlet-jsp/sum_jsp_servle_tjsp/sum_jsp_servle_tjsp.iml" filepath="E:/CodeGym2/serverlet-jsp/serverlet-jsp/sum_jsp_servle_tjsp/sum_jsp_servle_tjsp.iml" />
+    </modules>
+  </component>
+</project>
