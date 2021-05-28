@@ -11,7 +11,7 @@
     <title>$Title$</title>
 </head>
 <body>
-<h1>Caculator</h1>
+<h1>caculator_simple</h1>
 <form action="/calculate" method="get">
     <p>First operand</p>
     <input type="text" name="a" placeholder="Nhập a">

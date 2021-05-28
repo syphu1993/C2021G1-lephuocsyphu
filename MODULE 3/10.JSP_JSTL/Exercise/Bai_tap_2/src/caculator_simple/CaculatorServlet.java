@@ -1,4 +1,4 @@
-package Caculator;
+package caculator_simple;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

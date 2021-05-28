@@ -1,4 +1,4 @@
-package Caculator;
+package caculator_simple;
 
 public class Caculator {
     public static double caculator(double a, double b, String operator){
