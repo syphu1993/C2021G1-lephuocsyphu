@@ -131,14 +131,16 @@ public class ProductServlet extends HttpServlet {
         List<Product> listSearch = new ArrayList<>();
         RequestDispatcher requestDispatcher;
         for (int i = 0; i < products.size() ; i++) {
-            if (products.get(i).getName().contains(search)){
+            if (products.get(i).getName().equals(search)){
                 listSearch.add(products.get(i));
             }
         }
         if (listSearch.size()==0){
-            requestDispatcher = request.getRequestDispatcher("/view/error-404.jsp");
+            request.setAttribute("products",listSearch);
+            request.setAttribute("notesearch","Not Found");
+            requestDispatcher = request.getRequestDispatcher("/view/product/list.jsp");
         } else {
-            request.setAttribute("product",listSearch);
+            request.setAttribute("products",listSearch);
             requestDispatcher = request.getRequestDispatcher("/view/product/list.jsp");
         }
         try {

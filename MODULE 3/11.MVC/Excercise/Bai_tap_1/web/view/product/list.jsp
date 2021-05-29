@@ -24,7 +24,8 @@
     <a href="/product?action=add">Create new customer</a>
 </p>
 <div class="container">
-    <form method="get"  action="/product">
+    <form action="/product" method="get" >
+        <input type="text" name="action"value="search" hidden>
         <input type="text" name="search" placeholder="Search Name Product">
         <input type="submit" value="Search Product">
     </form>
@@ -52,5 +53,6 @@
         </c:forEach>
     </table>
 </div>
+<div><h1 class="text-danger">${notesearch}</h1></div>
 </body>
 </html>
