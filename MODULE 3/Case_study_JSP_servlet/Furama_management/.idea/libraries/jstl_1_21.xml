@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jstl-1.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../11.MVC/Excercise/Bai_tap_1/out/artifacts/Bai_tap_1_war_exploded/WEB-INF/lib/jstl-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
