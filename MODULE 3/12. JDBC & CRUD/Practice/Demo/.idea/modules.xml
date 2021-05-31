@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://E:/CodeGym2/C02_ManagerStudent_JDBC/C02_ManagerStudent_JDBC.iml" filepath="E:/CodeGym2/C02_ManagerStudent_JDBC/C02_ManagerStudent_JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Demo.iml" filepath="$PROJECT_DIR$/Demo.iml" />
+    </modules>
+  </component>
+</project>
