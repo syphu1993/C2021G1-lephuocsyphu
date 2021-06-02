@@ -40,7 +40,7 @@
                 <a class="navbar-brand text-white" href="/index.jsp">Home</a>
             </li>
             <li class="nav-item mr-3" style="margin-left:75px ">
-                <a class="nav-link" href="/furama_management/employee/crud.jsp">Employee</a>
+                <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link" href="/furama_management/customer/crud.jsp">Customer</a>
@@ -53,7 +53,7 @@
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline" action="/action_page.php">
+        <form class="form-inline">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
@@ -69,7 +69,7 @@
                         <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Employee</span></a>
+                        <a href="/furama_management/employee/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Employee</span></a>
                     </div>
                 </div>
             </div>
@@ -92,82 +92,12 @@
                     <td>89 Chiaroscuro Rd, Portland, USA</td>
                     <td>(171) 555-2222</td>
                     <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><button class="material-icons bg-success" data-toggle="tooltip" title="" data-original-title="Edit">Edit</button></a>
+                        <a href="/furama_management/employee/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
-<!-- Add Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-success" value="Add">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
-                </div>
-            </form>
         </div>
     </div>
 </div>
@@ -192,6 +122,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>

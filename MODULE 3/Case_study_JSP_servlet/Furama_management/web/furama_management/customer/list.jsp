@@ -40,20 +40,20 @@
                 <a class="navbar-brand text-white" href="/index.jsp">Home</a>
             </li>
             <li class="nav-item mr-3" style="margin-left:75px ">
-                <a class="nav-link" href="/furama_management/employee/crud.jsp">Employee</a>
+                <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/customer/crud.jsp">Customer</a>
+                <a class="nav-link" href="/furama_management/customer/list.jsp">Customer</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/service/crud.jsp">Service</a>
+                <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/contract/crud.jsp">Contract</a>
+                <a class="nav-link" href="/furama_management/contract/list.jsp">Contract</a>
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline" action="/action_page.php">
+        <form class="form-inline">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
@@ -66,10 +66,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Manage <b>Customers</b></h2>
+                        <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Customer</span></a>
+                        <a href="/furama_management/customer/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
                     </div>
                 </div>
             </div>
@@ -77,99 +77,29 @@
                 <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Type Of Customer</th>
                     <th>Name</th>
-                    <th>Birthday</th>
+                    <th>Phone</th>
                     <th>Email</th>
                     <th>Address</th>
-                    <th>Phone</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>1</td>
-                    <td>26-12-1993</td>
-                    <td>Van Nam</td>
-                    <td>nam@mail.com</td>
-                    <td>Quang Tri</td>
-                    <td>(171) 555-2225</td>
+                    <td>Dimond</td>
+                    <td>Nam</td>
+                    <td>(171) 555-2222</td>
+                    <td>nam@gmail.com</td>
+                    <td>89 Chiaroscuro Rd, Portland, USA</td>
                     <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><button class="material-icons bg-success" data-toggle="tooltip" title="" data-original-title="Edit">Edit</button></a>
+                        <a href="/furama_management/customer/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
-<!-- Add Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-success" value="Add">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
-                </div>
-            </form>
         </div>
     </div>
 </div>
@@ -194,6 +124,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
