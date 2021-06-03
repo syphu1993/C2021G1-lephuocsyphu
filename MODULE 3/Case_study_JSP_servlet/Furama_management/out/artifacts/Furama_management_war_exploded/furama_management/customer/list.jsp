@@ -43,7 +43,7 @@
                 <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/customer/list.jsp">Customer</a>
+                <a class="nav-link" href="/customer">Customer</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
@@ -53,8 +53,8 @@
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline" action="/customer?action=search" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="nameFind">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
     </nav>
@@ -66,10 +66,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Manage <b>Employees</b></h2>
+                        <h2>Manage <b>Customers</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="/furama_management/customer/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
+                        <a href="/customer?action=create" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
                     </div>
                 </div>
             </div>
@@ -79,6 +79,7 @@
                     <th>Id</th>
                     <th>Type Of Customer</th>
                     <th>Name</th>
+                    <th>Gender</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Address</th>
@@ -86,18 +87,21 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach var="customer" items="${customers}">
                 <tr>
-                    <td>1</td>
-                    <td>Dimond</td>
-                    <td>Nam</td>
-                    <td>(171) 555-2222</td>
-                    <td>nam@gmail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
+                    <td><c:out value="${customer.id}"/></td>
+                    <td><c:out value="${customer.typeOfCustomer}"/></td>
+                    <td><c:out value="${customer.name}"/></td>
+                    <td><c:out value="${customer.gender}"/></td>
+                    <td><c:out value="${customer.phone}"/></td>
+                    <td><c:out value="${customer.email}"/></td>
+                    <td><c:out value="${customer.address}"/></td>
                     <td>
-                        <a href="/furama_management/customer/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                        <a href="/customer?action=edit&id=${customer.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
+                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button onclick="deleteCustomer('${customer.id}','${customer.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
                     </td>
                 </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
@@ -107,13 +111,14 @@
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form method="post" action="/customer?action=delete">
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
+                    <input hidden name="id" id="idcustomer" type="text">
+                    <p>Are you sure you want to delete these Records with name is <span id="namecustomer"></span>?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
                 <div class="modal-footer">
@@ -124,5 +129,11 @@
         </div>
     </div>
 </div>
+<script>
+    function deleteCustomer(id,name) {
+    document.getElementById("namecustomer").innerText = name;
+    document.getElementById("idcustomer").value = id;
+    }
+</script>
 </body>
 </html>

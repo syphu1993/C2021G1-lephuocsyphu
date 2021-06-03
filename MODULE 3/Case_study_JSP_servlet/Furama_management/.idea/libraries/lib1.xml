@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.ejb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.servlet.jsp.jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/lib/javax.transaction.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

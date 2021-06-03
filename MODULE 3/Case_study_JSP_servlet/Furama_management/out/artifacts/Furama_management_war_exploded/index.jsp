@@ -40,16 +40,16 @@
         <a class="navbar-brand text-white" href="/">Home</a>
       </li>
       <li class="nav-item mr-3" style="margin-left:75px ">
-        <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
+        <a class="nav-link" href="/employee">Employee</a>
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/furama_management/customer/list.jsp">Customer</a>
+        <a class="nav-link" href="/customer">Customer</a>
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
+        <a class="nav-link" href="/service">Service</a>
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/furama_management/contract/list.jsp">Contract</a>
+        <a class="nav-link" href="/contract">Contract</a>
       </li>
     </ul>
     <form class="form-inline my-2" action="/">
