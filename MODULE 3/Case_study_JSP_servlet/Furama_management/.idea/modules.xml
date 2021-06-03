@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/Demo.iml" filepath="$PROJECT_DIR$/../../13.JDBC_query&amp;Transaction/Practice&amp;Excercise/Users_Management/Demo/Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Furama_management.iml" filepath="$PROJECT_DIR$/Furama_management.iml" />
-      <module fileurl="file://E:/CodeGym2/New folder/New folder.iml" filepath="E:/CodeGym2/New folder/New folder.iml" />
     </modules>
   </component>
 </project>
