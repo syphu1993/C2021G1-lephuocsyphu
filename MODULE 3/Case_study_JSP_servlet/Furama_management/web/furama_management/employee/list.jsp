@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PhuSyLee
-  Date: 5/31/2021
-  Time: 12:18 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -18,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/webapp/bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webapp/datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <header class="position-fixed w-100" style="top: 0">
@@ -40,21 +36,21 @@
                 <a class="navbar-brand text-white" href="/index.jsp">Home</a>
             </li>
             <li class="nav-item mr-3" style="margin-left:75px ">
-                <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
+                <a class="nav-link" href="/employee">Employee</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/customer/crud.jsp">Customer</a>
+                <a class="nav-link" href="/customer">Customer</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/service/crud.jsp">Service</a>
+                <a class="nav-link" href="/service">Service</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/contract/crud.jsp">Contract</a>
+                <a class="nav-link" href="/contract">Contract</a>
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline" action="/employee?action=search" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="nameFind">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
     </nav>
@@ -66,36 +62,42 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Manage <b>Employees</b></h2>
+                        <h2>Manage <b>Customers</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="/furama_management/employee/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Employee</span></a>
+                        <a href="/employee?action=create" class="btn btn-success"><i class="material-icons"></i> <span>Add New Employee</span></a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="tableEmployee" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
                     <th>Phone</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Education Degree</th>
+                    <th>Division</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
-                    <td>
-                        <a href="/furama_management/employee/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
-                    </td>
-                </tr>
+                <c:forEach var="employee" items="${employees}">
+                    <tr>
+                        <td><c:out value="${employee.id}"/></td>
+                        <td><c:out value="${employee.name}"/></td>
+                        <td><c:out value="${employee.phone}"/></td>
+                        <td><c:out value="${employee.address}"/></td>
+                        <td><c:out value="${employee.position}"/></td>
+                        <td><c:out value="${employee.degree}"/></td>
+                        <td><c:out value="${employee.division}"/></td>
+                        <td>
+                            <a href="/employee?action=edit&id=${employee.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button onclick="deleteEmployee('${employee.id}','${employee.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
@@ -105,13 +107,14 @@
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form method="post" action="/employee?action=delete">
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
+                    <input hidden name="id" id="idEmployee" type="text">
+                    <p>Are you sure you want to delete these Records with name is <span id="nameEmployee"></span>?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
                 <div class="modal-footer">
@@ -122,5 +125,23 @@
         </div>
     </div>
 </div>
+<script>
+    function deleteEmployee(id,name) {
+        document.getElementById("nameEmployee").innerText = name;
+        document.getElementById("idEmployee").value = id;
+    }
+</script>
+<script src="/webapp/jquery/jquery-3.5.1.min.js"></script>
+<script src="/webapp/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/webapp/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5,
+        });
+    });
+</script>
 </body>
 </html>

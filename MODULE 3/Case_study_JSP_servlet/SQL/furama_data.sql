@@ -128,3 +128,53 @@ value(2,'Nguyen van Hoa','1993-12-25','male','123456789','0373306101','hoa@gmail
 (1,'Nguyen Thi Hien','2009-01-27','female','123456783','0373306104','hien@gmail.com','Quang Binh'),
 (2,'Nguyen quoc Hoa','1995-10-09','male','000456789','0373306000','hoanguyen@gmail.com','Quang Ngai'),
 (1,'Nguyen Quoc Son','1995-07-09','male','111456789','0373306111','son@gmail.com','Quang Ngai');
+
+-- insert data table rent type
+insert into rent_type (rent_type_name,rent_type_cost)
+value('Hour',50000),('Day',200000),('Month',3000000);
+
+-- insert data table service type
+insert into service_type(service_type_name)
+value('VIP'),('Normal');
+
+-- insert data table service
+insert into service
+value(1,'villa',100,5000000,6,3,1,'high','pool',20,4),
+	(2,'house',75,3000000,4,2,1,'high',null,null,3),
+	(3,'room',20,2000000,2,1,2,'high',null,null,1);
+ 
+ -- insert data table possition
+insert into `Position`
+value(1,'Manager'),(2,'Staff');
+
+ -- insert data table possition
+insert into Education_degree
+value(1,'Vocational'),(2,'College');
+
+ -- insert data table Division
+insert into Division
+value(1,'Receptionist'),(2,'Housekeeping'),(3,'Office');
+
+ -- insert data table role
+insert into `Role`
+value(1,'Serve'),(2,'Marketing'),(3,'Manage');
+
+ -- insert data table user
+insert into `User`
+value('NamFurama','123'),('QuocFurama','123'),('SonFurama','123'),('HaFurama','123'),
+('DaiFurama','123'),('ThienFurama','123'),('ThuFurama','123');
+
+ -- insert data table employee
+ insert into employee(employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,
+ employee_email,employee_address,Position_id,Education_degree_id,Division_id,username)
+ value('Le Nam','1992-12-12','123222111',5000000,'0999222111','nam1@gmail.com','Quang Tri',2,1,1,'NamFurama'),
+ ('Le Quoc','1992-02-05','123222112',6000000,'0999222112','quoc1@gmail.com','Quang Nam',1,1,2,'QuocFurama'),
+ ('Le Son','1992-03-11','123222113',7000000,'0999222113','son1@gmail.com','Quang Tri',2,1,3,'SonFurama'),
+ ('Le Ha','1992-04-12','123222114',8000000,'0999222114','ha1@gmail.com','Quang Ngai',2,1,1,'HaFurama'),
+ ('Le Dai','1992-05-02','123222115',9000000,'0999222115','dai1@gmail.com','Quang Binh',1,1,1,'DaiFurama'),
+ ('Le Thien','1992-06-02','123222116',5000000,'0999222116','thien1@gmail.com','Da Nang',2,1,2,'ThienFurama'),
+ ('Le Thu','1992-07-01','123222117',8000000,'0999222117','thu1@gmail.com','Nghe An',2,1,1,'ThuFurama');
+
+
+
+

@@ -42,16 +42,16 @@
                 <a class="navbar-brand text-white" href="/index.jsp">Home</a>
             </li>
             <li class="nav-item mr-3" style="margin-left:75px ">
-                <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
+                <a class="nav-link" href="/employee">Employee</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link" href="/customer">Customer</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
+                <a class="nav-link" href="/service">Service</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/contract/list.jsp">Contract</a>
+                <a class="nav-link" href="/contract">Contract</a>
             </li>
         </ul>
         <div class="flex-fill"></div>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-bordered" id="tableCustomer" style="width: 100%">
+            <table class="table table-striped table-hover" id="tableCustomer" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -100,7 +100,7 @@
                     <td><c:out value="${customer.address}"/></td>
                     <td>
                         <a href="/customer?action=edit&id=${customer.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button onclick="deleteCustomer('${customer.id}','${customer.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                        <a href="#deleteCustomerModal" class="delete" data-toggle="modal"><button onclick="deleteCustomer('${customer.id}','${customer.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
                     </td>
                 </tr>
                 </c:forEach>
@@ -110,7 +110,7 @@
     </div>
 </div>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
+<div id="deleteCustomerModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form method="post" action="/customer?action=delete">

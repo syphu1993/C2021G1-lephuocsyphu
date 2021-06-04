@@ -18,6 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/webapp/bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webapp/datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <header class="position-fixed w-100" style="top: 0">
@@ -43,18 +45,18 @@
                 <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/customer/list.jsp">Customer</a>
+                <a class="nav-link" href="/customer">Customer</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
+                <a class="nav-link" href="/service">Service</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link" href="/furama_management/contract/list.jsp">Contract</a>
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline" action="#" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="nameFind">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
     </nav>
@@ -66,61 +68,57 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Manage <b>Employees</b></h2>
+                        <h2>Manage <b>Customers</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="/furama_management/service/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Service</span></a>
+                        <a href="/service?action=create" class="btn btn-success"><i class="material-icons"></i> <span>Add New Service</span></a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="tableCustomer" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Max Number People</th>
-                    <th>Fee</th>
-                    <th>Type Of Service</th>
+                    <th>Cost</th>
+                    <th>Rent type</th>
+                    <th>Service type</th>
+                    <th>Max people</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th>1</th>
-                    <th>Villa</th>
-                    <th>4</th>
-                    <th>5000000</th>
-                    <th>VIP</th>
-                    <td>
-                        <a href="/furama_management/service/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
-                    </td>
-                </tr>
+                <c:forEach var="service" items="${services}">
+                    <tr>
+                        <td><c:out value="${service.id}"/></td>
+                        <td><c:out value="${service.name}"/></td>
+                        <td><c:out value="${service.cost}"/></td>
+                        <td><c:out value="${service.rentType}"/></td>
+                        <td><c:out value="${service.serviceType}"/></td>
+                        <td><c:out value="${service.maxPeople}"/></td>
+                        <td>
+                            <a href="#" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
+                            <a href="#" class="delete" data-toggle="modal"><button onclick="deleteService('${service.id}','${service.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
-                    <p class="text-warning"><small>This action cannot be undone.</small></p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
+<script src="/webapp/jquery/jquery-3.5.1.min.js"></script>
+<script src="/webapp/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/webapp/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5,
+        });
+    });
+</script>
 </body>
 </html>

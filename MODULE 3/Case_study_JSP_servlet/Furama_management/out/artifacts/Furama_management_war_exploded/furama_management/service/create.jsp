@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PhuSyLee
-  Date: 6/2/2021
-  Time: 9:49 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -20,51 +14,69 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div style="width: 40%; margin-left: 30%">
-    <form>
+<div style="width: 40%; margin-left: 30%;border: 1px solid black">
+    <c:if test="${message!=null}">
+        <p>${message}</p>
+    </c:if>
+    <form method="post" style="padding: 3%">
         <div>
             <h4 >Add Service</h4>
         </div>
         <div >
             <div class="form-group">
                 <label>Id</label>
-                <input type="text" class="form-control" required>
+                <input type="text" name="id" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Name of service</label>
-                <input type="text" class="form-control" required>
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Area</label>
-                <input type="text" class="form-control" required>
+                <input type="text" name="area" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Number of  floor</label>
-                <input type="text" class="form-control" required>
+                <label>Cost</label>
+                <input type="text" name="cost" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Max number of people</label>
-                <input type="text" class="form-control" required>
+                <label>Max People</label>
+                <input type="text" name="maxPeople" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Fee</label>
-                <input type="text" class="form-control" required>
+                <label>Rent type</label>
+                <select name="rentType" class="form-control">
+                    <option>Hour</option>
+                    <option>Day</option>
+                    <option>Month</option>
+                </select>
             </div>
             <div class="form-group">
-                <label>Type of rent</label>
-                <input type="text" class="form-control" required>
+                <label>Service type</label>
+                <select name="serviceType" class="form-control">
+                    <option>VIP</option>
+                    <option>Normal</option>
+                </select>
             </div>
             <div class="form-group">
-                <label>Type of service</label>
-                <input type="text" class="form-control" required>
+                <label>Standard room</label>
+                <input type="text" name="standard" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Status</label>
-                <input type="text" class="form-control" required>
+                <label>Decription other convenient</label>
+                <input type="text" name="decription" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Area pool</label>
+                <input type="text" name="pool" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Number of floor</label>
+                <input type="text" name="floor" class="form-control" required>
             </div>
         </div>
         <div>
-            <a href="list.jsp"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <a href="/service"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
             <input type="submit" class="btn btn-success w-25" value="Add">
         </div>
     </form>
