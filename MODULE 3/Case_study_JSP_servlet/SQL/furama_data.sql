@@ -105,6 +105,8 @@ attach_service_cost int,
 attach_service_unit int,
 attach_service_status varchar(45)
 );
+insert into attach_service(attach_service_name,attach_service_cost,attach_service_unit,attach_service_status)
+value('Massage',500000,1,'on'),('Karaoke',500000,1,'on'),('Swim',500000,1,'on');
 create table contract_detail(
 contract_detail_id int not null primary key auto_increment,
 contract_id int,
@@ -113,6 +115,8 @@ quantity int,
 foreign key(contract_id) references contract(contract_id),
 foreign key(attach_service_id) references attach_service(attach_service_id)
 );
+insert into contract_detail(contract_id,attach_service_id,quantity)
+value(1,1,2);
 
 -- insert data table type customer
 
@@ -174,6 +178,11 @@ value('NamFurama','123'),('QuocFurama','123'),('SonFurama','123'),('HaFurama','1
  ('Le Dai','1992-05-02','123222115',9000000,'0999222115','dai1@gmail.com','Quang Binh',1,1,1,'DaiFurama'),
  ('Le Thien','1992-06-02','123222116',5000000,'0999222116','thien1@gmail.com','Da Nang',2,1,2,'ThienFurama'),
  ('Le Thu','1992-07-01','123222117',8000000,'0999222117','thu1@gmail.com','Nghe An',2,1,1,'ThuFurama');
+ 
+  -- insert data table cantract
+  insert into contract(contract_start_date,contract_end_date,contract_deposit,contract_total_money,employee_id,
+  customer_id,service_id)
+  value('2019-01-01','2019-03-01',5000000,8000000,1,1,1);
 
 
 

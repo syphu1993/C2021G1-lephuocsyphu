@@ -96,7 +96,8 @@
                         <td><c:out value="${contract.totalMoney}"/></td>
                         <td>
                             <a href="/contract?action=edit&id=${contract.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                            <a href="#deleteContractModal" class="delete" data-toggle="modal"><button onclick="deleteContract('${contract.id}','${contract.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                            <a href="#deleteContractModal" class="delete" data-toggle="modal"><button onclick="deleteContract('${contract.id}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                            <a href="/contract_detail?action=createCD&id=${contract.id}" class="edit"><button class="material-icons bg-primary" data-original-title="Edit">Add Contract Detail</button></a>
                         </td>
                     </tr>
                 </c:forEach>

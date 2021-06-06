@@ -194,4 +194,8 @@ public class CustomerRepository {
         return listTypeCustomers;
     }
 
+    public static void main(String[] args) {
+        System.out.println(findAll());
+    }
+
 }

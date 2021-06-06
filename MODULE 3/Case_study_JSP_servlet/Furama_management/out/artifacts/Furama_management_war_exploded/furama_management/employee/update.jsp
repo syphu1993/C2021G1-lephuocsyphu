@@ -82,14 +82,6 @@
                 <select name="division" class="form-control">
                     <c:forEach items="${divisions}" var="division">
                         <option value="${division}" ${employee.division.equals(division)?"selected":""}>${division}</option>
-<%--                        <c:choose>--%>
-<%--                            <c:when test="${employee.division.equals(division)}">--%>
-<%--                                <option value="${division}" selected>${division}</option>--%>
-<%--                            </c:when>--%>
-<%--                            <c:otherwise>--%>
-<%--                                <option value="${division}">${division}</option>--%>
-<%--                            </c:otherwise>--%>
-<%--                        </c:choose>--%>
                     </c:forEach>
                 </select>
             </div>

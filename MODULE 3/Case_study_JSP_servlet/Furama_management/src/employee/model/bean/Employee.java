@@ -53,6 +53,11 @@ public class Employee {
         this.division = division;
     }
 
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Employee() {
     }
 

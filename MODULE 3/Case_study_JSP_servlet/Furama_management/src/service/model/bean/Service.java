@@ -49,6 +49,11 @@ public class Service {
         this.serviceType = serviceType;
     }
 
+    public Service(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Service() {
     }
 

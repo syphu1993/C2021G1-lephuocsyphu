@@ -20,47 +20,60 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div style="width: 40%; margin-left: 30%">
-    <form>
+<div style="width: 40%; margin-left: 30%;border: 1px solid black">
+    <c:if test="${message!=null}">
+        <p>${message}</p>
+    </c:if>
+    <form method="post" style="padding: 3%">
         <div>
             <h4 >Add Contract</h4>
         </div>
         <div >
             <div class="form-group">
-                <label>Id contract</label>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Id employee</label>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Id customer</label>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Id service</label>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="form-group">
                 <label>Start Date</label>
-                <input type="text" class="form-control" required>
+                <input type="text" name="startDate" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Finish Date</label>
-                <input type="text" class="form-control" required>
+                <label>End Date</label>
+                <input type="text" name="endDate" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Deposit</label>
-                <input type="text" class="form-control" required>
+                <input type="text" name="deposit" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Extra Fee</label>
-                <input type="text" class="form-control" required>
+                <label>Total  Money</label>
+                <input type="text" name="total" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Employee contract</label>
+                <select name="employeeId" class="form-control">
+                    <option selected></option>
+                    <c:forEach items="${employees}" var="employee">
+                        <option value="${employee.id}">${employee.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Customer contract</label>
+                <select name="customerId" class="form-control">
+                    <option selected></option>
+                    <c:forEach items="${customers}" var="customer">
+                        <option value="${customer.id}">${customer.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Service is contracted </label>
+                <select name="serviceId" class="form-control">
+                    <c:forEach items="${services}" var="service">
+                        <option value="${service.id}">${service.name}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div>
-            <a href="list.jsp"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <a href="/contract"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
             <input type="submit" class="btn btn-success w-25" value="Add">
         </div>
     </form>
