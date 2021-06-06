@@ -34,6 +34,9 @@ public class CustomerRepository {
             "from customer c join customer_type ct on c.Customer_type_id = ct.Customer_type_id\n" +
             "where c.Customer_name like ? ;";
 
+    private static final String SELECT_CUSTOMER_TYPE_SQL ="select customer_type.Customer_type_name\n" +
+            "from customer_type;";
+
     public static List<Customer> findAll() {
         Connection connection = baseRepository.connectDataBase();
         List<Customer> customers = new ArrayList<>();
@@ -60,12 +63,13 @@ public class CustomerRepository {
     }
     public void save(Customer customer) {
     Connection connection = baseRepository.connectDataBase();
+    List<String> listType = findAllTypeCustomer();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_CUSTOMER_SQL);
-            if (customer.getTypeOfCustomer().equals("Diamond")){
-                preparedStatement.setInt(1,1);
-            } else if (customer.getTypeOfCustomer().equals("Platinium")){
-                preparedStatement.setInt(1,2);
+            for (int i = 0; i <listType.size() ; i++) {
+                if (customer.getTypeOfCustomer().equals(listType.get(i))){
+                    preparedStatement.setInt(1,(i+1));
+                }
             }
             preparedStatement.setString(2,customer.getName());
             preparedStatement.setString(3,customer.getBirthday());
@@ -83,13 +87,14 @@ public class CustomerRepository {
     }
     public boolean update(Customer customer){
         Connection connection =baseRepository.connectDataBase();
+        List<String>  listType = findAllTypeCustomer();
         boolean check=false;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CUSTOMER_SQL);
-            if (customer.getTypeOfCustomer().equals("Diamond")){
-                preparedStatement.setInt(1,1);
-            } else if (customer.getTypeOfCustomer().equals("Platinium")){
-                preparedStatement.setInt(1,2);
+            for (int i = 0; i <listType.size() ; i++) {
+                if (customer.getTypeOfCustomer().equals(listType.get(i))){
+                    preparedStatement.setInt(1,(i+1));
+                }
             }
             preparedStatement.setString(2,customer.getName());
             preparedStatement.setString(3,customer.getBirthday());
@@ -170,6 +175,23 @@ public class CustomerRepository {
             e.getMessage();
         }
         return customers;
+    }
+    public static List<String> findAllTypeCustomer() {
+        Connection connection = baseRepository.connectDataBase();
+        List<String> listTypeCustomers = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_TYPE_SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String typeName = resultSet.getString("Customer_type_name");
+              listTypeCustomers.add(typeName);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listTypeCustomers;
     }
 
 }

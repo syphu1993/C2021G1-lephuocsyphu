@@ -32,8 +32,9 @@
             <div class="form-group">
                 <label>Type Of Customer</label>
                <select name="typeOfCustomer" class="form-control">
-                   <option>Diamond</option>
-                   <option>Platinium</option>
+                   <c:forEach items="${listType}" var="type">
+                       <option value="${type}">${type}</option>
+                   </c:forEach>
                </select>
             </div>
             <div class="form-group">

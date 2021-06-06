@@ -37,4 +37,10 @@ public class CustomerImpl implements ICustomer {
     public List<Customer> findByName(String name) {
         return customerRepository.findByName(name);
     }
+
+    @Override
+    public List<String> findAllTypeCustomer() {
+        return customerRepository.findAllTypeCustomer();
+    }
+
 }

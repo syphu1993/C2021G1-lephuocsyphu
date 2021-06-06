@@ -60,5 +60,16 @@ join division d on e.Division_id = d.Division_id
 join `user` u on u.username = e.username
 where e.employee_name like '%a%';
 
+select *
+from customer_type;
+
+select position.Position_name
+from position;
+
+select education_degree.Education_degree_name
+from education_degree;
+
+select *
+from contract ct 
 
 	

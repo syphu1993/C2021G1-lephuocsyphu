@@ -37,4 +37,19 @@ public class EmployeeImpl implements IEmployee {
     public List<Employee> findByName(String name) {
         return employeeRepository.findByName(name);
     }
+
+    @Override
+    public List<String> findNamePosition() {
+        return employeeRepository.findNamePosition();
+    }
+
+    @Override
+    public List<String> findNameDegree() {
+        return employeeRepository.findNameDegree();
+    }
+
+    @Override
+    public List<String> findNameDivision() {
+        return employeeRepository.findNameDivision();
+    }
 }

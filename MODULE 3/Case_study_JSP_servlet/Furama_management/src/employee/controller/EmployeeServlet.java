@@ -156,9 +156,15 @@ public class EmployeeServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id =Integer.parseInt(request.getParameter("id"));
         Employee employee = employeeServlet.findById(id);
+        List<String> positions = employeeServlet.findNamePosition();
+        List<String> degrees = employeeServlet.findNameDegree();
+        List<String> divisions = employeeServlet.findNameDivision();
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("furama_management/employee/update.jsp");
         request.setAttribute("employee",employee);
+        request.setAttribute("positions",positions);
+        request.setAttribute("degrees",degrees);
+        request.setAttribute("divisions",divisions);
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -169,8 +175,14 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
+        List<String> listPosition = employeeServlet.findNamePosition();
+        List<String> listDegree = employeeServlet.findNameDegree();
+        List<String> listDivision = employeeServlet.findNameDivision();
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("furama_management/employee/create.jsp");
+        request.setAttribute("listPosition",listPosition);
+        request.setAttribute("listDegree",listDegree);
+        request.setAttribute("listDivision",listDivision);
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {

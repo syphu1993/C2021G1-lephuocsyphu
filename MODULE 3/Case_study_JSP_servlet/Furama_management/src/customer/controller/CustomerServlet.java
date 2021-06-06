@@ -138,9 +138,13 @@ public class CustomerServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerServlet.findById(id);
+        List<String> listType = customerServlet.findAllTypeCustomer();
+        String[] listGender = {"Male","Female"};
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("furama_management/customer/update.jsp");
         request.setAttribute("customer", customer);
+        request.setAttribute("listGender", listGender);
+        request.setAttribute("listType", listType);
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -151,6 +155,8 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
+        List<String> listType = customerServlet.findAllTypeCustomer();
+        request.setAttribute("listType",listType);
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("furama_management/customer/create.jsp");
         try {

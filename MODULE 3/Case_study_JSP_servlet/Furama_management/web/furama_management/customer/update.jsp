@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PhuSyLee
-  Date: 6/2/2021
-  Time: 9:49 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -36,8 +30,9 @@
             <div class="form-group">
                 <label>Type Of Customer</label>
                 <select name="typeOfCustomer" class="form-control">
-                    <option>Diamond</option>
-                    <option>Platinium</option>
+                    <c:forEach items="${listType}" var="type">
+                        <option value="${type}" ${customer.typeOfCustomer.equals(type)?"selected":""}>${type}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
@@ -51,8 +46,9 @@
             <div class="form-group">
                 <label>Gender</label>
                 <select name="gender" class="form-control">
-                    <option>Male</option>
-                    <option>Female</option>
+                    <c:forEach items="${listGender}" var="gender">
+                        <option value="${gender}" ${customer.gender.equals(gender)?"selected":""}>${gender}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">

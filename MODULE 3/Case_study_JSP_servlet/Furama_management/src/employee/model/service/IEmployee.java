@@ -11,4 +11,7 @@ public interface IEmployee {
     boolean update(Employee employee);
     boolean delete(int id);
     List<Employee> findByName(String name);
+    List<String> findNamePosition();
+    List<String> findNameDegree();
+    List<String> findNameDivision();
 }

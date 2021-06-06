@@ -51,6 +51,15 @@ public class EmployeeRepository {
             "join `user` u on u.username = e.username\n" +
             "where e.employee_name like ?;";
 
+    private static final String SELECT_POSITION_NAME_SQL ="select position.Position_name\n" +
+            "from position;";
+
+    private static final String SELECT_DEGREE_NAME_SQL ="select education_degree.Education_degree_name\n" +
+            "from education_degree;";
+
+    private static final String SELECT_DIVISION_NAME_SQL ="select division.Division_name\n" +
+            "from division;";
+
     public List<Employee> findAll() {
         Connection connection = baseRepository.connectDataBase();
         List<Employee> employees = new ArrayList<>();
@@ -75,8 +84,12 @@ public class EmployeeRepository {
         }
         return employees;
     }
+
     public void save(Employee employee) {
         Connection connection = baseRepository.connectDataBase();
+        List<String> positions = findNamePosition();
+        List<String> degrees = findNameDegree();
+        List<String> divisions = findNameDivision();
         try {
             PreparedStatement preparedStatementUser = connection.prepareStatement(CREATE_USER_SQL);
             preparedStatementUser.setString(1,employee.getUsername());
@@ -91,22 +104,23 @@ public class EmployeeRepository {
             preparedStatement.setString(5,employee.getPhone());
             preparedStatement.setString(6,employee.getEmail());
             preparedStatement.setString(7,employee.getAddress());
-            if (employee.getPosition().equals("Manager")){
-                preparedStatement.setInt(8,1);
-            } else if (employee.getPosition().equals("Staff")){
-                preparedStatement.setInt(8,2);
+
+            for (int i = 0; i <positions.size() ; i++) {
+               if (employee.getPosition().equals(positions.get(i))){
+                   preparedStatement.setInt(8,(i+1));
+               }
             }
-            if (employee.getDegree().equals("Vocational")){
-                preparedStatement.setInt(9,1);
-            } else if (employee.getDegree().equals("College")){
-                preparedStatement.setInt(9,2);
+
+            for (int i = 0; i <degrees.size() ; i++) {
+                if (employee.getDegree().equals(degrees.get(i))){
+                    preparedStatement.setInt(9,(i+1));
+                }
             }
-            if (employee.getDivision().equals("Receptionist")){
-                preparedStatement.setInt(10,1);
-            } else if (employee.getDivision().equals("Housekeeping")){
-                preparedStatement.setInt(10,2);
-            }else if (employee.getDivision().equals("Office")){
-                preparedStatement.setInt(10,3);
+
+            for (int i = 0; i <divisions.size() ; i++) {
+                if (employee.getDivision().equals(divisions.get(i))){
+                    preparedStatement.setInt(10,(i+1));
+                }
             }
             preparedStatement.setString(11,employee.getUsername());
             preparedStatement.executeUpdate();
@@ -116,6 +130,7 @@ public class EmployeeRepository {
             e.printStackTrace();
         }
     }
+
     public static Employee findById(int id) {
         Employee employee  = null;
         Connection connection =baseRepository.connectDataBase();
@@ -145,8 +160,12 @@ public class EmployeeRepository {
         }
         return employee;
     }
+
     public boolean update(Employee employee) {
         Connection connection =baseRepository.connectDataBase();
+        List<String> positions = findNamePosition();
+        List<String> degrees = findNameDegree();
+        List<String> divisions = findNameDivision();
         boolean check=false;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EMPLOYEE_BY_ID_SQL);
@@ -157,23 +176,24 @@ public class EmployeeRepository {
             preparedStatement.setString(5,employee.getPhone());
             preparedStatement.setString(6,employee.getEmail());
             preparedStatement.setString(7,employee.getAddress());
-            if (employee.getPosition().equals("Manager")){
-                preparedStatement.setInt(8,1);
-            } else if (employee.getPosition().equals("Staff")){
-                preparedStatement.setInt(8,2);
+            for (int i = 0; i <positions.size() ; i++) {
+                if (employee.getPosition().equals(positions.get(i))){
+                    preparedStatement.setInt(8,(i+1));
+                }
             }
-            if (employee.getDegree().equals("Vocational")){
-                preparedStatement.setInt(9,1);
-            } else if (employee.getDegree().equals("College")){
-                preparedStatement.setInt(9,2);
+
+            for (int i = 0; i <degrees.size() ; i++) {
+                if (employee.getDegree().equals(degrees.get(i))){
+                    preparedStatement.setInt(9,(i+1));
+                }
             }
-            if (employee.getDivision().equals("Receptionist")){
-                preparedStatement.setInt(10,1);
-            } else if (employee.getDivision().equals("Housekeeping")){
-                preparedStatement.setInt(10,2);
-            }else if (employee.getDivision().equals("Office")){
-                preparedStatement.setInt(10,3);
+
+            for (int i = 0; i <divisions.size() ; i++) {
+                if (employee.getDivision().equals(divisions.get(i))){
+                    preparedStatement.setInt(10,(i+1));
+                }
             }
+
             preparedStatement.setInt(11,employee.getId());
             check =preparedStatement.executeUpdate()>0;
             preparedStatement.close();
@@ -183,6 +203,7 @@ public class EmployeeRepository {
         }
         return check;
     }
+
     public boolean delete(int id) {
         Connection connection =baseRepository.connectDataBase();
         boolean check=false;
@@ -197,6 +218,7 @@ public class EmployeeRepository {
         }
         return check;
     }
+
     public List<Employee> findByName(String name) {
         Connection connection =baseRepository.connectDataBase();
         List<Employee> employees = new ArrayList<>();
@@ -220,6 +242,60 @@ public class EmployeeRepository {
             e.getMessage();
         }
         return employees;
+    }
+
+    public List<String> findNamePosition() {
+        Connection connection = baseRepository.connectDataBase();
+        List<String> positions = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_POSITION_NAME_SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("Position_name");
+                positions.add(name);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return positions;
+    }
+
+    public List<String> findNameDegree() {
+        Connection connection = baseRepository.connectDataBase();
+        List<String> degrees = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DEGREE_NAME_SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("Education_degree_name");
+                degrees.add(name);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return degrees;
+    }
+
+    public List<String> findNameDivision() {
+        Connection connection = baseRepository.connectDataBase();
+        List<String> divisions = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DIVISION_NAME_SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("Division_name");
+                divisions.add(name);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return divisions;
     }
 
 }

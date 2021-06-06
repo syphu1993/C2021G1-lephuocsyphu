@@ -64,23 +64,33 @@
             <div class="form-group">
                 <label>Position</label>
                 <select name="position" class="form-control">
-                    <option>Manager</option>
-                    <option>Staff</option>
+                    <c:forEach items="${positions}" var="position">
+                        <option value="${position}" ${employee.position.equals(position)?"selected":""}>${position}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label>Education Degree</label>
                 <select name="degree" class="form-control">
-                    <option>Vocational</option>
-                    <option>College</option>
+                    <c:forEach items="${degrees}" var="degree">
+                        <option value="${degree}" ${employee.degree.equals(degree)?"selected":""}>${degree}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label>Division</label>
                 <select name="division" class="form-control">
-                    <option>Receptionist</option>
-                    <option>Housekeeping</option>
-                    <option>Office</option>
+                    <c:forEach items="${divisions}" var="division">
+                        <option value="${division}" ${employee.division.equals(division)?"selected":""}>${division}</option>
+<%--                        <c:choose>--%>
+<%--                            <c:when test="${employee.division.equals(division)}">--%>
+<%--                                <option value="${division}" selected>${division}</option>--%>
+<%--                            </c:when>--%>
+<%--                            <c:otherwise>--%>
+<%--                                <option value="${division}">${division}</option>--%>
+<%--                            </c:otherwise>--%>
+<%--                        </c:choose>--%>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">

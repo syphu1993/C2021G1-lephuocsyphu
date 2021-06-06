@@ -60,23 +60,25 @@
             <div class="form-group">
                 <label>Position</label>
                 <select name="position" class="form-control">
-                    <option>Manager</option>
-                    <option>Staff</option>
+                    <c:forEach items="${listPosition}" var="position">
+                        <option value="${position}">${position}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label>Education Degree</label>
                 <select name="degree" class="form-control">
-                    <option>Vocational</option>
-                    <option>College</option>
+                    <c:forEach items="${listDegree}" var="degree">
+                        <option value="${degree}">${degree}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label>Division</label>
                 <select name="division" class="form-control">
-                    <option>Receptionist</option>
-                    <option>Housekeeping</option>
-                    <option>Office</option>
+                    <c:forEach items="${listDivision}" var="division">
+                        <option value="${division}">${division}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">

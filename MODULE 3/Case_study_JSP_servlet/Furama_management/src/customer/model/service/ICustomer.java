@@ -11,4 +11,5 @@ public interface ICustomer {
     boolean update(Customer customer);
     boolean delete(int id);
     List<Customer> findByName(String name);
+    List<String> findAllTypeCustomer();
 }

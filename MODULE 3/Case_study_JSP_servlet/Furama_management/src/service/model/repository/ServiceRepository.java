@@ -61,7 +61,7 @@ public class ServiceRepository {
             }
             if (service.getServiceType().equals("VIP")){
                 preparedStatement.setInt(7,1);
-            } else if (service.getRentType().equals("Day")){
+            } else if (service.getRentType().equals("Normal")){
                 preparedStatement.setInt(7,2);
             }
             preparedStatement.setString(8,service.getStandard());

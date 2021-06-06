@@ -18,6 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/webapp/bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webapp/datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <header class="position-fixed w-100" style="top: 0">
@@ -40,21 +42,21 @@
                 <a class="navbar-brand text-white" href="/index.jsp">Home</a>
             </li>
             <li class="nav-item mr-3" style="margin-left:75px ">
-                <a class="nav-link" href="/furama_management/employee/list.jsp">Employee</a>
+                <a class="nav-link" href="/employee">Employee</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/customer/list.jsp">Customer</a>
+                <a class="nav-link" href="/customer">Customer</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/service/list.jsp">Service</a>
+                <a class="nav-link" href="/service">Service</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link" href="/furama_management/contract/list.jsp">Contract</a>
+                <a class="nav-link" href="/contract">Contract</a>
             </li>
         </ul>
         <div class="flex-fill"></div>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline" action="/contract?action=search" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="nameFind">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
     </nav>
@@ -69,49 +71,52 @@
                         <h2>Manage <b>Contract</b></h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="/furama_management/contract/create.jsp" class="btn btn-success"><i class="material-icons"></i> <span>Add New Contract</span></a>
+                        <a href="/contract?action=create" class="btn btn-success"><i class="material-icons"></i> <span>Add New Contract</span></a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="tableContract" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Start Date</th>
-                    <th>Finish Date</th>
+                    <th>Strart Date</th>
+                    <th>End Date</th>
                     <th>Deposit</th>
-                    <th>Extra Fee</th>
+                    <th>Total Money</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th>1</th>
-                    <th>01-01-2018</th>
-                    <th>05-05-2018</th>
-                    <th>2000000</th>
-                    <th>200000</th>
-                    <td>
-                        <a href="/furama_management/contract/update.jsp" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
-                    </td>
-                </tr>
+                <c:forEach var="contract" items="${contracts}">
+                    <tr>
+                        <td><c:out value="${contract.id}"/></td>
+                        <td><c:out value="${contract.startDay}"/></td>
+                        <td><c:out value="${contract.endDay}"/></td>
+                        <td><c:out value="${contract.deposit}"/></td>
+                        <td><c:out value="${contract.totalMoney}"/></td>
+                        <td>
+                            <a href="/contract?action=edit&id=${contract.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
+                            <a href="#deleteContractModal" class="delete" data-toggle="modal"><button onclick="deleteContract('${contract.id}','${contract.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
+<div id="deleteContractModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form method="post" action="/contract?action=delete">
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
+                    <input hidden name="id" id="idcontract" type="text">
+                    <p>Are you sure you want to delete these Records with name is <span id="namecontract"></span>?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
                 <div class="modal-footer">
@@ -122,5 +127,23 @@
         </div>
     </div>
 </div>
+<script>
+    function deleteContract(id,name) {
+        document.getElementById("namecontract").innerText = name;
+        document.getElementById("idcontract").value = id;
+    }
+</script>
+<script src="/webapp/jquery/jquery-3.5.1.min.js"></script>
+<script src="/webapp/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/webapp/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableContract').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5,
+        });
+    });
+</script>
 </body>
 </html>
