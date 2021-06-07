@@ -70,6 +70,54 @@ select education_degree.Education_degree_name
 from education_degree;
 
 select *
-from contract ct 
+from contract ct;
+
+select  * 
+from customer ctm join contract ct on ctm.customer_id = ct.customer_id
+left join contract_detail ctd on ct.contract_id = ctd.contract_id
+left join attach_service ats on ctd.attach_service_id = ats.attach_service_id
+where ctm.customer_id = 4;
+
+
+select  * 
+from customer ctm join contract ct on ctm.customer_id = ct.customer_id
+left join contract_detail ctd on ct.contract_id = ctd.contract_id
+left join attach_service ats on ctd.attach_service_id = ctd.attach_service_id
+group by ctm.customer_id, ctm.Customer_name;
+
+select ctm.customer_id, ctm.Customer_name,sv.service_name, 
+GROUP_CONCAT(ats.attach_service_name SEPARATOR ', ') as List_attach,ct.contract_id
+from customer ctm join contract ct on ctm.customer_id = ct.customer_id
+join service sv on sv.service_id = ct.service_id
+left join contract_detail ctd on ct.contract_id = ctd.contract_id
+left join attach_service ats on ctd.attach_service_id = ats.attach_service_id
+group by ctm.Customer_name;
+
+SET SQL_SAFE_UPDATES = 0;
+update service
+set service_area = 112,service_cost = 6000000,service_max_peple=4,rent_type_id = 1,
+service_type_id=1,standard_rome = 'low', decription_other_convenient = 'buffe',poor_area = 25,number_of_floor = 2
+where service_name = 'Villa';
+
+select s.service_id,s.service_name, s.service_area, s.service_cost,s.service_max_peple,rt.rent_type_name,st.service_type_name,s.standard_rome,
+s.decription_other_convenient,s.poor_area,s.number_of_floor
+from service s join rent_type rt on s.rent_type_id = rt.rent_type_id
+join service_type st on st.service_type_id = s.service_type_id
+where s.service_name = 'Villa';
+
+select rent_type_id,rent_type_name
+from rent_type;
+
+select service_type_id,service_type_name
+from service_type;
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_SAFE_UPDATES = 0;
+delete from contract
+where contract_id = 1;
+
+delete from contract_detail
+where contract_id = 6;
+
 
 	

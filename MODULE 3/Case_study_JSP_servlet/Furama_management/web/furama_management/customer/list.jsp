@@ -53,6 +53,9 @@
             <li class="nav-item mx-3">
                 <a class="nav-link" href="/contract">Contract</a>
             </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/contract?action=user">Customer Used Service</a>
+            </li>
         </ul>
         <div class="flex-fill"></div>
         <form class="form-inline" action="/customer?action=search" method="post">

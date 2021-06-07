@@ -2,6 +2,7 @@ package contract.model.repository;
 
 import contract.model.bean.Contract;
 import contract.model.bean.ContractDetail;
+import contract.model.bean.ContractUseAttachService;
 import customer.model.bean.Customer;
 import employee.model.bean.Employee;
 import service.model.bean.Service;
@@ -43,6 +44,14 @@ public class ContractRepository {
 
     private static final String CREATE_CONTRACTDATAIL_SQL ="insert into contract_detail(contract_id,attach_service_id,quantity)\n" +
             "value(?,?,?);";
+
+    private static final String FIND_CUSTOMER_USE_SERVICE_SQL ="select ctm.customer_id, ctm.Customer_name,sv.service_name, \n" +
+            "GROUP_CONCAT(ats.attach_service_name SEPARATOR ', ') as List_attach,ct.contract_id\n" +
+            "from customer ctm join contract ct on ctm.customer_id = ct.customer_id\n" +
+            "join service sv on sv.service_id = ct.service_id\n" +
+            "left join contract_detail ctd on ct.contract_id = ctd.contract_id\n" +
+            "left join attach_service ats on ctd.attach_service_id = ats.attach_service_id\n" +
+            "group by ctm.Customer_name;";
 
 
     public static List<Contract> findAll() {
@@ -206,7 +215,30 @@ public class ContractRepository {
         }
     }
 
+    public static List<ContractUseAttachService> findAllCustomerUseService() {
+        Connection connection = baseRepository.connectDataBase();
+        List<ContractUseAttachService> contractUseAttachServices = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_CUSTOMER_USE_SERVICE_SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idCu= resultSet.getInt("customer_id");
+                String nameCustomer = resultSet.getString("Customer_name");
+                String nameService = resultSet.getString("service_name");
+                String attach = resultSet.getString("List_attach");
+                int idCo = resultSet.getInt("contract_id");
+                ContractUseAttachService contractUseAttachService = new ContractUseAttachService(idCo,idCu,nameCustomer,nameService,attach);
+                contractUseAttachServices.add(contractUseAttachService);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return contractUseAttachServices;
+    }
+
 //    public static void main(String[] args) {
-//        System.out.println(findAttachService());
+//        System.out.println(findAllCustomerUseService());
 //    }
 }

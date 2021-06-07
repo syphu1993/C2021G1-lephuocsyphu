@@ -1,6 +1,7 @@
 package contract.model.service.Impl;
 
 import contract.model.bean.ContractDetail;
+import contract.model.bean.ContractUseAttachService;
 import contract.model.repository.ContractRepository;
 import contract.model.service.IContract;
 import customer.model.bean.Customer;
@@ -50,6 +51,11 @@ public class ContractImpl implements IContract {
     @Override
     public void creatContractDetail(ContractDetail contractDetail) {
         contractRepository.creatContractDetail(contractDetail);
+    }
+
+    @Override
+    public List<ContractUseAttachService> findAllCustomerUseService() {
+        return contractRepository.findAllCustomerUseService();
     }
 
 }

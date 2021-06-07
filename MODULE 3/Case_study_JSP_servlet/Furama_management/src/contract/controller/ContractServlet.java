@@ -2,6 +2,7 @@ package contract.controller;
 
 import contract.model.bean.Contract;
 import contract.model.bean.ContractDetail;
+import contract.model.bean.ContractUseAttachService;
 import contract.model.service.IContract;
 import contract.model.service.Impl.ContractImpl;
 import customer.model.bean.Customer;
@@ -82,9 +83,25 @@ public class ContractServlet extends HttpServlet {
             case "createCD":
                 showNewFormCD(request, response);
                 break;
+            case "user":
+                showCustomerUseService(request, response);
+                break;
             default:
                 showAll(request, response);
                 break;
+        }
+    }
+
+    private void showCustomerUseService(HttpServletRequest request, HttpServletResponse response) {
+        List<ContractUseAttachService> contractUseAttachServices = contractServlet.findAllCustomerUseService();
+        request.setAttribute("contracts", contractUseAttachServices);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("furama_management/customer_use/list_user.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

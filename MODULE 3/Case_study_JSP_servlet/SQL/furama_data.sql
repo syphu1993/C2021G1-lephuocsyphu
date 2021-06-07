@@ -182,7 +182,7 @@ value('NamFurama','123'),('QuocFurama','123'),('SonFurama','123'),('HaFurama','1
   -- insert data table cantract
   insert into contract(contract_start_date,contract_end_date,contract_deposit,contract_total_money,employee_id,
   customer_id,service_id)
-  value('2019-01-01','2019-03-01',5000000,8000000,1,1,1);
+  value('2019-05-07','2020-05-08',5000000,8000000,2,2,3);
 
 
 

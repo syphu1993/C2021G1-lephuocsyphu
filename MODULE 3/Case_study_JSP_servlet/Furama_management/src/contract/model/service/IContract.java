@@ -1,6 +1,7 @@
 package contract.model.service;
 
 import contract.model.bean.ContractDetail;
+import contract.model.bean.ContractUseAttachService;
 import customer.model.bean.Customer;
 import employee.model.bean.Employee;
 import contract.model.bean.Contract;
@@ -17,4 +18,5 @@ public interface IContract {
     Contract findContractByID(int id);
     List<String[]> findAttachService();
     void creatContractDetail(ContractDetail contractDetail);
+    List<ContractUseAttachService> findAllCustomerUseService();
 }
