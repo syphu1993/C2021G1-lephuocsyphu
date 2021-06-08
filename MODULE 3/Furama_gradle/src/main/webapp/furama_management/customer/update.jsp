@@ -25,7 +25,7 @@
         <div >
             <div class="form-group">
                 <label>Id</label>
-                <input disabled value="${customer.id}" type="text" name="id" class="form-control" required>
+                <input readonly value="${customer.id}" type="text" name="id" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Type Of Customer</label>
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label>Birthday</label>
-                <input type="text" value="${customer.birthday}" name="birthday" class="form-control" required>
+                <input type="date" value="${customer.birthday}" name="birthday" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Gender</label>
@@ -61,11 +61,15 @@
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" value="${customer.email}" name="email" class="form-control" required>
+                <input type="text" value="${customer.email}" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Address</label>
                 <input type="text" value="${customer.address}" name="address" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" value="${customer.code}" name="code" class="form-control" required>
             </div>
         </div>
         <div>

@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet",urlPatterns = {"/customer"})
 public class CustomerServlet extends HttpServlet {
@@ -80,7 +81,8 @@ public class CustomerServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = new Customer(id,typeOfCustomer,name,birthday,gender,idCard,phone,email,address);
+        String code = request.getParameter("code");
+        Customer customer = new Customer(id,typeOfCustomer,name,birthday,gender,idCard,phone,email,address,code);
         boolean check = customerServlet.update(customer);
         if (check) {
             request.setAttribute("message", "A customer was updated");
@@ -88,8 +90,12 @@ public class CustomerServlet extends HttpServlet {
         } else {
             request.setAttribute("message", "Update fail!");
         }
+        List<String> listType = customerServlet.findAllTypeCustomer();
+        String[] listGender = {"Male","Female"};
         request.setAttribute("customer", customer);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("furama_management/customer/create.jsp");
+        request.setAttribute("listType",listType);
+        request.setAttribute("listGender", listGender);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("furama_management/customer/update.jsp");
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -112,11 +118,20 @@ public class CustomerServlet extends HttpServlet {
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
             String address = request.getParameter("address");
-            Customer newCustomer = new Customer(typeOfCustomer, name,birthday, gender,idCard,phone,email,address);
-            customerServlet.save(newCustomer);
+            String code = request.getParameter("code");
+            Customer newCustomer = new Customer(typeOfCustomer, name,birthday, gender,idCard,phone,email,address,code);
+            Map<String,String> mapMesg = customerServlet.save(newCustomer);
             List<String> listType = customerServlet.findAllTypeCustomer();
-            request.setAttribute("listType",listType);
-            request.setAttribute("message", "A new customer was created!");
+            if (mapMesg.isEmpty()){
+                request.setAttribute("listType",listType);
+                request.setAttribute("message", "A new customer was created!");
+            }else {
+                request.setAttribute("codeMesg",mapMesg.get("CodeCustomer"));
+                request.setAttribute("phoneMesg",mapMesg.get("phone"));
+                request.setAttribute("cardMesg",mapMesg.get("card"));
+                request.setAttribute("emailMesg",mapMesg.get("email"));
+                request.setAttribute("listType",listType);
+            }
             RequestDispatcher dispatcher = request.getRequestDispatcher("furama_management/customer/create.jsp");
             dispatcher.forward(request, response);
         } catch (ServletException | IOException s){

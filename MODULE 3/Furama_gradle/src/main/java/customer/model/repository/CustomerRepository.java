@@ -11,33 +11,33 @@ import java.util.List;
 
 public class CustomerRepository {
     static BaseRepository baseRepository = new BaseRepository();
-    private static final String FIND_ALL_CUSTOMER_SQL = "select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_gender,c.Customer_phone,c.Customer_email,c.Customer_address\n" +
+    private final String FIND_ALL_CUSTOMER_SQL = "select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_gender,c.Customer_phone,c.Customer_email,c.Customer_address,c.customer_code\n" +
             "from customer c join customer_type ct on c.Customer_type_id = ct.Customer_type_id;";
 
     private static final String CREATE_CUSTOMER_SQL = "insert into Customer (Customer_type_id,Customer_name,Customer_birthday,Customer_gender,Customer_id_card,\n" +
-            "Customer_phone,Customer_email,Customer_address)\n" +
-            "value(?,?,?,?,?,?,?,?);";
+            "Customer_phone,Customer_email,Customer_address,customer_code)\n" +
+            "value(?,?,?,?,?,?,?,?,?);";
 
     private static final String UPDATE_CUSTOMER_SQL ="update customer\n" +
             "set Customer_type_id=?,Customer_name=?,Customer_birthday=?,Customer_gender=?,Customer_id_card=?,\n" +
-            "Customer_phone=?,Customer_email=?,Customer_address=?\n" +
+            "Customer_phone=?,Customer_email=?,Customer_address=?,Customer_code=?\n" +
             "where customer_id =?;";
 
-    private static final String FIND_CUSTOMER_BY_ID_SQL ="select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_birthday,c.Customer_gender,c.Customer_id_card,c.Customer_phone,c.Customer_email,c.Customer_address\n" +
+    private static final String FIND_CUSTOMER_BY_ID_SQL ="select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_birthday,c.Customer_gender,c.Customer_id_card,c.Customer_phone,c.Customer_email,c.Customer_address,c.customer_code\n" +
             "from customer c join customer_type ct on c.Customer_type_id = ct.Customer_type_id\n" +
             "where c.customer_id =?;";
 
     private static final String DEL_CUSTOMER_BY_ID_SQL ="delete from customer\n" +
             "where customer_id =?;";
 
-    private static final String SEARCH_CUSTOMER_BY_NAME="select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_gender,c.Customer_phone,c.Customer_email,c.Customer_address\n" +
+    private static final String SEARCH_CUSTOMER_BY_NAME="select c.customer_id,ct.Customer_type_name,c.Customer_name,c.Customer_gender,c.Customer_phone,c.Customer_email,c.Customer_address,c.customer_code\n" +
             "from customer c join customer_type ct on c.Customer_type_id = ct.Customer_type_id\n" +
             "where c.Customer_name like ? ;";
 
     private static final String SELECT_CUSTOMER_TYPE_SQL ="select customer_type.Customer_type_name\n" +
             "from customer_type;";
 
-    public static List<Customer> findAll() {
+    public List<Customer> findAll() {
         Connection connection = baseRepository.connectDataBase();
         List<Customer> customers = new ArrayList<>();
         try {
@@ -51,7 +51,8 @@ public class CustomerRepository {
                 String phone = resultSet.getString("Customer_phone");
                 String email = resultSet.getString("Customer_email");
                 String address = resultSet.getString("Customer_address");
-                Customer customer = new Customer(id, type, name, gender,phone,email,address);
+                String code = resultSet.getString("customer_code");
+                Customer customer = new Customer(id, type, name, gender,phone,email,address,code);
                 customers.add(customer);
             }
             preparedStatement.close();
@@ -78,6 +79,7 @@ public class CustomerRepository {
             preparedStatement.setString(6,customer.getPhone());
             preparedStatement.setString(7,customer.getEmail());
             preparedStatement.setString(8,customer.getAddress());
+            preparedStatement.setString(9,customer.getCode());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
@@ -103,7 +105,8 @@ public class CustomerRepository {
             preparedStatement.setString(6,customer.getPhone());
             preparedStatement.setString(7,customer.getEmail());
             preparedStatement.setString(8,customer.getAddress());
-            preparedStatement.setInt(9,customer.getId());
+            preparedStatement.setString(9,customer.getCode());
+            preparedStatement.setInt(10,customer.getId());
             check =preparedStatement.executeUpdate()>0;
             preparedStatement.close();
             connection.close();
@@ -129,7 +132,8 @@ public class CustomerRepository {
                 String phone = resultSet.getString("Customer_phone");
                 String email = resultSet.getString("Customer_email");
                 String address = resultSet.getString("Customer_address");
-                customer = new Customer(id1, typeOfCustomer, name, birthday,gender,idCard,phone,email,address);
+                String code = resultSet.getString("customer_code");
+                customer = new Customer(id1, typeOfCustomer, name, birthday,gender,idCard,phone,email,address,code);
             }
             preparedStatement.close();
             connection.close();
@@ -168,7 +172,8 @@ public class CustomerRepository {
                 String phone = resultSet.getString("Customer_phone");
                 String email = resultSet.getString("Customer_email");
                 String address = resultSet.getString("Customer_address");
-                customer = new Customer(id, type, name1, gender,phone,email,address);
+                String code = resultSet.getString("customer_code");
+                customer = new Customer(id, type, name1, gender,phone,email,address,code);
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -176,7 +181,7 @@ public class CustomerRepository {
         }
         return customers;
     }
-    public static List<String> findAllTypeCustomer() {
+    public List<String> findAllTypeCustomer() {
         Connection connection = baseRepository.connectDataBase();
         List<String> listTypeCustomers = new ArrayList<>();
         try {
@@ -193,9 +198,4 @@ public class CustomerRepository {
         }
         return listTypeCustomers;
     }
-
-    public static void main(String[] args) {
-        System.out.println(findAll());
-    }
-
 }

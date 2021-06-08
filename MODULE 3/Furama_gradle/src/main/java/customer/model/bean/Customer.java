@@ -10,6 +10,7 @@ public class Customer {
     private String phone;
     private String email;
     private String address;
+    private String code;
 
     public Customer() {
     }
@@ -19,7 +20,7 @@ public class Customer {
         this.name = name;
     }
 
-    public Customer(int id, String typeOfCustomer, String name, String birthday, String gender, String idCard, String phone, String email, String address) {
+    public Customer(int id, String typeOfCustomer, String name, String birthday, String gender, String idCard, String phone, String email, String address, String code) {
         this.id = id;
         this.typeOfCustomer = typeOfCustomer;
         this.name = name;
@@ -29,9 +30,10 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.code = code;
     }
 
-    public Customer(int id, String typeOfCustomer, String name, String gender, String phone, String email, String address) {
+    public Customer(int id, String typeOfCustomer, String name, String gender, String phone, String email, String address,String code) {
         this.id = id;
         this.typeOfCustomer = typeOfCustomer;
         this.name = name;
@@ -39,9 +41,10 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.code = code;
     }
 
-    public Customer(String typeOfCustomer, String name, String birthday, String gender, String idCard, String phone, String email, String address) {
+    public Customer(String typeOfCustomer, String name, String birthday, String gender, String idCard, String phone, String email, String address,String code) {
         this.typeOfCustomer = typeOfCustomer;
         this.name = name;
         this.birthday = birthday;
@@ -50,6 +53,7 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.code = code;
     }
 
     public int getId() {
@@ -124,6 +128,14 @@ public class Customer {
         this.address = address;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -136,6 +148,7 @@ public class Customer {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
+                ", code='" + code + '\'' +
                 '}';
     }
 }

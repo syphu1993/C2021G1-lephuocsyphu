@@ -89,6 +89,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Address</th>
+                    <th>Code</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -103,6 +104,7 @@
                     <td><c:out value="${customer.phone}"/></td>
                     <td><c:out value="${customer.email}"/></td>
                     <td><c:out value="${customer.address}"/></td>
+                    <td><c:out value="${customer.code}"/></td>
                     <td>
                         <a href="/customer?action=edit&id=${customer.id}" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
                         <a href="#deleteCustomerModal" class="delete" data-toggle="modal"><button onclick="deleteCustomer('${customer.id}','${customer.name}')" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>

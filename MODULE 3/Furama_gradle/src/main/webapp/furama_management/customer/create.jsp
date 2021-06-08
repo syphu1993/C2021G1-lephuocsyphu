@@ -22,7 +22,7 @@
 <body>
 <div style="width: 40%; margin-left: 30%;border: 1px solid black">
     <c:if test="${message!=null}">
-        <p>${message}</p>
+        <p class="text-success">${message}</p>
     </c:if>
     <form method="post" style="padding: 3%">
         <div>
@@ -55,18 +55,26 @@
             <div class="form-group">
                 <label>Id Card</label>
                 <input type="text" name="idCard" class="form-control" required>
+                <p class="text-danger">${cardMesg}</p>
             </div>
             <div class="form-group">
                 <label>Phone</label>
-                <input type="text" name="phone" class="form-control" required>
+                <input type="text" name="phone" class="form-control" placeholder="090|091|(84)+90|(84)+91 xxxxxxx">
+                <p class="text-danger">${phoneMesg}</p>
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
+                <input type="text" name="email" class="form-control" required>
+                <p class="text-danger">${emailMesg}</p>
             </div>
             <div class="form-group">
                 <label>Address</label>
                 <input type="text" name="address" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" name="code" class="form-control" placeholder="KH-0000">
+                <p class="text-danger">${codeMesg}</p>
             </div>
         </div>
         <div>

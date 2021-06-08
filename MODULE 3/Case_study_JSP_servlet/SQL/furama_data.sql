@@ -52,6 +52,10 @@ Customer_email  varchar(45),
 Customer_address  varchar(45),
 foreign key(Customer_type_id) references Customer_type(Customer_type_id)
 );
+
+ALTER TABLE customer
+ADD Customer_code varchar(45);
+
 create table employee(
 employee_id int not null primary key auto_increment,
 employee_name varchar(45),
@@ -85,6 +89,10 @@ number_of_floor int,
 foreign key(rent_type_id) references rent_type(rent_type_id),
 foreign key(service_type_id) references service_type(service_type_id)
 );
+
+ALTER TABLE service
+ADD service_code varchar(45);
+
 create table contract(
 contract_id int not null primary key auto_increment,
 contract_start_date date,
