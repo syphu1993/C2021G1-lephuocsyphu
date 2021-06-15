@@ -61,9 +61,12 @@ public class StudentServlet extends HttpServlet {
         String name = request.getParameter("name");
         String birthday= request.getParameter("birthday");
         Student student = new Student(id,name,birthday);
-        boolean check = studentServlet.update(student);
-        if (check){
+        Map<String,String> mapMesg = studentServlet.update(student);
+        if (mapMesg.isEmpty()){
             request.setAttribute("message","A student was updated.");
+        } else {
+            request.setAttribute("nameMesg",mapMesg.get("name"));
+            request.setAttribute("birthMesg",mapMesg.get("year"));
         }
         request.setAttribute("student",student);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("management_student/student/update.jsp");
@@ -87,6 +90,7 @@ public class StudentServlet extends HttpServlet {
             }
         }else {
             request.setAttribute("nameMesg",mapMesg.get("name"));
+            request.setAttribute("birthMesg",mapMesg.get("year"));
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("management_student/student/create.jsp");
         try {

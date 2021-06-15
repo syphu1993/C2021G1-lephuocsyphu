@@ -32,6 +32,7 @@
             <div class="form-group">
                 <label>Birthday</label>
                 <input type="date" name="birthday" class="form-control">
+                <p class="text-danger">${birthMesg}</p>
             </div>
         </div>
         <div>

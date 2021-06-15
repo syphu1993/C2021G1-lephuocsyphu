@@ -9,7 +9,7 @@ public interface IStudent {
     List<Student> findAll();
     Student findById(int id);
     Map<String,String> save(Student student);
-    boolean update(Student student);
+    Map<String,String> update(Student student);
     boolean delete(int id);
     List<Student> findByName(String name);
 }

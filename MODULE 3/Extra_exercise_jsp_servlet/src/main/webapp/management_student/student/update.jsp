@@ -30,10 +30,12 @@
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" value="${student.name}" class="form-control" >
+                <p class="text-danger">${nameMesg}</p>
             </div>
             <div class="form-group">
                 <label>Birthday</label>
                 <input type="date" value="${student.birthday}" name="birthday" class="form-control" >
+                <p class="text-danger">${birthMesg}</p>
             </div>
         </div>
         <div>
