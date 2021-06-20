@@ -24,7 +24,7 @@ public class ProductController {
         return "list";
     }
     @GetMapping("/create")
-    public String create(Model model) {
+    public String showNewForm(Model model) {
         model.addAttribute("product", new Product());
         return "/create";
     }
@@ -36,7 +36,7 @@ public class ProductController {
         return "redirect:/product";
     }
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
+    public String showFormEdit(@PathVariable int id, Model model) {
         model.addAttribute("product", iproduct.findById(id));
         return "/edit";
     }
@@ -48,7 +48,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
+    public String showInforDel(@PathVariable int id, Model model) {
         model.addAttribute("product", iproduct.findById(id));
         return "delete";
     }
