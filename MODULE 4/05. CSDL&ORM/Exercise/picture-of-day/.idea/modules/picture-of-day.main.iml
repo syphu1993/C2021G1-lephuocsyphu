@@ -4,19 +4,10 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.conf.xml" />
+          <unit-entry name="hibernate.conf.xml" value="ed72cdd6-70b2-4fce-a015-5f09272e4b53" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../../src/main/resources/hibernate.conf.xml" />
-      </configuration>
-    </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <datasource-mapping>
-          <factory-entry name="Entities" />
-        </datasource-mapping>
-        <naming-strategy-map />
       </configuration>
     </facet>
   </component>

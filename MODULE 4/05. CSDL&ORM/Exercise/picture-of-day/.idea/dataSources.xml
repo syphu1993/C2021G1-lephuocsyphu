@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="hibernate.conf.xml/Hibernate" uuid="ed72cdd6-70b2-4fce-a015-5f09272e4b53">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+E:/CODEGYM/C2021G1 LEPHUOCSYPHU/MODULE 4/05. CSDL&amp;ORM/Exercise/picture-of-day/src/main/resources/hibernate.conf.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/picture_of_day?createDatabaseIfNotExist=true</jdbc-url>
+    </data-source>
+  </component>
+</project>

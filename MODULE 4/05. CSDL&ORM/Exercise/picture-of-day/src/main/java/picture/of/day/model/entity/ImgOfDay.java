@@ -12,7 +12,7 @@ public class ImgOfDay {
     private String author;
     @Column(name = "feed_back")
     private String feedBack;
-    private Integer likes;
+    private int likes;
 
     public ImgOfDay() {
     }
@@ -23,11 +23,11 @@ public class ImgOfDay {
         this.feedBack = feedBack;
     }
 
-    public Integer getLikes() {
+    public int getLikes() {
         return likes;
     }
 
-    public void setLikes(Integer likes) {
+    public void setLikes(int likes) {
         this.likes = likes;
     }
 
