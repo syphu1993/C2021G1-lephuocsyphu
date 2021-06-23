@@ -16,6 +16,12 @@ public class Blog {
     public Blog() {
     }
 
+    public Blog(String author, Date postDate, String contents) {
+        this.author = author;
+        this.postDate = postDate;
+        this.contents = contents;
+    }
+
     public Blog(Integer id, String author, Date postDate, String contents) {
         this.id = id;
         this.author = author;
