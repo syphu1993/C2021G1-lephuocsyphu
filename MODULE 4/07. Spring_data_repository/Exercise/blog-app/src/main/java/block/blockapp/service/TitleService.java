@@ -32,4 +32,9 @@ public class TitleService implements ITitleService {
     public void remove(Integer id) {
     titleRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Title> findAllByTitle(Pageable pageable, String key) {
+        return null;
+    }
 }

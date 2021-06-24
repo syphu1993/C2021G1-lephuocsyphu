@@ -10,6 +10,11 @@
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
+<form action="/list" method="get">
+    Search by first title:
+    <input name="key" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
 <table border="1">
     <tr>
         <th>ID</th>
@@ -33,9 +38,9 @@
     </th:block>
 </table>
 <div>
-    <a th:href="@{/list(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <a th:href="@{/list(page=${blogs.number - 1},key=${keyValue})}" th:if="${blogs.hasPrevious()}">Previous</a>
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
-    <a th:href="@{/list(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
+    <a th:href="@{/list(page=${blogs.number + 1},key=${keyValue})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
 </body>
 </html>

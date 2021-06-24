@@ -41,8 +41,15 @@ public class BlogController {
     }
 
    @GetMapping(value = {"/list"})
-    public String showListBlog(@PageableDefault(size = 2)Pageable pageable, Model model){
-        Page<Blog> blogs=blogService.findAll(pageable);
+    public String showListBlog(@PageableDefault(size = 2)Pageable pageable,
+                               @RequestParam Optional<String> key,
+                               Model model){
+        String keyValue="";
+        if (key.isPresent()){
+            keyValue = key.get();
+        }
+        Page<Blog> blogs=blogService.findAllByTitle(pageable,keyValue);
+        model.addAttribute("keyValue",keyValue);
         model.addAttribute("blogs",blogs);
         return "/blog/list";
    }

@@ -13,4 +13,6 @@ public interface IGeneralBlog<T> {
     void save(T t);
 
     void remove(Integer id);
+
+    Page<T> findAllByTitle(Pageable pageable,String key);
 }

@@ -32,4 +32,9 @@ public class BlogService implements IBlogService {
     public void remove(Integer id) {
         blogRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Blog> findAllByTitle(Pageable pageable, String key) {
+        return blogRepository.findByTitle(pageable,"%"+ key + "%");
+    }
 }
