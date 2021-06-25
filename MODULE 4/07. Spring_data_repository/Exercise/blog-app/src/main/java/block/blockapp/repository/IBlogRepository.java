@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IBlogRepository extends PagingAndSortingRepository<Blog,Integer> {
-    @Query(value="select * \n" +
-            "from blogs join titles on blogs.title_id =titles.id\n" +
-            "where titles.name like :keyParam",nativeQuery=true)
-    Page<Blog> findByTitle(Pageable pageable, @Param("keyParam") String key);
+//    @Query(value="select blogs.id,blogs.author,blogs.post_date,blogs.contents,blogs.title_id " +
+//            "from blogs inner join titles on blogs.title_id =titles.id " +
+//            "where titles.`name` like :keyParam",nativeQuery=true)
+    Page<Blog> findAllByAuthorContaining(Pageable pageable,String key);
 }
