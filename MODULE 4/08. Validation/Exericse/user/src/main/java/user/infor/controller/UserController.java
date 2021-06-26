@@ -21,18 +21,14 @@ public class UserController {
 
     @GetMapping(value = "/")
     public String showNewForm(Model model){
-        model.addAttribute("userDato",new UserDto());
+        model.addAttribute("userDto",new UserDto());
         return "/create_user";
     }
-//    @PostMapping(value = "/create")
-//    public String createUser(@ModelAttribute User user,Model model){
-//        userService.save(user);
-//        return "create";
-//    }
+
     @PostMapping(value = "/create")
-    public String createUser(@ModelAttribute @Valid UserDto userDto,
+    public String createUser(@ModelAttribute("userDto") @Valid UserDto userDto,
                              BindingResult bindingResult){
-//        new UserDto().validate(userDto,bindingResult);
+        new UserDto().validate(userDto,bindingResult);
         if (bindingResult.hasErrors()){
             return "/create_user";
         }
