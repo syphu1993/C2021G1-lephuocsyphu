@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create-product">Create new product</a>
+<h1>Products</h1>
+<th:block th:if="${message}">
+    <p style="color: green" th:text="${message}"></p>
+</th:block>
+<!--<form action="/list" method="get">-->
+<!--    Search by first title:-->
+<!--    <input name="key" type="text"/>-->
+<!--    <input type="submit" value="Search"/>-->
+<!--</form>-->
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name product</th>
+        <th>Quantity</th>
+        <th>Type</th>
+        <th>Show </th>
+        <th>Edit</th>
+        <th>Del</th>
+    </tr>
+    <th:block th:each="product : ${products}">
+        <tr>
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.nameProduct}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="${product.type.nameType}"></td>
+            <td><a th:href="@{/show-product/__${product.id}__ }">Show</a></td>
+            <td><a th:href="@{/edit-product/__${product.id}__ }">Edit</a></td>
+            <td><a th:href="@{/del-product/__${product.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{/list(page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>
+    <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
+    <a th:href="@{/list(page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>
+</div>
+</body>
+</html>
