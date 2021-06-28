@@ -9,23 +9,14 @@
 <p>
     <a href="/home">Home</a>
 </p>
+<p>ID book:</p>
+<p th:text="${books.get().getId()}"></p>
+<p>Name book:</p>
+<p th:text="${books.get().getNameBook()}"></p>
 
-<form th:action="@{/edit-blog}" th:object="${book}" method="post">
-    <input th:type="hidden" name="id" th:field="*{id}">
-    <table>
-        <tr>
-            <td>Name book:</td>
-            <td><input type="text" th:field="*{nameBook}"/></td>
-        </tr>
-        <tr>
-            <td>Date:</td>
-            <td><input type="text" th:field="*{quantity}"/></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Return this book"></td>
-        </tr>
-    </table>
+<form action="/return-book" method="post">
+    <input type="text" name="code">
+    <input  type="submit" value="Return">
 </form>
 </body>
 </html>
