@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <meta charset="UTF-8">
+    <title>Detail product</title>
+</head>
+<body>
+<p>
+    <a href="/shop">Shop</a>
+</p>
+<div class="card" style="width: 18rem ">
+    <img class="card-img-top" th:src="${product.get().imgLink}" style="height: 350px;width: 300px" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size: 30px" th:text="${product.get().name}"></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p style="font-weight: bold">Decription: <label th:text="${product.get().description}"></label></p></li>
+        <li class="list-group-item"><p style="font-weight: bold">Price: <label style="color: red" th:text="${product.get().price}"></label> <label> USD</label></p></li>
+    </ul>
+    <div class="card-body">
+        <a th:href="@{/add/__${product.get().id}__(action='detail')}"><button type="button" class="btn btn-info">Buy Now</button></a><br><br>
+        <a href="/shopping-cart"><button type="button" class="btn btn-success">Basket Product</button></a><br>
+    </div>
+</div>
+</body>
+</html>
