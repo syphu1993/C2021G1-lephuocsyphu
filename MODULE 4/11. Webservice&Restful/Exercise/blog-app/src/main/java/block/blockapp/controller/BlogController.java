@@ -44,7 +44,7 @@ public class BlogController {
     public String showListBlog(@PageableDefault(size = 2)Pageable pageable,
                                @RequestParam Optional<String> key,
                                Model model){
-        String  keyValue= "";
+        String keyValue="";
         if (key.isPresent()){
             keyValue = key.get();
         }
