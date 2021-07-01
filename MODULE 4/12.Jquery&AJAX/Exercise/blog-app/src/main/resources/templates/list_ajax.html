@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/mdb.min.css">
+</head>
+<body>
+
+    Search by first title:
+    <input name="key" type="text" id="keyFind"/>
+    <button id="findByTitle">Search</button>
+
+<div class="container mt-4">
+    <div class="row w-50 mx-auto">
+        <div class="col-lg-12">
+            <h2 class="btn-success text-danger" style="color: red;">List blog</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date Made</th>
+                    <th scope="col">Title</th>
+                </tr>
+                </thead>
+                <tbody id="tableBodyStudent">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    <div class="container mt-4">
+        <button id="showLess" class="btn btn-info">First Page</button>
+    </div>
+    <div class="container mt-4">
+        <button id="showMore" class="btn btn-success">Show More</button>
+    </div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/mdb.min.js"></script>
+<script>
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET", //GET, DELETE, PUT...
+        url: "http://localhost:8080/restBlog/list",
+        success: function(resultSuccess){
+            let list = resultSuccess.content;
+            console.log("Success");
+            let resultHTML = "";
+            for (let i = 0; i < list.length; i++) {
+                resultHTML += "<tr>";
+                resultHTML += "<td>" + list[i].id + "</td>";
+                resultHTML += "<td>" + list[i].author + "</td>";
+                resultHTML += "<td>" + list[i].postDate + "</td>";
+                resultHTML += "<td>" + list[i].title.name + "</td>";
+                resultHTML += "</tr>";
+            }
+
+            console.log(resultHTML);
+            // innerHTML
+            $("#tableBodyStudent").html(resultHTML);
+        },
+        error: function(resultError) {
+            console.log("Error: ");
+            console.log(resultError);
+        }
+    });
+    $("#findByTitle").click(function() {
+
+        // .value
+        let titleName = $("#keyFind").val();
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/restBlog/findByTitle?key="+titleName,
+
+            success: function(resultSuccess){
+                let list = resultSuccess.content;
+                console.log("Success");
+                let resultHTML = "";
+                for (let i = 0; i < list.length; i++) {
+                    resultHTML += "<tr>";
+                    resultHTML += "<td>" + list[i].id + "</td>";
+                    resultHTML += "<td>" + list[i].author + "</td>";
+                    resultHTML += "<td>" + list[i].postDate + "</td>";
+                    resultHTML += "<td>" + list[i].title.name + "</td>";
+                    resultHTML += "</tr>";
+                }
+
+                console.log(resultHTML);
+                // innerHTML
+                $("#tableBodyStudent").html(resultHTML);
+            },
+            error: function(resultError) {
+                console.log("Error: ");
+                console.log(resultError);
+            }
+        });
+    });
+    let page=0;
+    $("#showMore").click(function() {
+        page = page+1;
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/restBlog/list?page="+page,
+            success: function(resultSuccess){
+                let list = resultSuccess.content;
+                console.log("Success");
+                let resultHTML = "";
+                for (let i = 0; i < list.length; i++) {
+                    resultHTML += "<tr>";
+                    resultHTML += "<td>" + list[i].id + "</td>";
+                    resultHTML += "<td>" + list[i].author + "</td>";
+                    resultHTML += "<td>" + list[i].postDate + "</td>";
+                    resultHTML += "<td>" + list[i].title.name + "</td>";
+                    resultHTML += "</tr>";
+                }
+
+                $("#tableBodyStudent").append(resultHTML);
+            },
+            error: function(resultError) {
+                console.log("Error: ");
+                console.log(resultError);
+            }
+        });
+    });
+    $("#showLess").click(function() {
+        page = 0;
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/restBlog/list?page="+page,
+            success: function(resultSuccess){
+                let list = resultSuccess.content;
+                console.log("Success");
+                let resultHTML = "";
+                for (let i = 0; i < list.length; i++) {
+                    resultHTML += "<tr>";
+                    resultHTML += "<td>" + list[i].id + "</td>";
+                    resultHTML += "<td>" + list[i].author + "</td>";
+                    resultHTML += "<td>" + list[i].postDate + "</td>";
+                    resultHTML += "<td>" + list[i].title.name + "</td>";
+                    resultHTML += "</tr>";
+                }
+
+                $("#tableBodyStudent").html(resultHTML);
+            },
+            error: function(resultError) {
+                console.log("Error: ");
+                console.log(resultError);
+            }
+        });
+    });
+</script>
+</body>
+</html>
