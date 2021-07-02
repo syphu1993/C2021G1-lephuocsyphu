@@ -16,6 +16,13 @@ public class Smartphone {
     public Smartphone() {
     }
 
+    public Smartphone(Long id, String producer, String model, double price) {
+        this.id = id;
+        this.producer = producer;
+        this.model = model;
+        this.price = price;
+    }
+
     public Smartphone(String producer, String model, double price) {
         this.producer = producer;
         this.model = model;
