@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Furama</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div class="position-fixed w-100" style="top: 0" th:fragment="header">
+    <div class="container-fluid bg-info" style="height: 80px">
+        <div class="row">
+            <div class="card col-lg-2 ">
+                <img src="/img/logo.PNG" style="height: 80px">
+            </div>
+            <div class="col-lg-8">
+
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center text-center my-4">
+                <h4> Nguyễn văn A</h4>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark align-self-end justify-content-between">
+        <ul class="navbar-nav">
+            <li class="nav-item" style="margin-left:62px">
+                <a class="navbar-brand text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item mr-3" style="margin-left:75px ">
+                <a class="nav-link" href="/employee">Employee</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/customer">Customer</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/service">Service</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/contract">Contract</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2" action="/">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </nav>
+</div>
+<script src="../../static/js/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/mdb.min.js"></script>
+</body>
+</html>
