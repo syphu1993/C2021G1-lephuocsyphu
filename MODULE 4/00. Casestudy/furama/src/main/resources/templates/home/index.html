@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div th:replace="~{/home/abc::header}"></div>
+<div th:replace="~{/home/header::header}"></div>
 <div class="container-fluid" style="padding-top: 150px;">
     <div class="row">
         <div class="col-lg-2 bg-info"
@@ -28,11 +28,7 @@
     </div>
 </div>
 
-<footer>
-    <div class="container-fluid bg-dark position-fixed text-center" style="height: 40px ; bottom: 0">
-        <h6 class="mt-2">Footer</h6>
-    </div>
-</footer>
+<div th:replace="~{/home/footer::footer}"></div>
 <script src="../../static/js/jquery-3.6.0.min.js"></script>
 <script src="../../static/js/mdb.min.js"></script>
 </body>

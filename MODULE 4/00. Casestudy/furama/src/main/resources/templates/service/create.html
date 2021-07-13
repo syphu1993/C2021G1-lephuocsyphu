@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Services</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div th:replace="~{/home/header::header}"></div>
+
+<div style="width: 40%; margin-left: 30%;border: 1px solid black; margin-bottom: 80px;margin-top: 165px">
+
+    <form th:action="@{/create-service}" th:object="${serviceDto}" method="post" style="padding: 3%">
+        <div>
+            <h4 >Add Service</h4>
+        </div>
+        <th:block th:if="${message}">
+            <p class="text-success" th:text="${message}"></p>
+        </th:block>
+        <div>
+            <div class="form-group">
+                <label>Code</label>
+                <input th:field="*{code}" type="text" name="code" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></p>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input th:field="*{name}" type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Area</label>
+                <input th:field="*{area}" type="text" name="area" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></p>
+            </div>
+            <div class="form-group">
+                <label>Cost</label>
+                <input th:field="*{cost}" type="text" name="cost" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></p>
+            </div>
+            <div class="form-group">
+                <label>Max Peple</label>
+                <input th:field="*{maxPeople}" type="text" name="maxPeople" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}"></p>
+            </div>
+            <div class="form-group">
+                <label>Standard</label>
+                <input th:field="*{standard}" type="text" name="standard" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Decription</label>
+                <input th:field="*{decription}" type="text" name="decription" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Area Pool</label>
+                <input th:field="*{areaPool}" type="text" name="pool" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('areaPool')}" th:errors="*{areaPool}"></p>
+            </div>
+            <div class="form-group">
+                <label>Number Floor</label>
+                <input th:field="*{numberFloor}" type="text" name="numberFloor" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('numberFloor')}" th:errors="*{numberFloor}"></p>
+            </div>
+            <div class="form-group">
+                <label>Type Service</label>
+                <select th:field="*{serviceType}" name="typeSer" class="form-control">
+                    <option th:each="type : ${typeServices}" th:value="${type.typeId}" th:text="${type.name}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Type Rent</label>
+                <select th:field="*{rentType}" name="typeSer" class="form-control">
+                    <option th:each="type2 : ${typeRents}" th:value="${type2.getRentId()}" th:text="${type2.getName()}"></option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <a href="/service"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <input type="submit" class="btn btn-success w-25" value="Add">
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{/home/footer::footer}"></div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/mdb.min.js"></script>
+</body>
+</html>

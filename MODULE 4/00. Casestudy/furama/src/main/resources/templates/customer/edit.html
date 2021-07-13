@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Customers</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div th:replace="~{/home/header::header}"></div>
+
+<div style="width: 40%; margin-left: 30%;border: 1px solid black; margin-bottom: 80px;margin-top: 165px">
+
+    <form th:action="@{/edit-customer}" th:object="${customerDto}" method="post" style="padding: 3%">
+        <div>
+            <h4 >Update Customer</h4>
+        </div>
+        <th:block th:if="${message}">
+            <p class="text-success" th:text="${message}"></p>
+        </th:block>
+        <div>
+                <input th:type="hidden" th:field="*{id}" type="text" name="id">
+            <div class="form-group">
+                <label>Type Of Customer</label>
+                <select th:field="*{typeCustomer}" name="typeOfCustomer" class="form-control">
+                    <option th:each="type : ${listType}" th:value="${type.id}" th:text="${type.nameType}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input th:field="*{name}" type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Birthday</label>
+                <input th:field="*{birthday}" type="date" name="birthday" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <select th:field="*{gender}" name="gender" class="form-control">
+                    <option th:text="Male" th:value="Male"></option>
+                    <option th:text="Female" th:value="Female"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Id Card</label>
+                <input th:field="*{idCard}" type="text" name="idCard" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input th:field="*{phone}" type="text" name="phone" class="form-control" placeholder="090|091|(84)+90|(84)+91 xxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input th:field="*{email}" type="text" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input th:field="*{address}" type="text" name="address" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Code</label>
+                <input th:field="*{code}" type="text" name="code" class="form-control" placeholder="KH-0000">
+            </div>
+        </div>
+        <div>
+            <a href="/customer"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <input type="submit" class="btn btn-success w-25" value="Update">
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{/home/footer::footer}"></div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/mdb.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contract</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div th:replace="~{/home/header::header}"></div>
+
+<div style="width: 40%; margin-left: 30%;border: 1px solid black; margin-bottom: 80px;margin-top: 165px">
+
+    <form th:action="@{/create-contract}" th:object="${contractDto}" method="post" style="padding: 3%">
+        <div>
+            <h4 >Add Contract</h4>
+        </div>
+        <th:block th:if="${message}">
+            <p class="text-success" th:text="${message}"></p>
+        </th:block>
+        <div>
+
+            <div class="form-group">
+                <label>Start Date:</label>
+                <input th:field="*{startDay}" type="date" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>End Date:</label>
+                <input th:field="*{endDay}" type="date" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Deposit:</label>
+                <input th:field="*{deposit}" type="text" class="form-control" >
+                <p style="color: red" th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}"></p>
+            </div>
+            <div class="form-group">
+                <label>Total Money:</label>
+                <input th:field="*{totalMoney}" type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Employee name:</label>
+                <select th:field="*{employee}" class="form-control">
+                    <option th:each="e : ${employees}" th:value="${e.id}" th:text="${e.name}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Customer name:</label>
+                <select th:field="*{customer}" class="form-control">
+                    <option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Service name:</label>
+                <select th:field="*{service}" name="division" class="form-control">
+                    <option th:each="s : ${services}" th:value="${s.id}" th:text="${s.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <a href="/contract"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <input type="submit" class="btn btn-success w-25" value="Add">
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{/home/footer::footer}"></div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/mdb.min.js"></script>
+</body>
+</html>
