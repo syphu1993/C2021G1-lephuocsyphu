@@ -46,17 +46,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable();
-
+        http.csrf().disable().
         // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
-
+        authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests().antMatchers("/employee","/customer","/service","/contract").access("hasAnyRole('ROLE_DIRECTOR', 'ROLE_MANAGER', 'ROLE_STAFF')");
-
+        http.authorizeRequests().antMatchers("/employee/**","/customer/**","/service/**","/contract/**").access("hasAnyRole('ROLE_DIRECTOR', 'ROLE_MANAGER', 'ROLE_STAFF')");
         // Trang chỉ dành cho ADMIN
         http.authorizeRequests().antMatchers("/create-employee","/edit-employee/{id}","/del-employee").access("hasRole('ROLE_DIRECTOR')");
+//        authorizeRequests().antMatchers("/create-employee","/edit-employee/{id}","/del-employee2").hasAuthority("ROLE_DIRECTOR")
 
 //        http.authorizeRequests().antMatchers("/create-employee","/edit-employee","/del-employee").access("hasRole('ROLE_MANAGER')");
 
@@ -76,6 +74,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 // Cấu hình cho Logout Page.
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
+
+
+
 
         // Cấu hình Remember Me.
         http.authorizeRequests().and() //

@@ -48,7 +48,6 @@
                 </thead>
                 <tbody>
                     <tr th:each="employee,loop:${employees}">
-                        <th:block th:if="${employee.flag==1}">
                             <td th:text="${loop.count}"></td>
                             <td th:text="${employee.name}"></td>
                             <td th:text="${employee.birthday}"></td>
@@ -60,7 +59,6 @@
                                 <a th:href="@{/edit-employee/__${employee.id}__ }" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
                                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><button th:data-id="${employee.id}" th:data-name="${employee.name}" onclick="deleteEmployee(this.getAttribute('data-id'),this.getAttribute('data-name'))" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
                             </td>
-                        </th:block>
                     </tr>
                 </tbody>
             </table>

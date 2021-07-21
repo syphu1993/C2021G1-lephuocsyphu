@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Questions</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div th:replace="~{/home/header::header}"></div>
+
+<div style="width: 40%; margin-left: 30%;border: 1px solid black; margin-bottom: 80px;margin-top: 165px">
+
+    <form th:action="@{/question-create}" th:object="${questionDto}" method="post" style="padding: 3%">
+        <div>
+            <h4 >Add Question</h4>
+        </div>
+        <th:block th:if="${message}">
+            <p class="text-success" th:text="${message}"></p>
+        </th:block>
+        <div>
+            <div class="form-group">
+                <label>Type Of Customer</label>
+                <select th:field="*{questionType}" name="typeOfCustomer" class="form-control">
+                        <option th:each="type : ${questionTypes}" th:value="${type.id}" th:text="${type.nameType}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input th:field="*{title}" type="text" name="title" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            </div>
+            <div class="form-group">
+                <label>Content Question</label>
+                <textarea th:field="*{contentQuestion}" type="text" name="questionC" class="form-control"></textarea>
+<!--                <input th:field="*{contentQuestion}" type="text" name="questionC" class="form-control">-->
+                <p style="color: red" th:if="${#fields.hasErrors('contentQuestion')}" th:errors="*{contentQuestion}"></p>
+            </div>
+            <div class="form-group">
+                <label>Content Answer</label>
+                <textarea th:field="*{getContentAnswer}" type="text" name="questionA" class="form-control"></textarea>
+<!--                <input th:field="*{getContentAnswer}" type="text" name="questionA" class="form-control">-->
+                <p style="color: red" th:if="${#fields.hasErrors('getContentAnswer')}" th:errors="*{getContentAnswer}"></p>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select th:field="*{statuses}" name="status" class="form-control">
+                    <option th:text="Wait" th:value="Wait"></option>
+                    <option th:text="Done" th:value="Done"></option>
+                </select>
+                <p style="color: red" th:if="${#fields.hasErrors('statuses')}" th:errors="*{statuses}"></p>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input th:field="*{dateMade}" type="date" name="day" class="form-control">
+                <p style="color: red" th:if="${#fields.hasErrors('dateMade')}" th:errors="*{dateMade}"></p>
+            </div>
+        </div>
+        <div>
+            <a href="/questions"><input type="button" class="btn btn-danger w-25" value="Cancel"></a>
+            <input type="submit" class="btn btn-success w-25" value="Add">
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{/home/footer::footer}"></div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/mdb.min.js"></script>
+</body>
+</html>

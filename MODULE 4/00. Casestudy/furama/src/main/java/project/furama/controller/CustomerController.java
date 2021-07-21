@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import project.furama.dto.CustomerDto;
 import project.furama.model.Customer;
+import project.furama.model.Employee;
 import project.furama.model.TypeCustomer;
 import project.furama.service.CustomerService;
 import project.furama.service.TypeCustomerService;
@@ -39,14 +40,19 @@ public class CustomerController {
 
     @GetMapping(value = "/customer")
     public String showListCustomer(@PageableDefault(size = 5) Pageable pageable,
-                                   @RequestParam Optional<String> key,
+                                   @RequestParam Optional<String> keyName, @RequestParam Optional<String> typeOfCustomer,
                                    Model model){
         String keyValue ="";
-        if (key.isPresent()){
-            keyValue=key.get();
+        String keyTypeValue ="";
+        if (keyName.isPresent()){
+            keyValue=keyName.get();
         }
-        Page<Customer> customers = customerService.findAllByName(pageable,keyValue);
+        if (typeOfCustomer.isPresent()){
+            keyTypeValue=typeOfCustomer.get();
+        }
+        Page<Customer> customers = customerService.findAllByName(pageable,keyValue,keyTypeValue);
         model.addAttribute("keyValue",keyValue);
+        model.addAttribute("keyTypeValue",keyTypeValue);
         model.addAttribute("customers",customers);
         return "customer/list";
     }
@@ -88,9 +94,18 @@ public class CustomerController {
     }
     @PostMapping(value = "/del-customer")
     public String  delCustomer(@RequestParam Integer  id){
-        Optional<Customer> customer = this.customerService.findById(id);
+        Optional<Customer> customer = customerService.findById(id);
         customer.get().setFlag(0);
         this.customerService.save(customer.get());
         return "redirect:/customer";
     }
+
+    @GetMapping(value = "/show-customer/{id}")
+    public String showInforCustomer(@PathVariable Integer id,Model model){
+        Optional<Customer> customer = this.customerService.findById(id);
+        model.addAttribute("customer",customer.get());
+        return "customer/show";
+    }
+
+
 }

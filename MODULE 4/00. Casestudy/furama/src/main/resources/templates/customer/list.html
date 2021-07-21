@@ -19,17 +19,31 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-3">
                         <h2>Manage <b>Customers</b></h2>
                     </div >
-                    <div class="col-sm-3">
+                    <div class="col-sm-7 row">
                         <form style="margin-top: 0.0rem !important;" class="form-inline my-2" action="/customer" method="get">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="key">
-                            <input class="btn btn-success" type="submit" value="Search">
+                            <div class="col-sm-7">
+                                <p>Name Customer</p>
+                                <input class="form-control" type="text" placeholder="Search" name="keyName">
+                            </div>
+                            <div class="col-sm-4">
+                                <p>Type Of Customer</p>
+                                <select class="form-control"  name="typeOfCustomer" >
+                                    <option th:each="type : ${listType}" th:value="${type.id}" th:text="${type.nameType}"></option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <input style="margin-top: 2.5rem !important" class="btn btn-success mt-4" type="submit" value="Search">
+                            </div>
                         </form>
+
                     </div>
                     <div class="col-sm-2">
-                        <a href="/create-customer" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
+                        <div style="margin-top: 2.5rem !important">
+                            <a href="/create-customer" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +63,6 @@
                 </thead>
                 <tbody>
                     <tr th:each="customer,loop:${customers}">
-                        <th:block th:if="${customer.flag==1}">
                             <td th:text="${loop.count}"></td>
                             <td th:text="${customer.code}"></td>
                             <td th:text="${customer.typeCustomer.nameType}"></td>
@@ -61,8 +74,8 @@
                             <td>
                                 <a th:href="@{/edit-customer/__${customer.id}__ }" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Edit</button></a>
                                 <a href="#deleteCustomerModal" class="delete" data-toggle="modal"><button th:data-id="${customer.id}" th:data-name="${customer.name}" onclick="deleteCustomer(this.getAttribute('data-id'),this.getAttribute('data-name'))" class="material-icons bg-danger" data-toggle="tooltip" title="" data-original-title="Edit">Del</button></a>
+                                <a th:href="@{/show-customer/__${customer.id}__ }" class="edit"><button class="material-icons bg-success" data-original-title="Edit">Show</button></a>
                             </td>
-                        </th:block>
                     </tr>
                 </tbody>
             </table>

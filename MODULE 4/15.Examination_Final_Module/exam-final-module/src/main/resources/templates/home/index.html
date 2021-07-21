@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Furama</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+
+<div th:replace="~{/home/header::header}"></div>
+<div class="container-fluid" style="padding-top: 150px;">
+    <div class="row">
+        <div class="col-lg-2 bg-info"
+             style="height: calc(100vh - 176px); overflow: auto;">
+            <div>
+                <h1> Item 1</h1>
+            </div>
+            <div>
+                <h1> Item 2</h1>
+            </div>
+            <div>
+                <h1> Item 3</h1>
+            </div>
+        </div>
+        <div class="col-lg-10">
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{/home/footer::footer}"></div>
+<script src="../../static/js/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/mdb.min.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ public interface ICustomerService {
 
     void remove(Integer id);
 
-    Page<Customer> findAllByName(Pageable pageable,String key);
+    Page<Customer> findAllByName(Pageable pageable,String key1,String key2);
 
     Iterable<Customer> findAllNoPage();
 }

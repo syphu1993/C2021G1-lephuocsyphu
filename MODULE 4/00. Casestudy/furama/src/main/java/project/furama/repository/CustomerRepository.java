@@ -11,6 +11,6 @@ import project.furama.model.Customer;
 
 @Repository
 public interface CustomerRepository extends PagingAndSortingRepository<Customer,Integer> {
-   @Query(value="select * from customers where flag=1 and `name` like :keyPara",nativeQuery=true)
-   Page<Customer> findAllCustomerByNameContaining(Pageable pageable,@Param("keyPara") String key);
+   @Query(value="select * from customers where flag=1 and `name` like :keyPara1 and type_id like :keyPara2",nativeQuery=true)
+   Page<Customer> findAllCustomerByNameContaining(Pageable pageable,@Param("keyPara1") String key1,@Param("keyPara2") String key2);
 }
