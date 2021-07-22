@@ -1,0 +1,10 @@
+
+<div [style.background-color]="color" style="height: 500rem">
+  <select [value]="color"
+          (change)="oneSelectColor($event.target.value)">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>
+  </select>
+</div>
+
