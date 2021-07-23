@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Point</th>
+    <th>Rank</th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td>{{student.id}}</td>
+    <td>{{student.name|uppercase}}</td>
+    <td>{{student.dateOfBirth|date: "dd-MM-yyyy"}}</td>
+    <td>{{student.point}}</td>
+    <td>
+      <p *ngIf="student.point>=8">Good</p>
+      <p *ngIf="student.point<8">Not Good</p>
+    </td>
+  </tr>
+</table>
