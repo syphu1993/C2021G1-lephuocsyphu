@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-calculator-app": {
+    "angular-hackernews-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-calculator-app",
+            "outputPath": "dist/angular-hackernews-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-calculator-app:build"
+            "browserTarget": "angular-hackernews-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-calculator-app:build:production"
+              "browserTarget": "angular-hackernews-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-calculator-app:build"
+            "browserTarget": "angular-hackernews-app:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-calculator-app:serve"
+            "devServerTarget": "angular-hackernews-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-calculator-app:serve:production"
+              "devServerTarget": "angular-hackernews-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-calculator-app"
+  "defaultProject": "angular-hackernews-app"
 }
