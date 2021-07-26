@@ -1,0 +1,6 @@
+
+<label *ngFor="let ob of arr" >
+  <input type="button" [value]="ob" [style]="ob<=pointer?'background-color: red':''" (click)="handlerClick($event)"
+  (mouseenter)="handerHover($event)" (mouseleave)="handlerMouseOver($event)">
+</label>
+<app-rating-bar [point]="pointer"></app-rating-bar>
