@@ -1,0 +1,57 @@
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" formControlName="email">
+  </p>
+  <div style="color: red" *ngFor="let validate of validateMeggage.email">
+    <p *ngIf="accountForm.get('email')?.hasError(validate.type)&&accountForm.get('email')?.touched">{{validate.message}}</p>
+  </div>
+  <div formGroupName="pass">
+    <p>
+      <label for="passWord">Password </label>
+      <input type="password" id="passWord" name="passWord" formControlName="passWord">
+    </p>
+    <div style="color: red" *ngFor="let validate of validateMeggage.passWord">
+      <p *ngIf="accountForm.get('pass').get('passWord')?.hasError(validate.type)&&accountForm.get('pass').get('passWord')?.touched">{{validate.message}}</p>
+    </div>
+
+    <p>
+      <label for="confirmPass">Confirm Password </label>
+      <input type="password" id="confirmPass" name="confirmPassWord" formControlName="confirmPassWord">
+    </p>
+    <div style="color: red" *ngFor="let validate of validateMeggage.pass">
+      <p *ngIf="accountForm.get('pass')?.hasError(validate.type)&&accountForm.get('pass')?.touched">{{validate.message}}</p>
+    </div>
+  </div>
+
+  <p>
+    <label for="gender">Gender </label>
+    <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male
+    <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female
+  </p>
+
+  <p>
+    <label for="age">Age </label>
+    <input type="number" id="age" name="age" formControlName="age">
+  </p>
+  <div style="color: red" *ngFor="let validate of validateMeggage.age">
+    <p *ngIf="accountForm.get('age')?.hasError(validate.type)&&accountForm.get('age')?.touched">{{validate.message}}</p>
+  </div>
+  <p>
+    <label for="phone">Phone </label>
+    <input type="text" id="phone" name="phone" formControlName="phone">
+  </p>
+
+  <p>
+    <label for="country">country </label>
+    <select id="country" name="country" formControlName="country">
+      <option *ngFor="let c of countryList" [ngValue]="c">{{c}}</option>
+    </select>
+  </p>
+
+  <p>
+    <button type="submit" [disabled]="accountForm.valid">Submit</button>
+  </p>
+
+</form>
