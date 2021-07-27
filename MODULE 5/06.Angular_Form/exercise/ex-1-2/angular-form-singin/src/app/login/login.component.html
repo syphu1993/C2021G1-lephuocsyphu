@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" formControlName="email">
+  </p>
+  <div style="color: red" *ngIf="loginForm.controls.email.hasError('required')&&loginForm.controls.email.touched">Email is not empty!</div>
+  <div style="color: red" *ngIf="loginForm.controls.email.hasError('email')&&loginForm.controls.email.touched">Email is not format!</div>
+  <p>
+    <label for="passWord">password </label>
+    <input type="text" id="passWord" name="passWord" formControlName="passWord">
+  </p>
+  <div style="color: red" *ngIf="loginForm.controls.passWord.hasError('required')&&loginForm.controls.passWord.touched">Password is not empty!</div>
+  <div style="color: red" *ngIf="loginForm.controls.passWord.hasError('minlength')&&loginForm.controls.passWord.touched">Password is wrong length!</div>
+  <p>
+    <button type="submit">Login</button>
+  </p>
+
+</form>
