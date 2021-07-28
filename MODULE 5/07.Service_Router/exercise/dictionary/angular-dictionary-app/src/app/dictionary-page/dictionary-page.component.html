@@ -1,0 +1,5 @@
+<p>dictionary-page works!</p>
+<div *ngFor="let word of wordList">
+  <a [routerLink]="['', word.word]">{{word.word}}</a>
+</div>
+
