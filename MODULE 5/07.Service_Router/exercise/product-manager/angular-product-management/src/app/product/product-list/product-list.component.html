@@ -5,7 +5,8 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
-    <td>Action</td>
+    <td>Update</td>
+    <td>Delete</td>
   </tr>
   <tr *ngFor="let product of products; index as i">
     <td>{{i + 1}}</td>
@@ -13,5 +14,6 @@
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
     <td><a [routerLink]="['/product/edit/', product.id]">Update</a></td>
+    <td><a [routerLink]="['/product/del/', product.id]">Delete</a></td>
   </tr>
 </table>

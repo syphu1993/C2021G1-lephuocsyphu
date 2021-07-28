@@ -47,6 +47,13 @@ export class ProductService {
       }
     }
   }
+  deleteProduct(product){
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id === product.id) {
+        this.products.splice(i, 1);
+      }
+    }
+  }
   findById(id: number){
     for (let product of this.products){
       if (product.id == id){
