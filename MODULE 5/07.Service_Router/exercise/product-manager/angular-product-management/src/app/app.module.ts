@@ -8,6 +8,8 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProductUpdateComponent } from './product/product-update/product-update.component';
 import { ProductDelComponent } from './product/product-del/product-del.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { ProductDelComponent } from './product/product-del/product-del.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
