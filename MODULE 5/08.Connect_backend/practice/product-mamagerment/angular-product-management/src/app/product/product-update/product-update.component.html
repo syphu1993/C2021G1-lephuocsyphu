@@ -1,0 +1,39 @@
+<div>
+  <h1>update phẩm mới</h1>
+  <form [formGroup]="productForm" (ngSubmit)="submitUpdate()">
+    <table>
+      <tr>
+        <td>Mã sản phẩm:</td>
+        <td><input readonly type="number" formControlName="id"  class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Tên sản phẩm:</td>
+        <td class="w-50"><input type="text" formControlName="name" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Giá sản phẩm</td>
+        <td><input type="number" formControlName="price" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Mô tả về sản phẩm</td>
+        <td><input type="text" formControlName="description" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>
+          <select formControlName="category" name="category" class="form-control" [compareWith]="compareFn">
+            <option *ngFor="let c of category" [ngValue]="c" >{{c.name}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button type="submit" class="btn btn-success mt-2 ml-0" >Update</button>
+          <button type="button" (click)="dialogRef.close(false)" class="btn btn-danger mt-2 ml-2">Cancel</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+

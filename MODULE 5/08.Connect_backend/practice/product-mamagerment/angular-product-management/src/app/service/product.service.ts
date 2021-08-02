@@ -19,4 +19,11 @@ export class ProductService {
   deleteProduct(id: number): Observable<Product> {
     return this.htpt.delete<Product>(`${this.api_url}/${id}`);
   }
+  findById(id: number): Observable<Product> {
+    return this.htpt.get<Product>(`${this.api_url}/${id}`);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Product> {
+    return this.htpt.put<Product>(`${this.api_url}/${id}`, product);
+  }
 }

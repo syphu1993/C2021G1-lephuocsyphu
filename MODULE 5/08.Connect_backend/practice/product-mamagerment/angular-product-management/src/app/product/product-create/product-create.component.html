@@ -1,21 +1,33 @@
-<h1>Tạo sản phẩm mới</h1>
-<form [formGroup]="productForm" (ngSubmit)="submit()">
+<div style="width: 40%; margin-left: 30%;border: 1px solid black; margin-bottom: 80px;margin-top: 165px">
+<h1 class="mt-2 ml-2">Tạo sản phẩm mới</h1>
+<form [formGroup]="productForm" (ngSubmit)="submit()" style="padding: 3%">
   <table>
     <tr>
       <td>Tên sản phẩm:</td>
-      <td><input type="text" formControlName="name"></td>
+      <td class="w-75"><input type="text" formControlName="name" class="form-control"></td>
     </tr>
     <tr>
       <td>Giá sản phẩm</td>
-      <td><input type="number" formControlName="price"></td>
+      <td><input type="number" formControlName="price" class="form-control"></td>
     </tr>
     <tr>
       <td>Mô tả về sản phẩm</td>
-      <td><input type="text" formControlName="description"></td>
+      <td><input type="text" formControlName="description" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>
+        <select formControlName="category" name="category" class="form-control">
+          <option *ngFor="let c of category" [ngValue]="c" >{{c.name}}</option>
+        </select>
+      </td>
     </tr>
     <tr>
       <td></td>
-      <td><button>Tạo mới</button></td>
+      <td><button class="btn btn-success w-25 mt-3 mr-2">Tạo mới</button>
+        <a routerLink="/product/list" ><button class="btn btn-danger w-25 mt-3 ">Cancel</button></a>
+      </td>
     </tr>
   </table>
 </form>
+</div>

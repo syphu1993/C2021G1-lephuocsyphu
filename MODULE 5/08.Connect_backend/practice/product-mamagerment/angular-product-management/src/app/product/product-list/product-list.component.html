@@ -1,20 +1,40 @@
-<h1>Danh sách sản phẩm</h1>
-<table style="border: solid red 1px" border="1">
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td>Giá</td>
-    <td>Mô tả</td>
-<!--    <td>Update</td>-->
-    <td>Delete</td>
-  </tr>
-  <tr *ngFor="let product of products; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{product.name}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.description}}</td>
-<!--    <td><a (click)="onUpdateProductHandler(product)">Update</a></td>-->
-    <td><a  (click)="onDeleteHandler(product.id)">Delete</a></td>
-  </tr>
-</table>
+<div style="padding-top: 150px">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-3">
+      <h2>Product List</h2>
+    </div >
+    <div class="col-sm-7">
+    </div>
+    <div class="col-sm-2">
+      <div style="margin-top: 2.5rem !important">
+        <a routerLink="/product/create" class="btn btn-success"><i class="material-icons"></i> <span>Add New Question</span></a>
+      </div>
+    </div>
+   </div>
+<!--  <h1>Danh sách sản phẩm</h1>-->
+<!--  <a routerLink="/product/create">Tạo mới sản phẩm</a>-->
+  <table class="table table-striped">
+    <tr>
+      <th>STT</th>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Mô tả</th>
+      <th>Catelogy</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let product of products | paginate: config; index as i">
+      <td><p>{{i + 1}}</p></td>
+      <td><p>{{product.name}}</p></td>
+      <td><p>{{product.price}}</p></td>
+      <td><p>{{product.description}}</p></td>
+      <td><p>{{product.category.name}}</p></td>
+      <td><a (click)="onUpdateProductHandler(product)"><button class="btn btn-success m-1 p-1">Update</button></a>
+        <a  (click)="onDeleteHandler(product.id)"><button class="btn btn-danger m-1 p-1">Delete</button></a>
+      </td>
+    </tr>
+  </table>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div>
+</div>
 

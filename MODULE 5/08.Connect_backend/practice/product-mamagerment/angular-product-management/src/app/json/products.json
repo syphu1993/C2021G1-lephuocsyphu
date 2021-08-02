@@ -3,14 +3,86 @@
     {
       "id": 1,
       "name": "IPhone 12",
-      "price": 2400000,
-      "description": "New"
+      "price": 2300000,
+      "description": "New22",
+      "category": {
+        "id": 3,
+        "name": "OPPOP"
+      }
     },
     {
       "id": 2,
       "name": "IPhone 11",
       "price": 1560000,
-      "description": "Like new"
+      "description": "Like new",
+      "category": {
+        "id": 2,
+        "name": "SamSung"
+      }
+    },
+    {
+      "id": 5,
+      "name": "dd",
+      "price": 11,
+      "description": "11",
+      "category": {
+        "id": 2,
+        "name": "SamSung"
+      }
+    },
+    {
+      "id": 6,
+      "name": "dfsd",
+      "price": 22,
+      "description": "33",
+      "category": {
+        "id": 1,
+        "name": "LG"
+      }
+    },
+    {
+      "id": 7,
+      "name": "asdsa",
+      "price": 22,
+      "description": "22",
+      "category": {
+        "id": 1,
+        "name": "LG"
+      }
+    },
+    {
+      "id": 8,
+      "name": "sdsdsds",
+      "price": 323,
+      "description": "123",
+      "category": {
+        "id": 2,
+        "name": "SamSung"
+      }
+    },
+    {
+      "id": 9,
+      "name": "dsfsd",
+      "price": 33,
+      "description": "33",
+      "category": {
+        "id": 2,
+        "name": "SamSung"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "LG"
+    },
+    {
+      "id": 2,
+      "name": "SamSung"
+    },
+    {
+      "id": 3,
+      "name": "OPPOP"
     }
   ]
 }

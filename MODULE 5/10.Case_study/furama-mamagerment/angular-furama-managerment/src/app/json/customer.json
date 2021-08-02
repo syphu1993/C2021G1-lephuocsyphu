@@ -1,0 +1,130 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Quoc",
+      "code": "KH-1111",
+      "birthday": "1993-12-12",
+      "idCard": "123456789",
+      "phone": "0955666888",
+      "email": "nam@gmail.com",
+      "address": "Quang Tri",
+      "type": {
+        "id": 2,
+        "name": "Normal"
+      }
+    },
+    {
+      "name": "Le Phuoc Sy Phuu",
+      "code": "KH-11222",
+      "birthday": "1993-08-03",
+      "idCard": "123546545",
+      "phone": "+84373306101",
+      "email": "phusylee@gmail.com",
+      "address": "Quang Nam",
+      "type": {
+        "id": 3,
+        "name": "Vip"
+      },
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Le Nam Cuong",
+      "code": "kh-2222",
+      "birthday": "2021-08-02",
+      "idCard": "1221312312",
+      "phone": "0901234567",
+      "email": "cuong@gmail.com",
+      "address": "Quang Tri",
+      "type": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Hoang Thua",
+      "code": "kh-22323",
+      "birthday": "2021-08-02",
+      "idCard": "1111111111",
+      "phone": "0123456789",
+      "email": "thua@gmail.com",
+      "address": "Quang Tri",
+      "type": {
+        "id": 3,
+        "name": "Vip"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Hung Cuong",
+      "code": "df3333",
+      "birthday": "2021-08-03",
+      "idCard": "1",
+      "phone": "0123456789",
+      "email": "cuong@gmail.com",
+      "address": "Quang Tri",
+      "type": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Le Nam",
+      "code": "KH-1234",
+      "birthday": "2021-08-03",
+      "idCard": "22332555",
+      "phone": "023255555",
+      "email": "sdfsdf@gmail.com",
+      "address": "Hue",
+      "type": {
+        "id": 2,
+        "name": "Normal"
+      }
+    },
+    {
+      "name": "Hoang Thua",
+      "code": "KH-1234",
+      "birthday": "2021-08-03",
+      "idCard": "321312312",
+      "phone": "0123456789",
+      "email": "thua@gmail.com",
+      "address": "Quang Tri",
+      "type": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 7
+    },
+    {
+      "name": "Le Phuoc Sy Phu",
+      "code": "sdfsd",
+      "birthday": "2021-08-01",
+      "idCard": "989888774",
+      "phone": "+84373306101",
+      "email": "phusylee@gmail.com",
+      "address": "1M4WZej9k4h4bsV1ihNe66P8fnG29cE1Lc",
+      "type": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 8
+    }
+  ],
+  "type": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Normal"
+    },
+    {
+      "id": 3,
+      "name": "Vip"
+    }
+  ]
+}

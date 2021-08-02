@@ -1,0 +1,45 @@
+<div style="padding-top: 150px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <h2>Customer List</h2>
+      </div >
+      <div class="col-sm-7">
+      </div>
+      <div class="col-sm-2">
+        <div style="margin-top: 0.5rem !important;margin-bottom: 1.5rem !important">
+          <a (click)="onCreateCustomerHandler()" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--  <h1>Danh sách sản phẩm</h1>-->
+    <!--  <a routerLink="/product/create">Tạo mới sản phẩm</a>-->
+    <table class="table table-striped">
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Birthday</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Acction</th>
+      </tr>
+      <tr *ngFor="let cus of customers | paginate: config; index as i">
+        <td><p>{{i + 1}}</p></td>
+        <td><p>{{cus.name}}</p></td>
+        <td><p>{{cus.code}}</p></td>
+        <td><p>{{cus.birthday}}</p></td>
+        <td><p>{{cus.email}}</p></td>
+        <td><p>{{cus.address}}</p></td>
+        <td><p>{{cus.type.name}}</p></td>
+        <td><a (click)="onUpdateCustomerHandler(cus)"><button class="btn btn-success m-1 p-1">Update</button></a>
+          <a  (click)="onDeleteHandler(cus.id)"><button class="btn btn-danger m-1 p-1">Delete</button></a>
+        </td>
+      </tr>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+
+

@@ -35,6 +35,6 @@ export class ProductUpdateComponent implements OnInit {
   submit() {
     const product = this.productForm.value;
     this.productService.updateProduct(product);
-    this.router.navigate([this.dialogRef.close()])
+    this.dialogRef.close();
   }
 }

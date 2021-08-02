@@ -1,0 +1,63 @@
+<div>
+  <h1 class="mt-2 ml-2">Create Customer</h1>
+  <form [formGroup]="customerForm" (ngSubmit)="submit()" style="padding: 3%">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td class="w-50"><input type="text" formControlName="name" name="name" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.name.hasError('required')&&customerForm.controls.name.touched">Name is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.name.hasError('minlength')&&customerForm.controls.name.touched">Name is wrong length!</div>
+      <tr>
+        <td>Code:</td>
+        <td><input type="text" formControlName="code" name="code" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.code.hasError('required')&&customerForm.controls.code.touched">code is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.code.hasError('minlength')&&customerForm.controls.code.touched">code is wrong length!</div>
+      <tr>
+        <td>Birthday:</td>
+        <td><input type="date" formControlName="birthday" name="birthday" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.birthday.hasError('required')&&customerForm.controls.birthday.touched">birthday is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.birthday.hasError('minlength')&&customerForm.controls.birthday.touched">birthday is wrong length!</div>
+      <tr>
+        <td>ID card:</td>
+        <td><input type="text" formControlName="idCard" name="idCard" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.idCard.hasError('required')&&customerForm.controls.idCard.touched">idCard is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.idCard.hasError('minlength')&&customerForm.controls.idCard.touched">idCard is wrong length!</div>
+      <tr>
+        <td>Phone:</td>
+        <td><input type="text" formControlName="phone" name="phone" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.phone.hasError('required')&&customerForm.controls.phone.touched">phone is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.phone.hasError('minlength')&&customerForm.controls.phone.touched">phone is wrong length!</div>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" formControlName="email" name="email" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.email.hasError('required')&&customerForm.controls.email.touched">email is not empty!</div>
+      <div style="color: red" *ngIf="customerForm.controls.email.hasError('email')&&customerForm.controls.email.touched">email is wrong length!</div>
+      <tr>
+        <td>Address:</td>
+        <td><input type="text" formControlName="address" name="address" class="form-control"></td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.address.hasError('required')&&customerForm.controls.address.touched">address is not empty!</div>
+      <tr>
+        <td>Type:</td>
+        <td>
+          <select formControlName="type" name="type" class="form-control">
+            <option *ngFor="let t of type" [ngValue]="t" >{{t.name}}</option>
+          </select>
+        </td>
+      </tr>
+      <div style="color: red" *ngIf="customerForm.controls.type.hasError('required')&&customerForm.controls.type.touched">type is not empty!</div>
+      <tr>
+        <td></td>
+        <td><button class="btn btn-success mt-2 ml-0" style="width: 75px">Add</button>
+          <button type="button" (click)="dialogRef.close(false)" class="btn btn-danger mt-2 ml-2">Cancel</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
