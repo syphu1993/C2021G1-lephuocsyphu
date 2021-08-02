@@ -21,4 +21,7 @@ export class CustomerService {
   deleteCustomer(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${this.api_url}/${id}`);
   }
+  search(searchText: string, searchText1: string, searchText2: string): Observable<any> {
+    return this.http.get(this.api_url + '?name_like=' + searchText + '&address_like=' + searchText1 + '&type.name_like=' + searchText2);
+  }
 }

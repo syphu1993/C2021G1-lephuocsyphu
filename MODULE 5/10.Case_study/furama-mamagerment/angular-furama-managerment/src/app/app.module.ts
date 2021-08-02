@@ -12,7 +12,7 @@ import { BodyComponent } from './layout/body/body.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomerUpdateComponent } from './customer/customer-update/customer-update.component';
 import { CustomerDelComponent } from './customer/customer-del/customer-del.component';
 
@@ -27,15 +27,16 @@ import { CustomerDelComponent } from './customer/customer-del/customer-del.compo
     CustomerUpdateComponent,
     CustomerDelComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    HttpClientModule,
-    NgxPaginationModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        HttpClientModule,
+        NgxPaginationModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

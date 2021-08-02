@@ -5,10 +5,19 @@
         <h2>Customer List</h2>
       </div >
       <div class="col-sm-7">
+        <div class="search-customer d-flex" style="margin-top: 0.5rem !important;margin-bottom: 1.5rem !important">
+          <input class="form-control mr-2" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="searching by name">
+          <input class="form-control mr-2" type="text" name="search" [(ngModel)]="searchText1" autocomplete="off" placeholder="searching by address">
+          <select [(ngModel)]="searchText2" class="form-control mr-2">
+            <option [ngValue]="" selected></option>
+            <option *ngFor="let t of type" [ngValue]="t.name">{{t.name}}</option>
+          </select>
+          <button class="form-control mr-2 btn btn-success ml-5" (click)="searchCustomer()" >Search</button>
+        </div>
       </div>
       <div class="col-sm-2">
         <div style="margin-top: 0.5rem !important;margin-bottom: 1.5rem !important">
-          <a (click)="onCreateCustomerHandler()" class="btn btn-success"><i class="material-icons"></i> <span>Add New Customer</span></a>
+          <a (click)="onCreateCustomerHandler()" class="btn btn-success"><span>Add New Customer</span></a>
         </div>
       </div>
     </div>

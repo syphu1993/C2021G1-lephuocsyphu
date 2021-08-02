@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {CustomerUpdateComponent} from "../customer-update/customer-update.component";
 import {CustomerDelComponent} from "../customer-del/customer-del.component";
 import {CustomerCreateComponent} from "../customer-create/customer-create.component";
+import {CustomerType} from "../../module/customer-type";
+import {CustomerTypeService} from "../../service/cutomer-type.service";
 
 @Component({
   selector: 'app-customer-list',
@@ -14,7 +16,12 @@ import {CustomerCreateComponent} from "../customer-create/customer-create.compon
 export class CustomerListComponent implements OnInit {
   customers: Customer[] = [];
   config: any;
+  searchText = "";
+  searchText1 = "";
+  searchText2 = "";
+  type: CustomerType[];
   constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService,
               public dialog: MatDialog,) {
     this.config = {
       itemsPerPage: 3,
@@ -25,6 +32,7 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllCustomer();
+    this.findAllType();
   }
   pageChanged(event){
     this.config.currentPage = event;
@@ -32,6 +40,12 @@ export class CustomerListComponent implements OnInit {
   findAllCustomer(){
     this.customerService.findAll().subscribe(next=>{
       this.customers = next;
+    })
+  }
+
+  findAllType(){
+    this.customerTypeService.findAll().subscribe(next=>{
+      this.type = next;
     })
   }
 
@@ -74,5 +88,11 @@ export class CustomerListComponent implements OnInit {
         this.findAllCustomer();
       }
     });
+  }
+
+  searchCustomer() {
+  this.customerService.search(this.searchText,this.searchText1,this.searchText2).subscribe(next=>{
+    this.customers = next;
+  })
   }
 }
